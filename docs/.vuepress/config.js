@@ -3,8 +3,8 @@ module.exports = {
     title: 'Hello~,欢迎来到chenglang的博客',
     description: '技术源于生活',
     head: [
-        ['link', { rel: 'icon', href: './favicon.ico' }],
-        ['link', { rel: 'manifest', href: './manifest.json' }],
+        ['link', { rel: 'icon', href:'favicon.ico'}],
+        ['link', { rel: 'manifest', href: 'manifest.json' }],
         ['meta', { name: 'theme-color', content: '#3eaf7c' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
@@ -15,7 +15,7 @@ module.exports = {
 	],
     themeConfig: {
         say: 'I am Yuki' ,
-        logo: './images/head/mine.png',
+        logo: '/images/head/mine.png',
         lastUpdated: 'Last Updated',
         nav: [
             { text: '首页', link: '/index' },
