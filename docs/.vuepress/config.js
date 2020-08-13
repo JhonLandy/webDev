@@ -1,5 +1,5 @@
 module.exports = {
-    base: "webDev",
+    base: '/blog/',
     title: 'Hello~,欢迎来到chenglang的博客',
     description: '技术源于生活',
     head: [
