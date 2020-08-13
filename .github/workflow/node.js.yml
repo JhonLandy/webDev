@@ -31,7 +31,6 @@ jobs:
      - name: Deploy
        uses: JamesIves/github-pages-deploy-action@releases/v3
        with:
-         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
          REPOSITORY_NAME: aaronTang98/aaronTang98.github.io
          BRANCH: master
          FOLDER: public
