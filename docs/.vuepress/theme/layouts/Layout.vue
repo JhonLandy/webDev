@@ -149,8 +149,4 @@ export default {
   }
 }
 </script>
-<style lang="stylus">
-#nprogress 
-  .bar 
-    background:rgb(2, 174, 213) !important
-</style>
+

@@ -93,13 +93,11 @@ function css (el, property) {
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
-.search-box
-  input:focus
-      border: 1.5px solid rgb(2, 174, 213)
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
-  box-shadow 0 0 2px 2px #ccc
+  border none
+  box-shadow: 0 0 .5px 0 #cccccc
   a, span, img
     display inline-block
   .logo
