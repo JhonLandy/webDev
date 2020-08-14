@@ -22,8 +22,23 @@ module.exports = {
                 text: '前端',
                 ariaLabel: 'Menu',
                 items: [
-                    { text: 'javascipt', link: '/web/javascript/javascript.md' },
+                    { 
+                        text: 'javascipt', 
+                        link: '/web/javascript/javascript.md' ,
+                        items: [
+                            {
+                                text: 'es6'
+                            }
+                        ]
+                    },
                     { text: 'css', link: '/language/japanese/' }
+                ]
+            },
+            {
+                text: '部署',
+                ariaLabel: 'Deployment',
+                items: [
+                    { text: 'docker', link: '/deployment/docker/index.md' },
                 ]
             }
         ]
@@ -48,14 +63,11 @@ module.exports = {
 				return options;
         })
     },
-    plugins: [
-        ['@vuepress/pwa',
-            {
-                serviceWorker: true,
-                updatePopup: true
-            }
-        ],
-        ['@vuepress/back-to-top']
-    ]
-
+    plugins: {
+        '@vuepress/pwa':{
+            serviceWorker: true,
+            updatePopup: true
+        }
+    }
+    // plugins: ['@vuepress/back-to-top']
 }
