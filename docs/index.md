@@ -1,8 +1,21 @@
 ---
 home: true
-heroImage: images/home/home.jpg
-heroText: 前端学习网站
-tagline: 一起来学习
+heroImage: [
+    { 
+        url: 'images/home/shibuyasky.jpg', 
+        explain: '东京的城市夜景'
+    },
+    {
+        url: 'images/home/computer.jpg',
+        explain: '用代码把梦想照进生活'
+    },
+    {
+        url: 'images/home/mockup.jpg',
+        explain: 'Vue从入门到放弃'
+    }
+]
+heroText: 欢迎来到YuKi的个人博客，现在为你保驾护航
+# tagline: 一起来学习
 # actionText: 快速上手 →
 # actionLink: /zh/guide/
 # features:

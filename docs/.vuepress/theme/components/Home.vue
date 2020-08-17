@@ -4,14 +4,19 @@
     aria-labelledby="main-title"
   >
     <header class="hero">
-      <!-- <img
+      <el-carousel 
         v-if="data.heroImage"
-        :src="$withBase(data.heroImage)"
-        :alt="data.heroAlt || 'hero'"
-      > -->
-      <el-carousel height="200px" direction="vertical">
-        <el-carousel-item v-for="item in 3" :key="item">
-          <h3 class="medium">{{ item }}</h3>
+        direction="vertical"
+        height="630px"
+      >
+        <el-carousel-item
+          v-for="item in data.heroImage" 
+          :key="item.url"
+        >
+          <img :src="$withBase(item.url)" />
+          <div class="explain">
+            <span>{{item.explain}}</span>
+          </div>
         </el-carousel-item>
       </el-carousel>
       <h1
@@ -87,19 +92,29 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+.el-carousel__item
+  .explain
+    position fixed
+    bottom 0
+    display none
+    width 100%
+    padding: 10px 5px
+    text-align left
+    background rgba(1, 1, 1, .7)
+  span
+    font-size 1.2rem
+    color #ffffff
+  &:hover .explain{
+      display block
+  }
 .home
-  padding $navbarHeight 2rem 0
-  max-width $homePageWidth
   margin 0px auto
   display block
   .hero
     text-align center
     img
       max-width: 100%
-      max-height 280px
-      display block
-      margin 3rem auto 1.5rem
     h1
       font-size 3rem
     h1, .description, .action
