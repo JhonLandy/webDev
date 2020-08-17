@@ -23,13 +23,13 @@ module.exports = {
                 ariaLabel: 'Menu',
                 items: [
                     { 
-                        text: 'javascipt', 
-                        link: '/web/javascript/javascript.md' ,
-                        items: [
-                            {
-                                text: 'es6'
-                            }
-                        ]
+                        text: 'javascipt',
+                        ariaLabel: 'javascipt', 
+                        items: [{
+                            text: 'ES6',
+                            ariaLabel: 'ES6',
+                            link: '/web/javascript/ES6/index.md'
+                        }]
                     },
                     { text: 'css', link: '/language/japanese/' }
                 ]
@@ -38,7 +38,15 @@ module.exports = {
                 text: '部署',
                 ariaLabel: 'Deployment',
                 items: [
-                    { text: 'docker', link: '/deployment/docker/index.md' },
+                    { 
+                        text: 'docker', 
+                        ariaLabel: 'docker',
+                        items: [{
+                            text: '基本命令',
+                            ariaLabel: 'base',
+                            link: '/deployment/docker/base/index.md'
+                        }] 
+                    },
                 ]
             }
         ]

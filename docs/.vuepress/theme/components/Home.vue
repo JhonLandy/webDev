@@ -4,12 +4,16 @@
     aria-labelledby="main-title"
   >
     <header class="hero">
-      <img
+      <!-- <img
         v-if="data.heroImage"
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
-      >
-
+      > -->
+      <el-carousel height="200px" direction="vertical">
+        <el-carousel-item v-for="item in 3" :key="item">
+          <h3 class="medium">{{ item }}</h3>
+        </el-carousel-item>
+      </el-carousel>
       <h1
         v-if="data.heroText !== null"
         id="main-title"

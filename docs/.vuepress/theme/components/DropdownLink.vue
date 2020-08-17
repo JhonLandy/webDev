@@ -1,5 +1,7 @@
 <template>
 <el-dropdown
+  :trigger="trigger"
+  :hide-on-click="hideOnClick"
   class="dropdown-wrapper"
 >
     <span class="el-dropdown-link">
@@ -11,32 +13,16 @@
         v-for="(subItem, index) in item.items"
         :key="subItem.link || index"
       >
-        <el-dropdown
-          v-if="subItem.type === 'links'"
-        >
-            <span class="el-dropdown-link">
-              {{ subItem.text }}
-              <i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-              <el-dropdown-item  
-                v-for="(childSubItem, index) in subItem.items"
-                :key="childSubItem.link"
-                class="dropdown-subitem"
-              >
-                <NavLink
-                  :item="childSubItem"
-                  @focusout="
-                    isLastItemOfArray(childSubItem, subItem.items) &&
-                      isLastItemOfArray(subItem, item.items) &&
-                      setOpen(false)
-                  "
-                />
-              </el-dropdown-item>  
-        </el-dropdown>
+        <DropdownLink 
+          v-if="subItem.items"
+          :item="subItem"
+          :hideOnClick="true"
+          trigger="hover"
+        />
         <NavLink
-            v-else
-            :item="subItem"
-            @focusout="isLastItemOfArray(subItem, item.items) && setOpen(false)"
+          v-else
+          :item="subItem"
+          @focusout="isLastItemOfArray(subItem, item.items) && setOpen(false)"
         />
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -48,17 +34,26 @@ import NavLink from '@theme/components/NavLink.vue'
 import DropdownTransition from '@theme/components/DropdownTransition.vue'
 import last from 'lodash/last'
 
-export default {
+const DropdownLink = {
   name: 'DropdownLink',
 
   components: {
     NavLink,
-    DropdownTransition
+    DropdownTransition,
+    DropdownLink
   },
 
   props: {
     item: {
       required: true
+    },
+    hideOnClick: {
+      type: Boolean,
+      default: false
+    },
+    trigger: {
+      type: String,
+      default: 'click'
     }
   },
 
@@ -90,6 +85,7 @@ export default {
     }
   }
 }
+export default DropdownLink
 </script>
 
 <style lang="stylus">
