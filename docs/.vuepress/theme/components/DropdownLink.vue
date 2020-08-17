@@ -5,24 +5,28 @@
   class="dropdown-wrapper"
 >
     <span class="el-dropdown-link">
-      <span class="nav-link"> {{item.text}} </span>
+      <NavLink
+        v-if="item.link"
+        :item="item"
+      />
+      <span v-else class="nav-link"> {{item.text}} </span>
       <i class="el-icon-arrow-down el-icon--right"></i>
     </span>
-    <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item  
+    <el-dropdown-menu 
+      slot="dropdown"
+      v-if="item.items"
+    >
+      <el-dropdown-item
         v-for="(subItem, index) in item.items"
-        :key="subItem.link || index"
+        :key="index"
       >
-        <DropdownLink 
+        <DropdownMeun 
           v-if="subItem.items"
-          :item="subItem"
-          :hideOnClick="true"
-          trigger="hover"
+          :items="subItem.items"
         />
         <NavLink
           v-else
           :item="subItem"
-          @focusout="isLastItemOfArray(subItem, item.items) && setOpen(false)"
         />
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -31,18 +35,15 @@
 
 <script>
 import NavLink from '@theme/components/NavLink.vue'
-import DropdownTransition from '@theme/components/DropdownTransition.vue'
+import DropdownMeun from '@theme/components/DropdownMeun.vue'
 import last from 'lodash/last'
 
 const DropdownLink = {
   name: 'DropdownLink',
-
   components: {
     NavLink,
-    DropdownTransition,
-    DropdownLink
+    DropdownMeun
   },
-
   props: {
     item: {
       required: true
