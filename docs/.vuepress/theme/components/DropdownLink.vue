@@ -22,7 +22,7 @@
       >
         <DropdownMeun 
           v-if="subItem.items"
-          :items="subItem.items"
+          :item="subItem"
         />
         <NavLink
           v-else
@@ -57,7 +57,9 @@ const DropdownLink = {
       default: 'click'
     }
   },
-
+  created() {
+    console.log(this.item)
+  },
   data () {
     return {
       open: false
