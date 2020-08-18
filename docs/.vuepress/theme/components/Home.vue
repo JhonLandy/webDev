@@ -7,13 +7,13 @@
       <el-carousel 
         v-if="data.heroImage"
         direction="vertical"
-        height="630px"
+        height="46.5rem"
       >
         <el-carousel-item
           v-for="item in data.heroImage" 
           :key="item.url"
         >
-          <img :src="$withBase(item.url)" />
+          <img :src="item.url" />
           <div class="explain">
             <span>{{item.explain}}</span>
           </div>
