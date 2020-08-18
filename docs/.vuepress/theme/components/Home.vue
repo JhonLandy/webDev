@@ -105,9 +105,8 @@ export default {
   span
     font-size 1.2rem
     color #ffffff
-  &:hover +.explain{
+  &:hover .explain
       display block
-  }
 .home
   margin 0px auto
   display block
