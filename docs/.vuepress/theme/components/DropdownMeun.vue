@@ -4,7 +4,7 @@
         <span class="nav-link"> {{item.text}} </span>
         <i class="el-icon-arrow-down el-icon--right"></i>
     </div>
-    <ul v-show="meunShow" class="meun">
+    <ul ref="meun" class="meun" @click="doHide">
         <li
             v-for="(subItem, index) in item.items"
             :key="index"
@@ -27,8 +27,8 @@ const DropdownMeun = {
     components: {DropdownMeun, NavLink},
     props: {
         item: {
-            type: Array,
-            default: () => []
+            type: Object,
+            default: () => {}
         }
     },
     data() {
@@ -36,9 +36,21 @@ const DropdownMeun = {
             meunShow: false
         }
     },
+    watch: {
+        meunShow(value) {
+            if (value) {
+                this.$refs.meun.style.minHeight = '30px'
+            } else {
+                this.$refs.meun.style.minHeight = '0px'
+            }
+        }
+    },
     methods: {
         doClick() {
             this.meunShow = !this.meunShow
+        },
+        doHide() {
+            this.meunShow = false
         }
     }
 }
@@ -46,4 +58,10 @@ export default DropdownMeun;
 </script>
 <style lang="stylus" scoped>
 ul,li {list-style none; margin: 0;padding: 0}
+.meun
+    min-height 0px
+    height 0px
+    overflow hidden
+    transition .2s
+    transition-timing-function cubic-bezier(0, 0, 0.58, 1)
 </style>

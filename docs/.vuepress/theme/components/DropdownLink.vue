@@ -57,15 +57,11 @@ const DropdownLink = {
       default: 'click'
     }
   },
-  created() {
-    console.log(this.item)
-  },
   data () {
     return {
       open: false
     }
   },
-
   computed: {
     dropdownAriaLabel () {
       return this.item.ariaLabel || this.item.text
