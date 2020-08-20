@@ -1,5 +1,6 @@
 <template>
 <el-dropdown
+  ref="ElDropdown"
   :trigger="trigger"
   :hide-on-click="hideOnClick"
   class="dropdown-wrapper"
@@ -23,6 +24,7 @@
         <DropdownMeun 
           v-if="subItem.items"
           :item="subItem"
+          @dropdown="dropdown"
         />
         <NavLink
           v-else
@@ -81,6 +83,10 @@ const DropdownLink = {
 
     isLastItemOfArray (item, array) {
       return last(array) === item
+    },
+
+    dropdown() {
+      this.$refs.ElDropdown.visible = false
     }
   }
 }

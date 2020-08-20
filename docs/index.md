@@ -2,15 +2,15 @@
 home: true
 heroImage: [
     { 
-        url: './images/home/shibuyasky.jpg', 
+        url: 'images/home/shibuyasky.jpg', 
         explain: '东京的城市夜景'
     },
     {
-        url: './images/home/computer.jpg',
+        url: 'images/home/computer.jpg',
         explain: '用代码把梦想照进生活'
     },
     {
-        url: './images/home/mockup.jpg',
+        url: 'images/home/mockup.jpg',
         explain: 'Vue从入门到放弃'
     }
 ]

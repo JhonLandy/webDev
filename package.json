@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-pwa": "^1.5.3",
+    "preload-webpack-plugin": "^2.3.0",
     "vuepress": "^1.5.3"
   },
   "dependencies": {

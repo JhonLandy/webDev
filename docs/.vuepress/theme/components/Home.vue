@@ -7,7 +7,6 @@
       <el-carousel 
         v-if="data.heroImage"
         direction="vertical"
-        height="46.5rem"
       >
         <el-carousel-item
           v-for="item in data.heroImage" 
@@ -18,6 +17,10 @@
             <span>{{item.explain}}</span>
           </div>
         </el-carousel-item>
+        <div class="loading" v-show="count < data.heroImage.length">
+          <i class="el-icon-loading" />
+          {{'loading...'}}
+        </div>
       </el-carousel>
       <h1
         v-if="data.heroText !== null"
@@ -42,6 +45,7 @@
           :item="actionLink"
         />
       </p>
+      
     </header>
 
     <div
@@ -76,28 +80,56 @@ export default {
   name: 'Home',
 
   components: { NavLink },
+  
+  data() {
+    return {
+      count: 0
+    }
+  },
 
   computed: {
     data () {
       return this.$page.frontmatter
     },
-
     actionLink () {
       return {
         link: this.data.actionLink,
         text: this.data.actionText
       }
+    },
+    percent() {
+      return ~~((this.count/this.$page.frontmatter.heroImage.length)*100)
     }
-  }
+  },
+
+  mounted() {
+    this.preload()
+  },
+
+  updated() {
+      console.log('加载图片', this.percent)
+  },
+
+  methods: {
+      preload: function() {
+        this.data.heroImage.forEach(item => {
+          const image = new Image()
+          image.src = item.url
+          image.onload = () => {
+            this.count++
+          }
+        })
+      }, 
+    }
 }
 </script>
 
 <style lang="stylus" scoped>
-.el-carousel__item
+>>>.el-carousel__container
+  height 32rem
   .explain
     position fixed
     bottom 0
-    display none
     width 100%
     padding: 10px 5px
     text-align left
@@ -105,13 +137,21 @@ export default {
   span
     font-size 1.2rem
     color #ffffff
-  &:hover .explain
-      display block
+  
+  
 .home
+  min-width 378px
   margin 0px auto
   display block
   .hero
     text-align center
+    .loading
+      z-index 999
+      position absolute
+      top calc(50%)
+      left calc(50% - 50px)
+      font-size 1.2rem
+      font-weight bold
     img
       max-width: 100%
     h1
@@ -162,7 +202,21 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
+  >>>.el-carousel__container
+    height 22rem
+    span
+      font-size .8rem
   .home
+    .hero
+      h1
+        font-size 1.2rem
+      h1, .description, .action
+        margin 1.2rem auto
+      .description
+        font-size 0.8rem
+      .action-button
+        font-size 1rem
+        padding 0.6rem 1.2rem
     .features
       flex-direction column
     .feature
@@ -170,19 +224,18 @@ export default {
       padding 0 2.5rem
 
 @media (max-width: $MQMobileNarrow)
+  >>>.el-carousel__container
+    height 18rem
   .home
-    padding-left 1.5rem
-    padding-right 1.5rem
     .hero
       img
-        max-height 210px
         margin 2rem auto 1.2rem
       h1
-        font-size 2rem
+        font-size 1rem
       h1, .description, .action
         margin 1.2rem auto
       .description
-        font-size 1.2rem
+        font-size 0.8rem
       .action-button
         font-size 1rem
         padding 0.6rem 1.2rem

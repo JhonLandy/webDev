@@ -1,3 +1,4 @@
+
 module.exports = {
     title: 'Hello~,欢迎来到chenglang的博客',
     description: '技术源于生活',
@@ -60,7 +61,8 @@ module.exports = {
 		.use('url-loader')
 			.loader('url-loader')
 			.tap(options => {
-				options.esModule = false;
+                options.esModule = false;
+                options.limit = 100
 				return options;
             })
             .end()

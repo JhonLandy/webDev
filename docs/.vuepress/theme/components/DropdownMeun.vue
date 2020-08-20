@@ -51,6 +51,7 @@ const DropdownMeun = {
         },
         doHide() {
             this.meunShow = false
+            this.$emit('dropdown')
         }
     }
 }
