@@ -24,7 +24,14 @@ module.exports = {
                             link: '/web/javascript/ES6/index.md'
                         }]
                     },
-                    { text: 'css', link: '/language/japanese/' }
+                    { 
+                        text: 'css',
+                        items: [{
+                            text: 'layout',
+                            ariaLabel: 'layout',
+                            link: '/web/css/layout/index.md'
+                        }]
+                    }
                 ]
             },
             {
