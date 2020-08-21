@@ -7,16 +7,16 @@
       class="home-link"
     >
       <img
-        v-if="$site.themeConfig.logo"
+        v-if="headImgae"
         class="logo"
-        :src="$withBase($site.themeConfig.logo)"
+        :src="headImgae"
         :alt="$siteTitle"
       >
       <span
         v-if="$siteTitle"
         ref="siteName"
         class="site-name"
-        :class="{ 'can-hide': $site.themeConfig.logo }"
+        :class="{ 'can-hide': headImgae }"
       ></span>
     </RouterLink>
     <NavLinks class="can-hide" />
@@ -40,7 +40,7 @@ import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from '@SearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
-
+import headImgae from '@images/head/mine.png'
 export default {
   name: 'Navbar',
   components: {
@@ -52,6 +52,7 @@ export default {
 
   data () {
     return {
+      headImgae,
       linksWrapMaxWidth: null
     }
   },
@@ -63,7 +64,8 @@ export default {
 
     isAlgoliaSearch () {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    }
+    },
+    
   },
 
   mounted () {

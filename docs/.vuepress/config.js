@@ -1,4 +1,4 @@
-
+const path = require('path')
 module.exports = {
     title: 'Hello~,欢迎来到chenglang的博客',
     description: '技术源于生活',
@@ -8,7 +8,6 @@ module.exports = {
 	],
     themeConfig: {
         say: 'I am Yuki' ,
-        logo: 'images/head/mine.png',
         lastUpdated: 'Last Updated',
         nav: [
             { text: '首页', link: '/index' },
@@ -56,29 +55,37 @@ module.exports = {
     ],
     chainWebpack (config, isServer) {
         config
-        .module
-		.rule('images')
-		.use('url-loader')
-			.loader('url-loader')
-			.tap(options => {
-                options.esModule = false;
-                options.limit = 1819
-				return options;
-            })
+            .module
+            .rule('images')
+            .use('url-loader')
+                .loader('url-loader')
+                .tap(options => {
+                    options.esModule = false;
+                    options.limit = 8917
+                    return options
+                })
         .end()
         config
-        .module
-        .rule('babel')
-        .test(/\.js$/)
-        .use('babel-loader')
-            .loader('babel-loader')
+            .module
+            .rule('babel')
+                .test(/\.js$/)
+                .use('babel-loader')
+                    .loader('babel-loader')
         .end()
+        config
+            .resolve
+            .alias
+            .set('@images', process.cwd() + '/docs/.vuepress/public/images')
     },
     plugins: [
         {
-            '@vuepress/pwa':{
+            '@vuepress/back-to-top': true,
+            '@vuepress/pwa': {
                 serviceWorker: true,
-                updatePopup: true
+                updatePopup: {
+                    message: "有新的内容更新",
+                    buttonText: "刷新"
+                }
             }
         }
     ]
