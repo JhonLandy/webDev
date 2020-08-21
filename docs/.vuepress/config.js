@@ -8,7 +8,7 @@ module.exports = {
 	],
     themeConfig: {
         say: 'I am Yuki' ,
-        logo: '/images/head/mine.png',
+        logo: 'images/head/mine.png',
         lastUpdated: 'Last Updated',
         nav: [
             { text: '首页', link: '/index' },
@@ -62,10 +62,17 @@ module.exports = {
 			.loader('url-loader')
 			.tap(options => {
                 options.esModule = false;
-                options.limit = 100
+                options.limit = 1819
 				return options;
             })
-            .end()
+        .end()
+        config
+        .module
+        .rule('babel')
+        .test(/\.js$/)
+        .use('babel-loader')
+            .loader('babel-loader')
+        .end()
     },
     plugins: [
         {

@@ -106,10 +106,6 @@ export default {
     this.preload()
   },
 
-  updated() {
-      console.log('加载图片', this.percent)
-  },
-
   methods: {
       preload: function() {
         this.data.heroImage.forEach(item => {
