@@ -17,6 +17,9 @@ jobs:
         node-version: [12.x, 14.x]
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: build cloundServer
         uses: actions/setup-node@v1
         with:
