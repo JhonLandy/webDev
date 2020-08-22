@@ -43,7 +43,18 @@ jobs:
           git add .
           git commit -m "deploy"
           git push -f https://JhonLandy:$ACESS_TOKEN@github.com/JhonLandy/dockerDeploy.git
-      
+      - name: SSH DEPLOY
+        env:
+          HOST: ${{secrets.HOST}}
+          PASSWORD: ${{secrets.PASSWORD}}
+        use:  appleboy/ssh-action@master
+        with:
+          host: $HOST
+          username: 'root'
+          password: $PASSWORD
+          script: |
+            cd dockerdemo/dockerDeploy
+            sh deploy-dev.sh
       - name: build githubServer
         run: |
           cd  ../
