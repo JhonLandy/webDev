@@ -30,6 +30,7 @@ jobs:
           cp -r ./docs/.vuepress/dist ./dockerDeploy
       - name: Commit files
         run: |
+          git config --global credential.helper store
           git config --global user.email "709364178@qq.com"
           git config --global user.name "yuanchenglang"
           cd ./dockerDeploy
