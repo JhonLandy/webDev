@@ -42,5 +42,4 @@ jobs:
         with:
           github_token: ${5752c3cf1affbb0fee1b056477b3dcab4959dca9} 
           repository: 'JhonLandy/dockerDeploy'
-          directory: './dockerDeploy'
    
