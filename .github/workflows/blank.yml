@@ -58,7 +58,7 @@ jobs:
             sh deploy-dev.sh
       - name: build githubServer
         run: |
-          cd  ../
+          ls
           npm run build:githubServer
       - name: Commit files
         env:
