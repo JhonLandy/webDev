@@ -33,6 +33,7 @@ jobs:
           git config --global credential.helper store
           git config --global user.email "709364178@qq.com"
           git config --global user.name "709364178@qq.com"
+          git config --list
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
