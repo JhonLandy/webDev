@@ -21,10 +21,10 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       - name: build cloundServer
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-        run: |
+      - run: |
           npm install
           npm run build:cloundServer
 
