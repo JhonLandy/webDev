@@ -37,7 +37,6 @@ jobs:
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
-          
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
