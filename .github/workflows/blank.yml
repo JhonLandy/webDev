@@ -43,8 +43,8 @@ jobs:
 
       - name: Push changes
         uses: ad-m/github-push-action@master
-        with:
-          github_token: '6c8829a0610c727d6024fa7d04ffc71b5ee49d28',
-          repository: 'https://github.com/JhonLandy/dockerDeploy.git',
+        with: 
+          github_token:  ${{ secrets.ACESS_TOKEN }}
+          repository: 'https://github.com/JhonLandy/dockerDeploy.git'
    
           
