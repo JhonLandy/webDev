@@ -10,7 +10,7 @@ set -e
 
 # cd ../../../
 # 生成静态文件
-npm build:githubServer 
+npm run build:githubServer 
 
 # 进入生成的文件夹
 cd docs/.vuepress/dist
