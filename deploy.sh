@@ -14,7 +14,7 @@ git config --local user.email 709364178@qq.com
 git status
 git add .
 git commit -m 'deploy'
-git push -f https://github.com/JhonLandy/dockerDeploy.git 
+git push -f
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
