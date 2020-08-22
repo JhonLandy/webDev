@@ -31,12 +31,11 @@ jobs:
       - name: Commit files
         run: |
           git config --global user.email "709364178@qq.com"
-          git config --global user.name "709364178@qq.com"
+          git config --global user.name "yuanchenglang1"
           git config --list
           cd dockerDeploy
-          ls
           git add .
           git commit -m "deploy"
-          git remote set-url origin https://709364178@qq.com:yuan794478148@github.com/JhonLandy/dockerDeploy.git
-          git push -u origin master
+          git remote set-url origin https://github.com/JhonLandy/dockerDeploy.git
+          git push -f https://709364178@qq.com:yuan794478148@github.com/JhonLandy/dockerDeploy.git
    
