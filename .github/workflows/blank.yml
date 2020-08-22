@@ -47,7 +47,7 @@ jobs:
         env:
           ACESS_TOKEN: ${{secrets.ACESS_TOKEN}}
         run: |
-          cd ../docs/.vuepress/dist
+          cd  docs/.vuepress/dist
           git init
           git add .
           git commit -m 'deploy'
