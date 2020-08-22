@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
-sudo apt update
-sudo apt install git
-
 # 确保脚本抛出遇到的错误
 set -e
 #
@@ -13,14 +10,12 @@ cp -r ./docs/.vuepress/dist ./dockerDeploy
 
 
 cd ./dockerDeploy
-git config user.name 'JhonLandy'
-git config user.email '709364178@qq.com'
+git config --config user.name 'JhonLandy'
+git config --config user.email '709364178@qq.com'
 git status
 git add .
 git commit -m 'deploy'
-git config --unset user.name
-git config --unset user.email
-git push -f orign master
+git push -f origin master
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
