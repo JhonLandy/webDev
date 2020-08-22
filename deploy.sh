@@ -10,8 +10,8 @@ cp -r ./docs/.vuepress/dist ./dockerDeploy
 
 
 cd ./dockerDeploy
-git config --config user.name 'JhonLandy'
-git config --config user.email '709364178@qq.com'
+git config --global user.name 'JhonLandy'
+git config --global user.email '709364178@qq.com'
 git status
 git add .
 git commit -m 'deploy'
