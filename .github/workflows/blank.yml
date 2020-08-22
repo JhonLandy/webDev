@@ -43,5 +43,14 @@ jobs:
           git add .
           git commit -m "deploy"
           git push -f https://JhonLandy:$ACESS_TOKEN@github.com/JhonLandy/dockerDeploy.git
+      - name: build githubServer
+        env:
+          ACESS_TOKEN: ${{secrets.ACESS_TOKEN}}
+        run: |
+          cd ../docs/.vuepress/dist
+          git init
+          git add .
+          git commit -m 'deploy'
+          git push -f https://JhonLandy:$ACESS_TOKEN@github.com/JhonLandy/blog.git
         
    
