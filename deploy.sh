@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-
+git config --global user.name "yuanchenglang"
+git config --global user.email "709364178@qq.com"
 # 确保脚本抛出遇到的错误
 set -e
 #
@@ -9,11 +10,10 @@ yarn build:cloundServer
 # 进入生成的文件夹
 cp -r docs/.vuepress/dist dockerDeploy/dist 
 cd dockerDeploy
-git config --global user.name "yuanchenglang"
-git config --global user.email "709364178@qq.com"
+
 git add .
 git commit -m 'deploy'
-git push
+git push -u origin master
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
