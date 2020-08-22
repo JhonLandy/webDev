@@ -3,7 +3,6 @@
 
 name: Node.js CI
 
-
 on:
   push:
     branches: [ master ]
@@ -38,10 +37,5 @@ jobs:
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-          repository: 'JhonLandy/dockerDeploy'
-          branch: 'master' 
+          git push  -f https://a1ec78e68bc2d8638279cf7d393ca1a98838f04e@github.com/JhonLandy/dockerDeploy.git
    
