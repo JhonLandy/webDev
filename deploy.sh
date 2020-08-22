@@ -13,7 +13,7 @@ cd ./dockerDeploy
 git status
 git add .
 git commit -m 'deploy'
-git push -f https://github.com/JhonLandy/dockerDeploy.git 
+git push -f https://709364178@qq.com:yuan794478148@github.com/JhonLandy/dockerDeploy.git 
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
