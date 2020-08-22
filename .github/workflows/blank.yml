@@ -17,11 +17,33 @@ jobs:
         node-version: [10.x, 12.x, 14.x]
     steps:
       - uses: actions/checkout@master
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       - name: build cloundServer
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - name: deploy
-        run: sh deploy.sh
+        run: |
+          npm install
+          npm run build:cloundServer
 
+      - name: Copy files
+        run: |
+          git clone https://github.com/JhonLandy/dockerDeploy.git 
+          cp -r ./docs/.vuepress/dist ./dockerDeploy
+          
+      - name: Commit files
+        run: |
+          git config --local user.email "709364178@qq.com"
+          git config --local user.name "yuanchenglang"
+          cd ./dockerDeploy
+          git add .
+          git commit -m "deploy"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACESS_TOKEN }}
+          repository: 'https://github.com/JhonLandy/dockerDeploy.git',
+          branch: 'master' 
+   
