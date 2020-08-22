@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: VuePress CI
 
 
 on:
@@ -20,13 +20,13 @@ jobs:
       - uses: actions/labeler@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: build cloundServer
+      - name: Setp NodeJs
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: |
-          npm install
-          npm run build:cloundServer
+          run: npm ci
+      - name: Build cloundServer
+        run: npm run build:cloundServer
       - name: Git Config 
         run: |
           git config --global user.name "yuanchenglang"
@@ -56,9 +56,8 @@ jobs:
           script: |
             cd dockerdemo/dockerDeploy
             sh deploy-dev.sh
-      - name: build githubServer
+      - name: Build githubServer
         run: |
-          ls
           npm run build:githubServer
       - name: Commit files
         env:
