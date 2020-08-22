@@ -66,6 +66,7 @@ jobs:
         run: |
           cd  docs/.vuepress/dist
           git init
+          rm -f ./.git/index.lock
           git add .
           git commit -m 'deploy'
           git remote add origin https://github.com/JhonLandy/blog.git
