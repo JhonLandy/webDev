@@ -30,8 +30,7 @@ jobs:
         run: |
           git clone https://github.com/JhonLandy/dockerDeploy.git 
           cp -r ./docs/.vuepress/dist ./dockerDeploy
-      
-        - name: Commit files
+      - name: Commit files
         run: |
           git config --global user.email "709364178@qq.com"
           git config --global user.name "yuanchenglang"
