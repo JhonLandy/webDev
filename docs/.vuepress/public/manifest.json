@@ -1,25 +1,26 @@
 {
-  "name": "chenglang",
-  "short_name": "chenglang",
+  "name": "朗少",
+  "short_name": "朗少",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#2196f3",
-  "description": "技术源于生活术",
-  "theme_color": "blue",
-  "lang": "zh-cn",
-  "id": "asasassssas21313",
+  "background_color": "#3711f3",
+  "description": "技术源于生活",
+  "theme_color": "#4e6e8e",
   "icons": [
     {
-      "src": "./head/mine.jpg",
-      "type": "image/jpg"
+      "src": "./images/head/mine.png",
+      "sizes": "35x35",
+      "type": "image/png"
     }
   ],
   "related_applications": [
     {
-      "platform": "web"
+      "platform": "web",
+      "url": "www.bilibili.com"
     },
     {
-      "platform": "play"
+      "platform": "play",
+      "url": "www.baidu.com"
     }
   ]
 }

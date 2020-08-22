@@ -30,7 +30,7 @@
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
+      <SearchBox ref="search" v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
     </div>
   </header>
 </template>
@@ -67,7 +67,7 @@ export default {
     },
     
   },
-
+  
   mounted () {
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))

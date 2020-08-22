@@ -2,7 +2,7 @@
 <div>
     <div class="title" @click="doClick">
         <span class="nav-link"> {{item.text}} </span>
-        <i class="el-icon-arrow-down el-icon--right"></i>
+        <i class="el-icon-arrow-down el-icon--right" />
     </div>
     <ul ref="meun" class="meun" @click="doHide">
         <li
@@ -59,6 +59,10 @@ export default DropdownMeun;
 </script>
 <style lang="stylus" scoped>
 ul,li {list-style none; margin: 0;padding: 0}
+.title
+    >>>.el-icon--right
+        float right
+        padding-top: 13.8px
 .meun
     min-height 0px
     height 0px

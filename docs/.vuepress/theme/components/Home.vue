@@ -19,7 +19,7 @@
         </el-carousel-item>
         <div class="loading" v-show="count < data.heroImage.length">
           <i class="el-icon-loading" />
-          {{'loading...'}}
+          {{percent + '% loading...'}}
         </div>
       </el-carousel>
       <h1

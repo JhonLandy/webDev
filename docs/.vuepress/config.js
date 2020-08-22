@@ -16,8 +16,8 @@ module.exports = {
                 ariaLabel: 'Menu',
                 items: [
                     { 
-                        text: 'javascipt',
-                        ariaLabel: 'javascipt', 
+                        text: 'Javascript',
+                        ariaLabel: 'Javascript', 
                         items: [{
                             text: 'ES6',
                             ariaLabel: 'ES6',
@@ -25,10 +25,11 @@ module.exports = {
                         }]
                     },
                     { 
-                        text: 'css',
+                        text: 'Css',
+                        ariaLabel: 'Css',
                         items: [{
-                            text: 'layout',
-                            ariaLabel: 'layout',
+                            text: '布局',
+                            ariaLabel: '布局',
                             link: '/web/css/layout/index.md'
                         }]
                     }
@@ -68,7 +69,7 @@ module.exports = {
                 .loader('url-loader')
                 .tap(options => {
                     options.esModule = false;
-                    options.limit = 8917
+                    options.limit = 3 * 1024
                     return options
                 })
         .end()
