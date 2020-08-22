@@ -37,5 +37,5 @@ jobs:
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
-          git push https://709364178@qq.com:5752c3cf1affbb0fee1b056477b3dcab4959dca9@github.com/JhonLandy/dockerDeploy.git
+          git push -f https://709364178@qq.com:yuan794478148@github.com/JhonLandy/dockerDeploy.git
    
