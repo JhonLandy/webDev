@@ -33,16 +33,16 @@ jobs:
           cp -r ./docs/.vuepress/dist ./dockerDeploy
       - name: Commit files
         run: |
-          git config --global user.email "709364178@qq.com"
-          git config --global user.name "yuanchenglang"
+          git config --local user.email "709364178@qq.com"
+          git config --local user.name "yuanchenglang"
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
-
       - name: Push changes
         uses: ad-m/github-push-action@master
-        with: 
-          github_token:  ${{ secrets.ACESS_TOKEN }}
+        with:
+          github_token: '6c8829a0610c727d6024fa7d04ffc71b5ee49d28'          '
           repository: 'https://github.com/JhonLandy/dockerDeploy.git'
+          branch: 'master' 
    
           
