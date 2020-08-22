@@ -10,8 +10,8 @@ yarn build:cloundServer
 cp -r docs/.vuepress/dist dockerDeploy/dist 
 cd dockerDeploy
 git init
+git config --global user.name "yuanchenglang
 git config --global user.email "709364178@qq.com"
-git config --global user.name "YuanChengLang"
 git add .
 git commit -m 'deploy'
 git push
