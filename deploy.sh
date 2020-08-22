@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-git config --global user.name yuanchenglang
+git config --global user.name JhonLandy
 git config --global user.email 709364178@qq.com
 # 确保脚本抛出遇到的错误
 set -e
@@ -13,7 +13,7 @@ cd ./dockerDeploy
 git status
 git add .
 git commit -m 'deploy'
-git push -f https://709364178@qq.com:yuan794478148@github.com/JhonLandy/dockerDeploy.git 
+git push -f https://github.com/JhonLandy/dockerDeploy.git 
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
