@@ -35,8 +35,8 @@ jobs:
           
       - name: Commit files
         run: |
-          git config --local user.email "709364178@qq.com"
-          git config --local user.name "yuanchenglang"
+          git config --global user.email "709364178@qq.com"
+          git config --global user.name "yuanchenglang"
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
