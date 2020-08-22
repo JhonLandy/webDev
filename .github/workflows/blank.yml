@@ -25,11 +25,6 @@ jobs:
             npm ci
             npm run build:cloundServer
       - name: deploy
-      - run: |
-          git clone https://github.com/JhonLandy/dockerDeploy.git
-          cp -r docs/.vuepress/dist dockerDeploy/dist
-          cd dockerDeploy
-          git add .
-          git commit -m 'deploy'
-          git push
+        run: |
+          apt update
 
