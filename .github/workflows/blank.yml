@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: build:cloundServer
-      - run: |
+        run: |
           npm install
           npm run build:cloundServer
       - name: Git Config 
@@ -39,7 +39,7 @@ jobs:
       - name: Commit files
         env:
           ACESS_TOKEN: ${{secrets.ACESS_TOKEN}}
-      - run: |
+        run: |
           cd dockerDeploy
           git add .
           git commit -m "deploy"
