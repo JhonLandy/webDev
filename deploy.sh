@@ -20,7 +20,7 @@ git add .
 git commit -m 'deploy'
 git config --unset user.name
 git config --unset user.email
-git push -f
+git push -f orign master
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
