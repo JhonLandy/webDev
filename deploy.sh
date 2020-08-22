@@ -8,7 +8,6 @@ set -e
 # 进入生成的文件夹
 # cd docs/.vuepress/dist
 
-
 # cd ../../../
 # 生成静态文件
 npm build:githubServer 
