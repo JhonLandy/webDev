@@ -22,6 +22,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+      - uses: srt32/git-actions@v0.0.3
+      - name: git config & git clone
+          with:
+            args: [
+              'git config --global user.name JhonLandy',
+              'git config --global user.email 709364178@qq.com',
+              'git clone https://github.com/JhonLandy/dockerDeploy.git'
+            ]
       - name: deploy
         run: sh deploy.sh
 
