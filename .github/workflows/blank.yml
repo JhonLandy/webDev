@@ -34,7 +34,7 @@ jobs:
       - name: Copy files to cloundServer
         run: |
           git clone https://github.com/JhonLandy/dockerDeploy.git 
-          rm -f dockerDeploy/dist
+          rm -f ./dockerDeploy/dist
           cp -r ./docs/.vuepress/dist ./dockerDeploy
       - name: Commit files
         env:
