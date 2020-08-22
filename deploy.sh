@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+apt update
+apt install git
 
 # 确保脚本抛出遇到的错误
 set -e
@@ -9,8 +11,8 @@ yarn build:cloundServer
 # 进入生成的文件夹
 cp -r ./docs/.vuepress/dist ./dockerDeploy/dist 
 cd ./dockerDeploy
-git config --local user.name JhonLandy
-git config --local user.email 709364178@qq.com
+git config --global user.name JhonLandy
+git config --global user.email 709364178@qq.com
 git status
 git add .
 git commit -m 'deploy'
