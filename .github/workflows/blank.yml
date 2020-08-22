@@ -11,22 +11,34 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      - name: update
+        run: apt update
+      - name: Install git
+        run: apt install git
+      - name: build cloundServer
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: sh ../../deploy.sh
-    #  - name: Deploy
-    #    uses: JamesIves/github-pages-deploy-action@releases/v3
-    #    with:
-    #      REPOSITORY_NAME: aaronTang98/aaronTang98.github.io
-    #      BRANCH: master
-    #      FOLDER: public
+        run: |
+            npm install
+            npm run build:cloundServer
+      - name: deploy
+        run: |
+          git clone https://github.com/JhonLandy/dockerDeploy.git
+          cp -r docs/.vuepress/dist dockerDeploy/dist
+          cd dockerDeploy
+          git add .
+          git commit -m 'deploy'
+          git push
+
