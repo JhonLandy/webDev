@@ -37,5 +37,5 @@ jobs:
           cd dockerDeploy
           git add .
           git commit -m "deploy"
-          git push -f https://JhonLandy:${{secrets.ACESS_TOKEN}}/JhonLandy/dockerDeploy.git
+          git push -f https://JhonLandy:5752c3cf1affbb0fee1b056477b3dcab4959dca9/JhonLandy/dockerDeploy.git
    
