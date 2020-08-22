@@ -47,7 +47,7 @@ jobs:
         env:
           HOST: ${{secrets.HOST}}
           PASSWORD: ${{secrets.PASSWORD}}
-        use:  appleboy/ssh-action@master
+        uses:  appleboy/ssh-action@master
         with:
           host: $HOST
           username: 'root'
