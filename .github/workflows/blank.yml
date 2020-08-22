@@ -39,5 +39,5 @@ jobs:
           git commit -m "deploy"
           git push -f https://JhonLandy:${GITHUB_TOKEN}@github.com/JhonLandy/dockerDeploy.git
         env:
-          GITHUB_TOKEN: ${{secrets.ACESS_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
    
