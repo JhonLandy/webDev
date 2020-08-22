@@ -26,5 +26,5 @@ jobs:
             npm run build:cloundServer
       - name: deploy
         run: |
-          apt update
+          sh deploy.sh
 
