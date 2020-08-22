@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
     base: process.env.BASE_URL,
-    title: 'Hello~,欢迎来到chenglang的博客',
+    title: '欢迎来朗少的博客',
     description: '技术源于生活',
     head: [
         ['link', { rel: 'icon', href:'/favicon.ico'}],
