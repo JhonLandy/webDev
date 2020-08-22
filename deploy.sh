@@ -9,7 +9,7 @@ git clone https://github.com/JhonLandy/dockerDeploy.git
 # 生成静态文件
 yarn build:cloundServer 
 # 进入生成的文件夹
-cp -r ./docs/.vuepress/dist ./dockerDeploy/dist 
+cp -r ./docs/.vuepress/dist ./dockerDeploy
 
 
 cd ./dockerDeploy
@@ -18,6 +18,8 @@ git config user.email '709364178@qq.com'
 git status
 git add .
 git commit -m 'deploy'
+git config --unset user.name
+git config --unset user.email
 git push -f
 # cd ../../../
 # 生成静态文件
