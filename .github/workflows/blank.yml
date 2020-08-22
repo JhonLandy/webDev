@@ -34,12 +34,11 @@ jobs:
           cp -r ./docs/.vuepress/dist ./dockerDeploy
       - name: Commit files
         env:
-          GITHUB_TOKEN: ${{secrets.ACESS_TOKEN}}
+          GITHUB_TOKEN: ${{github.token}}
         run: |
-          echo $GITHUB_TOKEN
           cd dockerDeploy
           git add .
           git commit -m "deploy"
-          git push -f https://JhonLandy:5752c3cf1affbb0fee1b056477b3dcab4959dca9@github.com/JhonLandy/dockerDeploy.git
+          git push -f https://JhonLandy:$GITHUB_TOKEN@github.com/JhonLandy/dockerDeploy.git
         
    
