@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: |
+            npm install
       - name: deploy
         run: |
           sh deploy.sh
