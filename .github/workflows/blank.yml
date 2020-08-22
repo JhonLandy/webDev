@@ -42,6 +42,7 @@ jobs:
           cd dockerDeploy
           git add .
           git commit -m "deploy"
+          rm -f ./.git/index.lock
           git push -f https://JhonLandy:$ACESS_TOKEN@github.com/JhonLandy/dockerDeploy.git
       - name: SSH DEPLOY
         env:
