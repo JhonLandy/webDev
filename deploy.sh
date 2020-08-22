@@ -14,6 +14,7 @@ git config --global user.name "YuanChengLang"
 git init
 git add .
 git commit -m 'deploy'
+git push
 # cd ../../../
 # 生成静态文件
 # npm run build:githubServer 
