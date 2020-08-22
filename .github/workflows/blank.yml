@@ -41,7 +41,6 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} 
-          repository: 'JhonLandy/dockerDeploy.git'
+          repository: 'JhonLandy/dockerDeploy'
           branch: 'master' 
    
-          
