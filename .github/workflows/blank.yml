@@ -39,7 +39,7 @@ jobs:
       - name: Commit files
         env:
           ACESS_TOKEN: ${{secrets.ACESS_TOKEN}}
-        run: |
+      - run: |
           cd dockerDeploy
           git add .
           git commit -m "deploy"
