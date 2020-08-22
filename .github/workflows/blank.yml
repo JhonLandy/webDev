@@ -22,10 +22,6 @@ jobs:
       #   uses: actions/setup-node@v1
       #   with:
       #     node-version: ${{ matrix.node-version }}
-      - name: update
-        run: apt update
-      - name: Install git
-        run: apt install git
       - name: build cloundServer
         uses: actions/setup-node@v1
         with:
@@ -33,12 +29,12 @@ jobs:
         run: |
             npm install
             npm run build:cloundServer
-      - name: deploy
-        run: |
-          git clone https://github.com/JhonLandy/dockerDeploy.git
-          cp -r docs/.vuepress/dist dockerDeploy/dist
-          cd dockerDeploy
-          git add .
-          git commit -m 'deploy'
-          git push
+      # - name: deploy
+      #   run: |
+      #     git clone https://github.com/JhonLandy/dockerDeploy.git
+      #     cp -r docs/.vuepress/dist dockerDeploy/dist
+      #     cd dockerDeploy
+      #     git add .
+      #     git commit -m 'deploy'
+      #     git push
 
