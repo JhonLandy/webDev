@@ -37,9 +37,5 @@ jobs:
           cd ./dockerDeploy
           git add .
           git commit -m "deploy"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: '5752c3cf1affbb0fee1b056477b3dcab4959dca9'
-          repository: 'JhonLandy/dockerDeploy'
+          git push https://709364178@qq.com:5752c3cf1affbb0fee1b056477b3dcab4959dca9@github.com/JhonLandy/dockerDeploy.git
    
