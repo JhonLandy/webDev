@@ -10,6 +10,7 @@ yarn build:cloundServer
 # 进入生成的文件夹
 cp -r ./docs/.vuepress/dist ./dockerDeploy/dist 
 cd ./dockerDeploy
+git status
 git add .
 git commit -m 'deploy'
 git push -f
