@@ -37,7 +37,7 @@ jobs:
           cp -r ./docs/.vuepress/dist ./dockerDeploy
       - name: Commit files
         env:
-          GITHUB_TOKEN: ${{github.token}}
+          GITHUB_TOKEN: ${{secrets.ACESS_TOKEN}}
         run: |
           cd dockerDeploy
           git add .
