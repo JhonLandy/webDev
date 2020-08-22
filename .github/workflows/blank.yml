@@ -24,9 +24,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          run: npm install
-      - name: Build cloundServer
-        run: npm run build:cloundServer
+      - name: build:cloundServer
+      - run: |
+          npm install
+          npm run build:cloundServer
       - name: Git Config 
         run: |
           git config --global user.name "yuanchenglang"
@@ -56,7 +57,7 @@ jobs:
           script: |
             cd dockerdemo/dockerDeploy
             sh deploy-dev.sh
-      - name: Build githubServer
+      - name: build githubServer
         run: |
           npm run build:githubServer
       - name: Commit files
