@@ -49,7 +49,17 @@ module.exports = {
                             link: '/deployment/docker/base/index.md'
                         }] 
                     },
+                    { 
+                        text: 'CI/CD', 
+                        ariaLabel: 'CI/CD',
+                        link: '/deployment/CICD/index.md'
+                    }
                 ]
+            },
+            {
+                text: 'github',
+                ariaLabel: 'github',
+                link: 'https://github.com/JhonLandy'
             }
         ]
     },
@@ -91,10 +101,7 @@ module.exports = {
             '@vuepress/back-to-top': true,
             '@vuepress/pwa': {
                 serviceWorker: true,
-                updatePopup: {
-                    message: "有新的内容更新",
-                    buttonText: "刷新"
-                }
+                updatePopup: true
             }
         }
     ]

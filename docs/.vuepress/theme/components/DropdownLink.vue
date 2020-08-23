@@ -94,6 +94,10 @@ export default DropdownLink
 </script>
 
 <style lang="stylus">
+>>>.el-dropdown-menu
+  .el-dropdown-menu__item
+    &:hover
+      background-color #ccc
 .dropdown-wrapper
   cursor pointer
   .dropdown-title
