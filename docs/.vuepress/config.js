@@ -97,12 +97,11 @@ module.exports = {
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
     },
     plugins: [
-        {
-            '@vuepress/back-to-top': true,
-            '@vuepress/pwa': {
+        '@vuepress/back-to-top',
+        ['@vuepress/pwa',{
                 serviceWorker: true,
                 updatePopup: true
             }
-        }
+        ]
     ]
 }
