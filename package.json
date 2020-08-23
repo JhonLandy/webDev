@@ -20,7 +20,6 @@
     "vuepress": "^1.5.3"
   },
   "dependencies": {
-    "element-ui": "^2.13.2",
-    "lodash": "^4.17.20"
+    "element-ui": "^2.13.2"
   }
 }
