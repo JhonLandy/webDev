@@ -39,9 +39,9 @@ const DropdownMeun = {
     watch: {
         meunShow(value) {
             if (value) {
-                this.$refs.meun.style.minHeight = '30px'
+                this.$refs.meun.style.height = `${this.$refs.meun.children.length*this.$refs.meun.children[0].offsetHeight}px`
             } else {
-                this.$refs.meun.style.minHeight = '0px'
+                this.$refs.meun.style.height = '0px'
             }
         }
     },
@@ -64,9 +64,10 @@ ul,li {list-style none; margin: 0;padding: 0}
         float right
         padding-top: 13.8px
 .meun
-    min-height 0px
     height 0px
     overflow hidden
     transition .2s
     transition-timing-function cubic-bezier(0, 0, 0.58, 1)
+    li
+      height 30px
 </style>

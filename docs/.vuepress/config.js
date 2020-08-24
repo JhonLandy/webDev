@@ -50,6 +50,22 @@ module.exports = {
                         }] 
                     },
                     { 
+                        text: 'Git', 
+                        ariaLabel: 'Git',
+                        items: [
+                            {
+                                text: '常用命令',
+                                ariaLabel: 'command',
+                                link: '/deployment/git/command/index.md'
+                            },
+                            { 
+                                text: '提交规范', 
+                                ariaLabel: 'standard',
+                                link: '/deployment/git/standard/index.md'
+                            }
+                        ] 
+                    },
+                    { 
                         text: 'CI/CD', 
                         ariaLabel: 'CI/CD',
                         link: '/deployment/CICD/index.md'
