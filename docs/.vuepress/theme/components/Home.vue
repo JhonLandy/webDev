@@ -134,7 +134,6 @@ export default {
     font-size 1.2rem
     color #ffffff
   
-  
 .home
   min-width 378px
   margin 0px auto

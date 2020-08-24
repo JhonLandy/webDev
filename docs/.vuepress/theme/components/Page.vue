@@ -25,7 +25,9 @@ export default {
 @require '../styles/wrapper.styl'
 
 .page
-  padding-bottom 2rem
+  padding $navbarHeight 2rem 0
+  max-width $homePageWidth
+  margin: 0 auto
   display block
-
+  background #fcfcfc
 </style>

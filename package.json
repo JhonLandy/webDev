@@ -7,6 +7,7 @@
     "dev": "vuepress dev docs",
     "build:githubServer": "cross-env BASE_URL='/blog/' vuepress build docs",
     "build:cloundServer": "cross-env BASE_URL='' vuepress build docs",
+    "inject": "vuepress eject",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
