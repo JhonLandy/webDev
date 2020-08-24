@@ -23,9 +23,7 @@ export default {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
-
 .page
-  padding $navbarHeight 2rem 0
   max-width $homePageWidth
   margin: 0 auto
   display block
