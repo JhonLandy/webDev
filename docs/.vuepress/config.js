@@ -62,6 +62,11 @@ module.exports = {
                                 text: '提交规范', 
                                 ariaLabel: 'standard',
                                 link: '/deployment/git/standard/index.md'
+                            },
+                            { 
+                                text: 'SSH', 
+                                ariaLabel: 'SSH',
+                                link: '/deployment/git/ssh/index.md'
                             }
                         ] 
                     },
@@ -71,6 +76,11 @@ module.exports = {
                         link: '/deployment/CICD/index.md'
                     }
                 ]
+            },
+            {
+                text: '算法与数据结构',
+                ariaLabel: 'code',
+                link: '/code/index.md'
             },
             {
                 text: 'github',
