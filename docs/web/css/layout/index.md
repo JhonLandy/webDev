@@ -26,10 +26,117 @@ title: 基础部分
 # CSS布局
    - ### flex弹性布局（设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效）
 Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
-```css
-div {
-  display: flex;
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scaleble=no">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Hello World~~!!</title>
+<style>
+*{margin:0;padding:0;}
+/*
+   display:flex; 设置弹性盒子容器
+   display:inline-flex; 设置内联弹性盒子容器
+
+   flex-direction   盒子方向
+      row(默认)		横排
+      row-reverse		反向横排
+      column			竖排
+      column-reverse	反向竖排
+   flex-wrap	 要不要换行
+      nowrap默认         不换行(一行)
+      wrap				换行
+      wrap-reverse        换行后 第一行成第二行
+
+   flex-flow:flex-direction flex-wrap;
+
+   justify-content 主轴项目对齐方式
+      flex-start		 主轴开始(默认)
+      flex-end	     主轴结束
+      center			 主轴居中
+      space-between    两端对齐
+      space-around     每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+   align-items 交叉轴单行对齐方式
+      flex-start		 交叉轴开始
+      flex-end	     交叉轴结束
+      center
+      baseline		项目的第一行文字的基线对齐。
+      stretch（默认值）：如果项目未设置宽高或设为auto，将沿交叉轴占满整个容器的高度或宽度。
+   
+   align-content 交叉轴多行对齐方式
+      flex-start		 交叉轴开始
+      flex-end	     交叉轴结束
+      center			 交叉轴居中
+      space-between
+      space-around
+      stretch（默认值）：如果项目未设置宽高或设为auto，将沿交叉轴占满整个容器的高度或宽度。
+
+   ----------flex 项目属性-----------------
+   order：	
+      属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。可以负值
+   flex-grow 伸长比例 默认0
+      flex-grow：<number>  定义项目的放大比例，（默认为0） 即如果存在剩余空间，也不放大
+
+   子元素的尺寸=父级盒子剩余空间尺寸*子元素的box-grow属性值 / 所有子元素的flex-grow属性值的和
+
+   flex-shrink 属性定义了项目的缩小比例，（默认为1），即如果空间不足，该项目将缩小。。
+   元素收缩宽度 =  超出宽度 * 元素收缩比/收缩总比
+
+   flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto
+      值：<length> | <percentage> | auto | content
+      <length>：		用长度值来定义宽度。不允许负值
+      <percentage>：	用百分比来定义宽度。不允许负值
+      auto：			无特定宽度值，取决于其它属性值，auto的计算规则是 检索一下你是否设置了width（或者height值，取决于flex-direction）就会采用这个值，否则的话最后使用的值是 content
+      content：		基于内容自动计算宽度
+   
+   flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选
+   flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+   该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+   建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+
+*/
+ul{
+   border:1px solid red;
+   list-style:none;
+   height:600px;
+   display:flex;
+   /*flex-direction:row;     盒子方向
+   flex-wrap:wrap;	 要不要换行*/
+   flex-flow:row nowrap;
+   justify-content:space-around;
+   align-items:center;
+   align-content:stretch;
+   
 }
+ul li{
+   width:300px;
+   height:300px;
+   font-size:100px;
+   color:white;
+   text-align:center;
+   margin:5px;
+   background: green;
+
+}
+ul li:nth-child(1){align-self:flex-start;}
+ul li:nth-child(2){align-self:flex-end;}
+ul li:nth-child(3){align-self:auto;}
+ul li:nth-child(4){align-self:auto;}
+</style>
+</head>
+<body >
+	<ul class='box'>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>	
+	</ul>
+</body>	
+</html>
 ```
 *参考: <http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool>*
    - ### grid网格布局
@@ -37,12 +144,63 @@ div {
 Grid 布局与 Flex 布局有一定的相似性，都可以指定容器内部多个项目的位置。但是，它们也存在重大区别。
 
 Flex 布局是轴线布局，只能指定"项目"针对轴线的位置，可以看作是一维布局。Grid 布局则是将容器划分成"行"和"列"，产生单元格，然后指定"项目所在"的单元格，可以看作是二维布局。Grid 布局远比 Flex 布局强大。
-```css
-div {
-  display: grid;//指定一个容器采用网格布局
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#box {
+   display: grid;
+   grid-template-rows: 1fr 1fr  1fr;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-column-gap: 10px;
+   grid-row-gap: 20px;
+   /* grid-template-areas:
+                     "1 . ."
+                     "2 . ."
+                     "3 . ."; */
+   width: 800px;
+   height: 600px;
+   margin: 100px auto;
 }
+#box div {
+   border: 1px solid #ccc;
+}
+.project {
+   /* grid-area: 1 */
+   /* grid-column-start: 2;
+   grid-column-end: 3; */
+}
+.project1 {
+   /* grid-area: 2 */
+   /* grid-column-start: 2;
+   grid-column-end: 3; */
+   
+}
+.project2 {
+   /* grid-area: 3 */
+   /* grid-column-start: 2;
+   grid-column-end: 3; */
+   
+}
+/* grid-auto-columns、grid-auto-rows; grid-auto-flow //如果设置为1x1的网格布局,如果多于一个，则多出的将按这个值来设置宽（grid-auto-columns）、高(grid-auto-rows) */
+</style>
+</head>
+<body>
+   <div id="box">
+      <div class="project">121</div>
+      <!-- <div class="projec2t"></div> -->
+      <div class="project1"></div>
+      <div class="project2"></div>
+   </div>
+</body>
+</html>
 ```
-*参考: <http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html>*
+*参考: <http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html>、<https://github.com/JhonLandy/Grid>*
    - ### rem布局(一般应用移动端)
 rem,em区别：rem,em都是顺应不同网页字体大小展现而产生的。其中，em是相对其父元素，在实际应用中相对而言会带来很多不便；而rem是始终相对于html大小，即页面根元素。虽然rem布局可以根据不同手机进行缩放，但是不同设备的字体都不统一，细节调整还是有点出入。
    - ### 流式布局（设计方案，依赖百分比）
