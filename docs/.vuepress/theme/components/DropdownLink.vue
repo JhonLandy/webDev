@@ -26,7 +26,7 @@
           :item="subItem"
           @dropdown="dropdown"
         />
-        <NavLink
+        <NavLinkNew
           v-else
           :item="subItem"
         />
@@ -36,14 +36,14 @@
 </template>
 
 <script>
-import NavLink from '@theme/components/NavLink.vue'
+import NavLinkNew from '@theme/components/NavLinkNew.vue'
 import DropdownMeun from '@theme/components/DropdownMeun.vue'
 import last from 'lodash/last'
 
 const DropdownLink = {
   name: 'DropdownLink',
   components: {
-    NavLink,
+    NavLinkNew,
     DropdownMeun
   },
   props: {
