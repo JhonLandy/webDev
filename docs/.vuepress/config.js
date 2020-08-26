@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
     base: process.env.BASE_URL,
     title: '欢迎来朗少的博客',
-    description: '英雄不问出处, 流氓不看岁月(恋爱找我速度)',
+    description: '英雄不问出处, 流氓不看岁月',
     head: [
         ['link', { rel: 'icon', href:'/favicon.ico'}],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -114,7 +114,7 @@ module.exports = {
             .module
             .rule('babel')
                 .test(/\.js$/)
-                .use('babel-loader')
+                .use()
                     .loader('babel-loader')
         .end()
         config
