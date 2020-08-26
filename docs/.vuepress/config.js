@@ -117,10 +117,12 @@ module.exports = {
                 .use('babel')
                     .loader('babel-loader')
         .end()
+       
         config
             .resolve
             .alias
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
+        .clear()
     },
     plugins: [
         '@vuepress/back-to-top',
