@@ -114,7 +114,7 @@ module.exports = {
             .module
             .rule('babel')
                 .test(/\.js$/)
-                .use()
+                .use('babel')
                     .loader('babel-loader')
         .end()
         config
