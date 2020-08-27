@@ -23,12 +23,4 @@ export default {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
-.page
-  max-width $homePageWidth
-  margin: 0 auto
-  display block
-  background #fcfcfc
-  @media (max-width: $MQMobileNarrow)
-    padding 0 5px
-    background white
 </style>
