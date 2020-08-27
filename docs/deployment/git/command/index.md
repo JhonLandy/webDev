@@ -63,5 +63,13 @@ title: Git 实用命令
    ```bash
    git diff [commit1] [commit2] //Git仓库任意两次 commit 之间的差别。
    ```
+5. 撤销暂存区内容
+```bash
+git add filename//添加文件到暂存区
+
+git reset HEAD  //撤销暂存区全部文件
+
+git reset HEAD filename//指定撤销暂存区的文件
+```
 
      
