@@ -77,11 +77,11 @@ module.exports = {
                     }
                 ]
             },
-            {
-                text: '算法与数据结构',
-                ariaLabel: 'code',
-                link: '/code/index.md'
-            },
+            // {
+            //     text: '算法与数据结构',
+            //     ariaLabel: 'code',
+            //     link: '/code/index.md'
+            // },
             {
                 text: 'github',
                 ariaLabel: 'github',
