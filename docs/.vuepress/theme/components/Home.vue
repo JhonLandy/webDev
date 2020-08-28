@@ -135,7 +135,7 @@ export default {
     color #ffffff
   
 .home
-  min-width 378px
+  min-width $pageMinWidth
   margin 0px auto
   display block
   .hero
