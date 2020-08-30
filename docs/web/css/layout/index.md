@@ -86,11 +86,14 @@ Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下
    flex-shrink 属性定义了项目的缩小比例，（默认为1），即如果空间不足，该项目将缩小。。
    元素收缩宽度 =  超出宽度 * 元素收缩比/收缩总比
 
-   flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto
+   flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）浏览器根据这个属性，
+   计算主轴是否有多余空间。它的默认值为auto
       值：<length> | <percentage> | auto | content
       <length>：		用长度值来定义宽度。不允许负值
       <percentage>：	用百分比来定义宽度。不允许负值
-      auto：			无特定宽度值，取决于其它属性值，auto的计算规则是 检索一下你是否设置了width（或者height值，取决于flex-direction）就会采用这个值，否则的话最后使用的值是 content
+      auto：			无特定宽度值，取决于其它属性值，auto的计算规则是 
+      检索一下你是否设置了width（或者height值，取决于flex-direction）就会采用这个值，
+      否则的话最后使用的值是 content
       content：		基于内容自动计算宽度
    
    flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选
@@ -187,7 +190,9 @@ Flex 布局是轴线布局，只能指定"项目"针对轴线的位置，可以�
    grid-column-end: 3; */
    
 }
-/* grid-auto-columns、grid-auto-rows; grid-auto-flow //如果设置为1x1的网格布局,如果多于一个，则多出的将按这个值来设置宽（grid-auto-columns）、高(grid-auto-rows) */
+/* grid-auto-columns、grid-auto-rows; grid-auto-flow 
+//如果设置为1x1的网格布局,如果多于一个，
+则多出的将按这个值来设置宽（grid-auto-columns）、高(grid-auto-rows) */
 </style>
 </head>
 <body>
