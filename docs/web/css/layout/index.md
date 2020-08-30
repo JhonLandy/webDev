@@ -25,7 +25,7 @@ title: 基础部分
 ****
 # CSS布局
 - ### flex弹性布局（设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效）
-Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
+Flex 布局将成为未来布局的首选方案。本文介绍常见布局的 Flex 写法。
 ```html
 <!doctype html>
 <html lang="en">
