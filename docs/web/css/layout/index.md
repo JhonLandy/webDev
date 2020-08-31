@@ -1,6 +1,11 @@
 ---
 title: 基础部分
 ---
+
+<big>作者： chenglNG(yuanchenglang)</big>
+
+<big>日期：2020年8月1号</big>
+
 ***tips: 开发时，你有注意到html文文件头部吗？***
 ```html
 <!DOCTYPE html>

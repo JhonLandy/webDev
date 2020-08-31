@@ -1,3 +1,7 @@
+<big>作者： chenglNG(yuanchenglang)</big>
+
+<big>日期：2020年8月15号</big>
+
 # SSH安装
 
 首先在git_bash输入：

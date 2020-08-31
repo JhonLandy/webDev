@@ -1,6 +1,9 @@
 ---
 title: Git 实用命令
 ---
+<big>作者： chenglNG(yuanchenglang)</big>
+
+<big>日期：2020年8月30号</big>
 
 # Git实用命令
 
@@ -72,4 +75,3 @@ title: Git 实用命令
    git reset HEAD filename//指定撤销暂存区的文件
    ```
 
-     

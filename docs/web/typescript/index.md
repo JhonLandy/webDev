@@ -1,4 +1,6 @@
-# Typescript
+<big>作者： chenglNG(yuanchenglang)</big>
+
+<big>日期：2020年8月30号</big>
 
 # 类型
 

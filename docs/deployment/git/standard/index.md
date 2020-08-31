@@ -1,6 +1,9 @@
 ---
 title: Git 打印日志工具（Angular规范）
 ---
+<big>作者： chenglNG(yuanchenglang)</big>
+
+<big>日期：2020年8月16号</big>
 
 # Git 打印日志工具（Angular规范）
 
