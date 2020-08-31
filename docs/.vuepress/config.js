@@ -16,23 +16,35 @@ module.exports = {
                 text: '前端',
                 ariaLabel: 'Menu',
                 items: [
-                    { 
+                    {
                         text: 'Javascript',
-                        ariaLabel: 'Javascript', 
+                        ariaLabel: 'Javascript',
                         items: [{
                             text: 'ES6',
                             ariaLabel: 'ES6',
                             link: '/web/javascript/ES6/index.md'
                         }]
                     },
-                    { 
+                    {
+                        text: 'Typescript',
+                        ariaLabel: 'Typescript',
+                        link: '/web/typescript/index.md'
+                    },
+                    {
                         text: 'Css',
                         ariaLabel: 'Css',
-                        items: [{
-                            text: '布局',
-                            ariaLabel: '布局',
-                            link: '/web/css/layout/index.md'
-                        }]
+                        items: [
+                            {
+                                text: '布局',
+                                ariaLabel: '布局',
+                                link: '/web/css/layout/index.md'
+                            },
+                            {
+                                text: '动画',
+                                ariaLabel: '布局',
+                                link: '/web/css/animation/index.md'
+                            }
+                        ]
                     }
                 ]
             },
@@ -40,17 +52,17 @@ module.exports = {
                 text: '部署',
                 ariaLabel: 'Deployment',
                 items: [
-                    { 
-                        text: 'docker', 
+                    {
+                        text: 'docker',
                         ariaLabel: 'docker',
                         items: [{
                             text: '基本命令',
                             ariaLabel: 'base',
                             link: '/deployment/docker/base/index.md'
-                        }] 
+                        }]
                     },
-                    { 
-                        text: 'Git', 
+                    {
+                        text: 'Git',
                         ariaLabel: 'Git',
                         items: [
                             {
@@ -58,20 +70,20 @@ module.exports = {
                                 ariaLabel: 'command',
                                 link: '/deployment/git/command/index.md'
                             },
-                            { 
-                                text: '提交规范', 
+                            {
+                                text: '提交规范',
                                 ariaLabel: 'standard',
                                 link: '/deployment/git/standard/index.md'
                             },
-                            { 
-                                text: 'SSH', 
+                            {
+                                text: 'SSH',
                                 ariaLabel: 'SSH',
                                 link: '/deployment/git/ssh/index.md'
                             }
-                        ] 
+                        ]
                     },
-                    { 
-                        text: 'CI/CD', 
+                    {
+                        text: 'CI/CD',
                         ariaLabel: 'CI/CD',
                         link: '/deployment/CICD/index.md'
                     }
@@ -127,7 +139,7 @@ module.exports = {
                 .use('babel')
                     .loader('babel-loader')
         .end()
-       
+
         config
             .resolve
             .alias
