@@ -27,6 +27,7 @@ export default {
 
 <style lang="stylus">
 .sidebar
+  width 16.4rem!important
   ul
     padding 0
     margin 0
@@ -45,7 +46,7 @@ export default {
       font-size 1.1em
       padding 0.5rem 0 0.5rem 1.5rem
   & > .sidebar-links
-    padding 1.5rem 0
+    padding 1rem 0
     & > li > a.sidebar-link
       font-size 1.1em
       line-height 1.7
@@ -53,12 +54,14 @@ export default {
     & > li:not(:first-child)
       margin-top .75rem
 
-@media (max-width: $MQMobile)
-  .sidebar
-    .nav-links
-      display block
-      .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after
-        top calc(1rem - 2px)
-    & > .sidebar-links
-      padding 1rem 0
+
+
+//@media (max-width: $MQMobile)
+//  .sidebar
+//    .nav-links
+//      display block
+//      .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after
+//        top calc(1rem - 2px)
+//    & > .sidebar-links
+//      padding 1rem 0
 </style>

@@ -9,7 +9,6 @@ module.exports = {
 	],
     themeConfig: {
         say: 'I am Yuki' ,
-        lastUpdated: 'Last Updated',
         nav: [
             { text: '首页', link: '/index' },
             {

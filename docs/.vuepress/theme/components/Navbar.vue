@@ -65,9 +65,9 @@ export default {
     isAlgoliaSearch () {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
     },
-    
+
   },
-  
+
   mounted () {
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
@@ -97,6 +97,7 @@ $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
+  padding-left 4rem
   line-height $navbarHeight - 1.4rem
   a, span, img
     display inline-block
@@ -125,7 +126,7 @@ $navbar-horizontal-padding = 1.5rem
       vertical-align top
 @media (max-width: $MQMobile)
   .navbar
-    padding-left 4rem
+    //padding-left 4rem
     .can-hide
       display none
     .links
