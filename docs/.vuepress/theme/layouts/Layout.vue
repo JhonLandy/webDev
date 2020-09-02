@@ -124,9 +124,7 @@ export default {
   methods: {
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-      console.log(this.isSidebarOpen)
       this.$emit('toggle-sidebar', this.isSidebarOpen)
-      console.log(this)
     },
 
     // side swipe
