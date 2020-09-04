@@ -133,14 +133,16 @@ export default {
 ```
 ### watch
 - options
-  - immediate: true
+
+  <code>immediate: true</code>
   
     在组件创建时立即执行
-  - deep: true
+
+  <code>deep: true</code>
   
     deep即深入观察, 监听器会层层遍历, 给对象的所有属性(及子属性)添加监听器. 这样做无疑会有很大的性能开销, 修改obj中任何一个属性都会触发监听器中的处理函数
-
-- 栗子
+  
+- 举个栗子
 ```js
 watch: {
     A: {
@@ -152,7 +154,7 @@ watch: {
 }
 
 watch: {
-    A(newVal, oldVal {
+    A(newVal, oldVal) {
         console.log(`A changed: ${newVal}`);
     }   
 }
@@ -170,8 +172,8 @@ methods: {
 //还可以传数组
 watch: {
     A: [
-        'showS',
-        function () {
+        'show',
+        function (newVal, oldVal) {
         
         }   
     ]
@@ -184,11 +186,14 @@ methods: {
 ```
 
 - 动态添加watch
+```js
 this.$watch('obj.hello', this.handler, {
-      immediate: true,
-      deep: false
-    })
-},
+    immediate: true,
+    deep: false
+  })
+}
+```
+
 
 ### computed
 - 类型 <code>{ [key: string]: Function | { get: Function, set: Function } }</code>
