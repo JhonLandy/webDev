@@ -74,4 +74,8 @@ title: Git 实用命令
 
    git reset HEAD filename//指定撤销暂存区的文件
    ```
-
+   
+6. 查看分支从哪里拉取
+    ```bash
+    git reflog --date=local | grep feature/ycl_overview_edit
+    ```

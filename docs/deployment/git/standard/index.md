@@ -1,11 +1,11 @@
 ---
-title: Git 打印日志工具（Angular规范）
+title: Git 编写优雅的 commit message 并自动生成 changelog
 ---
 <big>作者： chenglNG(yuanchenglang)</big>
 
 <big>日期：2020年8月16号</big>
 
-# Git 打印日志工具（Angular规范）
+#  Git 编写优雅的 commit message
 
 ## 保存日志方法
 
@@ -55,9 +55,23 @@ title: Git 打印日志工具（Angular规范）
 
   项目自动生成CHANGELOG.md文件，推荐使用 *Typora* 查看
 
-##  查看分支从哪里拉取
 
-```bash
-git reflog --date=local | grep feature/ycl_overview_edit
-```
+
+## 制定提交规范
+
+- package.json配置
+    
+    ```bash
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {//使用了eslint; 也可以不用eslint,这里 可以替换一下就可以，
+        "src/**/*.{js,vue}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    ```
 
