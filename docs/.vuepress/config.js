@@ -45,7 +45,16 @@ module.exports = {
                                 link: '/web/css/animation/index.md'
                             }
                         ]
-                    }
+                    },
+                    {
+                        text: 'Vue',
+                        ariaLabel: 'Vue',
+                        items: [{
+                            text: '基本使用',
+                            ariaLabel: '基本使用',
+                            link: '/web/vue/api/index.md'
+                        }]
+                    },
                 ]
             },
             {
@@ -144,6 +153,7 @@ module.exports = {
             .resolve
             .alias
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
+
     },
     plugins: [
         '@vuepress/back-to-top',
