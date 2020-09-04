@@ -202,9 +202,10 @@ computed: {
 }
 ```
 - 作用
-计算属性的结果会被缓存，除非依赖的响应式 property 变化才会重新计算。注意，如果某个依赖 (比如非响应式 property) 在该实例范畴之外，则计算属性是不会被更新的。
+计算属性的结果会被缓存，除非依赖的响应式 property 变化才会重新计算。注意，如果某个依赖 (比如非响应式 property) 在该实例范畴之外，则计算属性是不会被更新的。源码解析：
    
-```if (watcher) {
+```js
+if (watcher) {
 if (watcher.dirty) {
   watcher.evaluate()
 }
