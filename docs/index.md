@@ -14,7 +14,7 @@ heroImage: [
         explain: 'Vue从入门到放弃'
     }
 ]
-heroText: 欢迎来到YuKi的个人博客，现在为你保驾护航
+heroText: 欢迎您来到chenglNG的博客, 请随意参观
 # tagline: 一起来学习
 # actionText: 快速上手 →
 # actionLink: /zh/guide/
