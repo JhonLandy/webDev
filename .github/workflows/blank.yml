@@ -52,7 +52,7 @@ jobs:
           username: 'root'
           password: $PASSWORD
           script: |
-            cd dockerdemo/dockerDeploy
+            cd source/dockerDeploy
             sh deploy-dev.sh
       - name: build githubServer
         run: |
