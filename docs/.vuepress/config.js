@@ -117,9 +117,14 @@ module.exports = {
                         ariaLabel: '排序',
                         items: [
                             {
-                                text: '归并',
-                                ariaLabel: '归并',
-                                link: '/code/sort/归并.html'
+                                text: '归并排序',
+                                ariaLabel: '归并排序',
+                                link: '/code/sort/归并排序.html'
+                            },
+                            {
+                                text: '快速排序',
+                                ariaLabel: '快速排序',
+                                link: '/code/sort/快速排序.html'
                             }
                         ]
                     }
