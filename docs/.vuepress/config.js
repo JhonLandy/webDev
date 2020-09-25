@@ -135,17 +135,13 @@ module.exports = {
                 ariaLabel: 'github',
                 link: 'https://github.com/JhonLandy'
             }
+        ],
+
+        sidebarItems: [
+            [],[]
         ]
     },
-    pages: [
-        {
-            title: "javascript笔记",
-            path: 'web/javascript/javascript.md',
-            frontmatter: {
-                sidebar: 'auto'
-            }
-        }
-    ],
+   
     chainWebpack (config, isServer) {
         config
             .module
