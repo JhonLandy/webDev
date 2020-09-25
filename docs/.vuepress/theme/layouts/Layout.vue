@@ -111,7 +111,6 @@ export default {
         this.$localePath
       )
     },
-
     pageClasses () {
       const userPageClass = this.$page.frontmatter.pageClass
       return [
