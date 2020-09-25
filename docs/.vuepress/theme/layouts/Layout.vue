@@ -40,6 +40,16 @@
         <slot name="page-bottom" />
       </template>
     </Page>
+    <embed
+      ref="music"
+      id="wyymusic" 
+      src="//music.163.com/style/swf/widget.swf?sid=1456334097&type=2&auto=1&width=320&height=66" 
+      width="400" 
+      height="300" 
+      autostart="true"
+      loop="true"
+      allowNetworking="all"
+    ></embed>
   </div>
 </template>
 
@@ -149,4 +159,9 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+#wyymusic 
+  position fixed
+  bottom -210px
+</style>
 
