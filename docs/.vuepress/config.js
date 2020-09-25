@@ -1,3 +1,4 @@
+const { link } = require('fs');
 const path = require('path')
 module.exports = {
     base: process.env.BASE_URL,
@@ -107,11 +108,23 @@ module.exports = {
             //         }
             //     ]
             // },
-            // {
-            //     text: '算法与数据结构',
-            //     ariaLabel: 'code',
-            //     link: '/code/index.md'
-            // },
+            {
+                text: '算法与数据结构',
+                ariaLabel: 'code',
+                items: [
+                    {
+                        text: '排序',
+                        ariaLabel: '排序',
+                        items: [
+                            {
+                                text: '归并',
+                                ariaLabel: '归并',
+                                link: '/code/sort/归并.html'
+                            }
+                        ]
+                    }
+                ]
+            },
             {
                 text: 'github',
                 ariaLabel: 'github',
