@@ -40,16 +40,16 @@
         <slot name="page-bottom" />
       </template>
     </Page>
-    <embed
-      ref="music"
-      id="wyymusic" 
-      src="//music.163.com/style/swf/widget.swf?sid=1456334097&type=2&auto=1&width=320&height=66" 
-      width="400" 
-      height="300" 
-      autostart="true"
-      loop="true"
-      allowNetworking="all"
-    ></embed>
+    <iframe 
+      id="wyymusic"
+      frameborder="no" 
+      border="0" 
+      marginwidth="0" 
+      marginheight="0" 
+      width=400 
+      height=300 
+      src="//music.163.com/outchain/player?type=2&id=1456334097&auto=1&height=66">
+    </iframe>
   </div>
 </template>
 
