@@ -46,9 +46,7 @@
       border="0" 
       marginwidth="0" 
       marginheight="0" 
-      width=400 
-      height=300 
-      src="//music.163.com/outchain/player?type=2&id=1374329431&auto=1&height=66">
+      src="//music.163.com/outchain/player?type=2&id=1374329431&auto=1&height=32">
     </iframe>
   </div>
 </template>
@@ -162,6 +160,8 @@ export default {
 <style lang="stylus">
 #wyymusic 
   position fixed
-  bottom -210px
+  bottom 1rem
+  width 24.8rem!important
+  height 2.7rem!important
 </style>
 
