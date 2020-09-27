@@ -4,6 +4,12 @@ module.exports = {
     base: process.env.BASE_URL,
     title: '欢迎来chenglNG的博客',
     description: '英雄不问出处, 流氓不看岁月',
+    // shouldPreload(file, type) {
+    //     if (type === 'style') {
+    //         return true
+    //     }
+    // },
+    shouldPrefetch: (file, type) => type === 'image',
     head: [
         ['link', { rel: 'icon', href:'/favicon.ico'}],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -159,16 +165,16 @@ module.exports = {
                     return options
                 })
             .end()
-            .use('img-loader')
-                .loader('img-loader')
-                .options({
-                    pngquant: {
-                        quality: 80
-                    },
+            // .use('img-loader')
+            //     .loader('img-loader')
+            //     .options({
+            //         pngquant: {
+            //             quality: 80
+            //         },
                     // plugins: [
                     //     require('imagemin-optipng')(),
                     // ]
-                })
+                // })
             
         config
             .module
