@@ -117,6 +117,11 @@ module.exports = {
                         ariaLabel: '排序',
                         items: [
                             {
+                                text: '插入排序',
+                                ariaLabel: '插入排序',
+                                link: '/code/sort/插入排序.html'
+                            },
+                            {
                                 text: '归并排序',
                                 ariaLabel: '归并排序',
                                 link: '/code/sort/归并排序.html'
@@ -153,7 +158,18 @@ module.exports = {
                     options.limit = 3 * 1024
                     return options
                 })
-        .end()
+            .end()
+            .use('img-loader')
+                .loader('img-loader')
+                .options({
+                    pngquant: {
+                        quality: 80
+                    },
+                    // plugins: [
+                    //     require('imagemin-optipng')(),
+                    // ]
+                })
+            
         config
             .module
             .rule('babel')

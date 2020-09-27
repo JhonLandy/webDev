@@ -7,7 +7,7 @@
     "dev": "vuepress dev docs",
     "build:githubServer": "cross-env BASE_URL='/blog/' vuepress build docs",
     "build:cloundServer": "cross-env BASE_URL='' vuepress build docs",
-    "inject": "vuepress eject",
+    "eject": "vuepress eject",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -18,6 +18,10 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-component": "^1.1.1",
     "cross-env": "^7.0.2",
+    "imagemin": "^7.0.1",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^8.0.0",
+    "img-loader": "^3.0.2",
     "vuepress": "^1.5.3"
   },
   "dependencies": {
