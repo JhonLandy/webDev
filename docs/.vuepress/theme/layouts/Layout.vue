@@ -40,14 +40,14 @@
         <slot name="page-bottom" />
       </template>
     </Page>
-    <iframe 
+    <!-- <iframe 
       id="wyymusic"
       frameborder="no" 
       border="0" 
       marginwidth="0" 
       marginheight="0" 
       src="//music.163.com/outchain/player?type=2&id=1374329431&auto=1&height=32">
-    </iframe>
+    </iframe> -->
   </div>
 </template>
 
@@ -157,11 +157,5 @@ export default {
   }
 }
 </script>
-<style lang="stylus">
-#wyymusic 
-  position fixed
-  bottom 1rem
-  width 24.8rem!important
-  height 2.7rem!important
-</style>
+
 
