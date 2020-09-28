@@ -118,9 +118,19 @@ module.exports = {
                         ariaLabel: '排序',
                         items: [
                             {
+                                text: '选择排序',
+                                ariaLabel: '选择排序',
+                                link: '/code/sort/选择排序.html'
+                            },
+                            {
                                 text: '插入排序',
                                 ariaLabel: '插入排序',
                                 link: '/code/sort/插入排序.html'
+                            },
+                            {
+                                text: '希尔排序',
+                                ariaLabel: '希尔排序',
+                                link: '/code/sort/希尔排序.html'
                             },
                             {
                                 text: '归并排序',

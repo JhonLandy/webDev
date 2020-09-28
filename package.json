@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "vuepress dev docs --no-cache",
     "build:githubServer": "cross-env BASE_URL='/blog/' vuepress build docs",
     "build:cloundServer": "cross-env BASE_URL='' vuepress build docs",
     "eject": "vuepress eject",
