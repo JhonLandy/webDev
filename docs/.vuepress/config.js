@@ -10,7 +10,7 @@ module.exports = {
         ['link', { rel: 'manifest', href: '/manifest.json' }],
 	],
     themeConfig: {
-        say: 'I am Yuki' ,
+        say: 'I am Chenglang',
         sidebar: [
             {
                 title: '学习笔记',
@@ -34,7 +34,7 @@ module.exports = {
                     collapsable: false
                   }
                 ]
-            },
+            }
         ],
         nav: [
             { text: '首页', link: '/index' },
@@ -49,19 +49,19 @@ module.exports = {
                             {
                                 text: 'ES6',
                                 ariaLabel: 'ES6',
-                                link: 'nav/web/javascript/ES6/index.md'
+                                link: '/nav/web/javascript/ES6/index.md'
                             },
                             {
                                 text: 'ES7',
                                 ariaLabel: 'ES7',
-                                link: 'nav/web/javascript/ES7/async.md'
+                                link: '/nav/web/javascript/ES7/async.md'
                             }
                         ]
                     },
                     {
                         text: 'Typescript',
                         ariaLabel: 'Typescript',
-                        link: 'nav/web/typescript/index.md'
+                        link: '/nav/web/typescript/index.md'
                     },
                     {
                         text: 'Css',
@@ -70,12 +70,12 @@ module.exports = {
                             {
                                 text: '布局',
                                 ariaLabel: '布局',
-                                link: 'nav/web/css/layout/index.md'
+                                link: '/nav/web/css/layout/index.md'
                             },
                             {
                                 text: '动画',
                                 ariaLabel: '布局',
-                                link: 'nav/web/css/animation/index.md'
+                                link: '/nav/web/css/animation/index.md'
                             }
                         ]
                     },
@@ -85,7 +85,7 @@ module.exports = {
                         items: [{
                             text: '基本使用',
                             ariaLabel: '基本使用',
-                            link: 'nav/web/vue/api/index.md'
+                            link: '/nav/web/vue/api/index.md'
                         }]
                     },
                 ]
@@ -100,7 +100,7 @@ module.exports = {
                         items: [{
                             text: '基本命令',
                             ariaLabel: 'base',
-                            link: 'nav/deployment/docker/base/index.md'
+                            link: '/nav/deployment/docker/base/index.md'
                         }]
                     },
                     {
@@ -110,24 +110,24 @@ module.exports = {
                             {
                                 text: '常用命令',
                                 ariaLabel: 'command',
-                                link: 'nav/deployment/git/command/index.md'
+                                link: '/nav/deployment/git/command/index.md'
                             },
                             {
                                 text: '提交规范',
                                 ariaLabel: 'standard',
-                                link: 'nav/deployment/git/standard/index.md'
+                                link: '/nav/deployment/git/standard/index.md'
                             },
                             {
                                 text: 'SSH',
                                 ariaLabel: 'SSH',
-                                link: 'nav/deployment/git/ssh/index.md'
+                                link: '/nav/deployment/git/ssh/index.md'
                             }
                         ]
                     },
                     {
                         text: 'CI/CD',
                         ariaLabel: 'CI/CD',
-                        link: 'nav/deployment/CICD/index.md'
+                        link: '/nav/deployment/CICD/index.md'
                     }
                 ]
             },
@@ -152,27 +152,27 @@ module.exports = {
                             {
                                 text: '选择排序',
                                 ariaLabel: '选择排序',
-                                link: 'nav/code/sort/选择排序.html'
+                                link: '/nav/code/sort/选择排序.html'
                             },
                             {
                                 text: '插入排序',
                                 ariaLabel: '插入排序',
-                                link: 'nav/code/sort/插入排序.html'
+                                link: '/nav/code/sort/插入排序.html'
                             },
                             {
                                 text: '希尔排序',
                                 ariaLabel: '希尔排序',
-                                link: 'nav/code/sort/希尔排序.html'
+                                link: '/nav/code/sort/希尔排序.html'
                             },
                             {
                                 text: '归并排序',
                                 ariaLabel: '归并排序',
-                                link: 'nav/code/sort/归并排序.html'
+                                link: '/nav/code/sort/归并排序.html'
                             },
                             {
                                 text: '快速排序',
                                 ariaLabel: '快速排序',
-                                link: 'nav/code/sort/快速排序.html'
+                                link: '/nav/code/sort/快速排序.html'
                             }
                         ]
                     }
