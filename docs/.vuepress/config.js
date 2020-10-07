@@ -20,11 +20,18 @@ module.exports = {
                     {
                         text: 'Javascript',
                         ariaLabel: 'Javascript',
-                        items: [{
-                            text: 'ES6',
-                            ariaLabel: 'ES6',
-                            link: '/web/javascript/ES6/index.md'
-                        }]
+                        items: [
+                            {
+                                text: 'ES6',
+                                ariaLabel: 'ES6',
+                                link: '/web/javascript/ES6/index.md'
+                            },
+                            {
+                                text: 'ES7',
+                                ariaLabel: 'ES7',
+                                link: '/web/javascript/ES7/async.md'
+                            }
+                        ]
                     },
                     {
                         text: 'Typescript',
