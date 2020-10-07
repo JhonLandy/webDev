@@ -34,6 +34,12 @@ module.exports = {
                     collapsable: false
                   }
                 ]
+            }, 
+            {
+                title: 'Vue',
+            }, 
+            {
+                title: 'VueRouter原理解析'
             }
         ],
         nav: [
