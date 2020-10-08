@@ -191,33 +191,47 @@ module.exports = {
             }
         ],
 
-        sidebarItems: [
-            [],[]
-        ]
     },
    
     chainWebpack (config, isServer) {
-        config
-            .module
+        config.module
             .rule('images')
-            .use('url-loader')
-                .loader('url-loader')
-                .tap(options => {
-                    options.esModule = false;
-                    options.limit = 3 * 1024
-                    return options
-                })
-            .end()
-            // .use('img-loader')
-            //     .loader('img-loader')
-            //     .options({
-            //         pngquant: {
-            //             quality: 80
-            //         },
-                    // plugins: [
-                    //     require('imagemin-optipng')(),
-                    // ]
-                // })
+                .use('url-loader')
+                    .loader('url-loader')
+                    .tap(options => {
+                        options.esModule = false;
+                        options.limit = 10000
+                        return options
+                    })
+                .end()
+                // .use('img-loader')
+                //     .loader('img-loader')
+                //     .options({
+                //         plugins: [
+                //             require('imagemin-gifsicle')({
+                //                 optimizationLevel: 3
+                //             }),
+                //             require('imagemin-mozjpeg')({
+                //                 quality: 60,
+                //                 progressive: true,
+                //             }),
+                //             require('imagemin-pngquant')({
+                //                 quality: [0.3, 0.5],
+                //                 speed: 2
+                //             }),
+                //             require('imagemin-svgo')({
+                //             plugins: [
+                //                 { removeTitle: true },
+                //                 { convertPathData: false },
+                //                 {removeViewBox: false}
+                //             ]
+                //             }),
+                //             // require('imagemin-optipng')({
+                //             //     optimizationLevel: 7
+                //             // })
+                //         ]
+                //     })
+                // .end()//图片压缩报错，不知道是不是node版本问题
             
         config
             .module
