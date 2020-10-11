@@ -47,6 +47,21 @@ module.exports = {
             }, 
             {
                 title: 'Vue',
+                sidebarDepth: 2,
+                children: [
+                    {
+                        title: 'Vue2.0'
+                    },
+                    {
+                        title: 'Vue3.0',
+                        children: [
+                            {
+                                title: 'CompositionAPI（复合API）',
+                                path: 'sidebar/vue/vue3.0/CompositionAPI.md'
+                            }
+                        ]
+                    }
+                ]
             }, 
             {
                 title: 'VueRouter原理解析'
