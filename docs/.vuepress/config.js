@@ -13,7 +13,7 @@ module.exports = {
         say: 'I am Chenglang',
         sidebar: [
             {
-                title: '学习笔记',
+                title: 'chengING 学习笔记',
                 collapsable: false,
                 sidebarDepth: 0
             },
@@ -65,6 +65,16 @@ module.exports = {
             }, 
             {
                 title: 'VueRouter原理解析'
+            },
+            {
+                title: 'jest',
+                sidebarDepth: 1,
+                children: [
+                    {
+                        title: '测试用例',
+                        path: 'sidebar/jest/测试用例.md'
+                    }
+                ]
             }
         ],
         nav: [
