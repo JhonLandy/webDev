@@ -34,6 +34,16 @@ module.exports = {
                     collapsable: false
                   }
                 ]
+            },
+            {
+                title: 'Git',
+                sidebarDepth: 1,
+                children: [
+                    {
+                        title: 'origin与upstream的区别',
+                        path: 'sidebar/git/OriginAndUpstream.md'
+                    }
+                ]
             }, 
             {
                 title: 'Vue',
