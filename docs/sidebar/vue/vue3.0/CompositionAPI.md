@@ -1,5 +1,5 @@
 ---
-  title: 尝鲜Vue3.0
+  title: Vue3.0 - CompositionAPI
 ---
 
 # CompositionAPI（复合API）

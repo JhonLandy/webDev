@@ -14,7 +14,7 @@ heroImage: [
         explain: 'Vue从入门到放弃'
     }
 ]
-heroText: 欢迎您来到chenglNG的博客, 请随意参观
+heroText: 时间，不在于你拥有多少，而在于你利用多少
 # tagline: 一起来学习
 # actionText: 快速上手 →
 # actionLink: /zh/guide/
