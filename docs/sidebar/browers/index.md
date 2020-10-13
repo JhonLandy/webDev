@@ -40,7 +40,7 @@ FMP（全称“First Meaningful Paint”，翻译为“首次有效绘制”） 
 
 TTI（全称“Time to Interactive”，翻译为“可交互时间”） 表示网页第一次 完全达到可交互状态 的时间点。可交互状态指的是页面上的UI组件是可以交互的（可以响应按钮的点击或在文本框输入文字等），不仅如此，此时主线程已经达到“流畅”的程度，主线程的任务均不超过50毫秒。TTI很重要，因为TTI可以让我们了解我们的产品需要多久可以真正达到“可用”的状态。
 
-![Image from alias](~@image/sidebar/browers/渲染阶段图.jpg)
+![Image from alias](~@images/sidebar/browers/渲染阶段图.jpg)
 
 ## 性能分析工具
 
