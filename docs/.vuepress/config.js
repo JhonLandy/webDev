@@ -16,6 +16,16 @@ module.exports = {
                 sidebarDepth: 0
             },
             {
+                title: '浏览器',
+                sidebarDepth: 1,
+                children: [
+                    {
+                        title: '浏览器性能指标',
+                        path: '/sidebar/browers/index.md'
+                    }
+                ]
+            },
+            {
                 title: 'JavaScript',   // 必要的
                 // path: '/foo/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                 // collapsable: false, // 可选的, 默认值是 true,
@@ -23,12 +33,12 @@ module.exports = {
                 children: [
                   {
                     title: 'async/await - Promise语法糖',
-                    path: 'sidebar/javascript/async-await.md',
+                    path: '/sidebar/javascript/async-await.md',
                     collapsable: false
                   },
                   {
                     title: '深入浅出的eventLoop',
-                    path: 'sidebar/javascript/eventLoop.md',
+                    path: '/sidebar/javascript/eventLoop.md',
                     collapsable: false
                   }
                 ]
@@ -39,7 +49,7 @@ module.exports = {
                 children: [
                     {
                         title: 'origin与upstream的区别',
-                        path: 'sidebar/git/OriginAndUpstream.md'
+                        path: '/sidebar/git/OriginAndUpstream.md'
                     }
                 ]
             }, 
@@ -55,7 +65,7 @@ module.exports = {
                         children: [
                             {
                                 title: 'CompositionAPI（复合API）',
-                                path: 'sidebar/vue/vue3.0/CompositionAPI.md'
+                                path: '/sidebar/vue/vue3.0/CompositionAPI.md'
                             }
                         ]
                     }
@@ -70,7 +80,7 @@ module.exports = {
                 children: [
                     {
                         title: '测试用例',
-                        path: 'sidebar/jest/测试用例.md'
+                        path: '/sidebar/jest/测试用例.md'
                     }
                 ]
             }
