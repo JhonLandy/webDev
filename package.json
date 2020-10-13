@@ -18,6 +18,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-component": "^1.1.1",
     "cross-env": "^7.0.2",
+    "image-webpack-loader": "^7.0.1",
     "imagemin": "^7.0.1",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
