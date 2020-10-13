@@ -254,6 +254,29 @@ module.exports = {
                         return options
                     })
                 .end()
+                .use('image-webpack-loader')//https://github.com/tcoopman/image-webpack-loader
+                    .loader('image-webpack-loader')
+                    .options({
+                        mozjpeg: {
+                            progressive: true,
+                            // quality: 75//图片质量（大小）
+                        },
+                        // optipng.enabled: false will disable optipng
+                        optipng: {
+                            enabled: false,
+                        },
+                        pngquant: {
+                            quality: [0.65, 0.90],
+                            speed: 4
+                        },
+                        gifsicle: {
+                            interlaced: false,
+                        },
+                        // the webp option will enable WEBP
+                        webp: {
+                            quality: 75
+                        }
+                    })
                 // .use('img-loader')
                 //     .loader('img-loader')
                 //     .options({
