@@ -220,17 +220,17 @@ module.exports = {
                     {
                         text: '查找',
                         ariaLabel: '查找',
-                        link: 'nav/code/search/index.md'
+                        link: '/nav/code/search/index.md'
                     },
                     {
                         text: '图',
                         ariaLabel: '图',
-                        link: 'nav/code/picture/index.md'
+                        link: '/nav/code/picture/index.md'
                     },
                     {
                         text: '字符串',
                         ariaLabel: '字符串',
-                        link: 'nav/code/string/index.md'
+                        link: '/nav/code/string/index.md'
                     }
                 ]
             },
