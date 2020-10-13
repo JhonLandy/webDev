@@ -1,5 +1,3 @@
-const { link } = require('fs');
-const path = require('path')
 module.exports = {
     base: process.env.BASE_URL,
     title: '欢迎来chenglNG的博客',
