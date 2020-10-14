@@ -13,7 +13,17 @@ module.exports = {
             {
                 title: 'chengING 学习笔记',
                 collapsable: false,
-                sidebarDepth: 0
+            },
+            {
+                title: '浏览器',
+                sidebarDepth: 1,
+                children: [
+                    {
+                        title: '性能指标',
+                        path: '/sidebar/browers/性能指标.md',
+                        collapsable: false
+                    }
+                ]
             },
             {
                 title: 'JavaScript',   // 必要的
@@ -22,13 +32,13 @@ module.exports = {
                 sidebarDepth: 1,    // 可选的, 默认值是 1
                 children: [
                   {
-                    title: 'async/await - Promise语法糖',
-                    path: 'sidebar/javascript/async-await.md',
+                    title: 'async/await-Promise语法糖',
+                    path: '/sidebar/javascript/async-await.md',
                     collapsable: false
                   },
                   {
                     title: '深入浅出的eventLoop',
-                    path: 'sidebar/javascript/eventLoop.md',
+                    path: '/sidebar/javascript/eventLoop.md',
                     collapsable: false
                   }
                 ]
@@ -39,7 +49,7 @@ module.exports = {
                 children: [
                     {
                         title: 'origin与upstream的区别',
-                        path: 'sidebar/git/OriginAndUpstream.md'
+                        path: '/sidebar/git/OriginAndUpstream.md'
                     }
                 ]
             }, 
@@ -55,7 +65,7 @@ module.exports = {
                         children: [
                             {
                                 title: 'CompositionAPI（复合API）',
-                                path: 'sidebar/vue/vue3.0/CompositionAPI.md'
+                                path: '/sidebar/vue/vue3.0/CompositionAPI.md'
                             }
                         ]
                     }
@@ -70,7 +80,7 @@ module.exports = {
                 children: [
                     {
                         title: '测试用例',
-                        path: 'sidebar/jest/测试用例.md'
+                        path: '/sidebar/jest/测试用例.md'
                     }
                 ]
             }
