@@ -13,15 +13,15 @@ module.exports = {
             {
                 title: 'chengING 学习笔记',
                 collapsable: false,
-                sidebarDepth: 0
             },
             {
                 title: '浏览器',
                 sidebarDepth: 1,
                 children: [
                     {
-                        title: '浏览器性能指标',
-                        path: '/sidebar/browers/index.md'
+                        title: '性能指标',
+                        path: '/sidebar/browers/性能指标.md',
+                        collapsable: false
                     }
                 ]
             },
@@ -32,7 +32,7 @@ module.exports = {
                 sidebarDepth: 1,    // 可选的, 默认值是 1
                 children: [
                   {
-                    title: 'async/await - Promise语法糖',
+                    title: 'async/await-Promise语法糖',
                     path: '/sidebar/javascript/async-await.md',
                     collapsable: false
                   },
@@ -262,29 +262,32 @@ module.exports = {
                         return options
                     })
                 .end()
-                .use('image-webpack-loader')//https://github.com/tcoopman/image-webpack-loader
-                    .loader('image-webpack-loader')
-                    .options({
-                        mozjpeg: {
-                            progressive: true,
-                            // quality: 75//图片质量（大小）
-                        },
-                        // optipng.enabled: false will disable optipng
-                        optipng: {
-                            enabled: false,
-                        },
-                        pngquant: {
-                            quality: [0.65, 0.90],
-                            speed: 4
-                        },
-                        gifsicle: {
-                            interlaced: false,
-                        },
-                        // the webp option will enable WEBP
-                        webp: {
-                            quality: 75
-                        }
-                    })
+                .when(process.env.NODE_ENV === 'production', rule => {
+                    rule.use('image-webpack-loader')//https://github.com/tcoopman/image-webpack-loader
+                        .loader('image-webpack-loader')
+                        .options({
+                            mozjpeg: {
+                                progressive: true,//默认为true
+                                // quality: 75//图片质量（大小）可以不用配置，会默认按照一定比例智能压缩
+                            },
+                            // optipng.enabled: false will disable optipng
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.90],
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            // the webp option will enable WEBP
+                            webp: {
+                                quality: 75
+                            }
+                        })
+                })
+                
                 // .use('img-loader')
                 //     .loader('img-loader')
                 //     .options({
