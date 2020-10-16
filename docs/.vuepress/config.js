@@ -83,6 +83,10 @@ module.exports = {
                         path: '/sidebar/jest/测试用例.md'
                     }
                 ]
+            },
+            {
+                title: '前端管理学习',
+                path: '/sidebar/manager/前端管理.md'
             }
         ],
         nav: [
