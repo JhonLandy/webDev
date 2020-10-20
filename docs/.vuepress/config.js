@@ -335,17 +335,17 @@ module.exports = {
             .alias
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
 
-        config.optimization
-            .concatenateModules(true)
-            .flagIncludedChunks(true)
-            .mergeDuplicateChunks(true)
-            .minimize(true)
-            .occurrenceOrder(true)
-            .providedExports(true)
-            .removeAvailableModules(true)
-            .removeEmptyChunks(true)
+        // config.optimization //这种不管用
+        //     .concatenateModules(true)
+        //     .flagIncludedChunks(true)
+        //     .mergeDuplicateChunks(true)
+        //     .minimize(true)
+        //     .occurrenceOrder(true)
+        //     .providedExports(true)
+        //     .removeAvailableModules(true)
+        //     .removeEmptyChunks(true)
+        //     .sideEffects(true)
             // .runtimeChunk('single')
-            .sideEffects(true)
             // .splitChunks({//抽离公用模块，不能使用
             //     chunks: 'all',
             //     minSize: 20000,
@@ -376,9 +376,57 @@ module.exports = {
             //         },
             //     }
             // })
-            .usedExports(true)//tree shaking
+            // .usedExports(true)//tree shaking
 
     },
+    configureWebpack() {
+        return {//覆盖配置
+            optimization: {
+                concatenateModules: true,
+                flagIncludedChunks: true,
+                mergeDuplicateChunks: true,
+                minimize: true,
+                occurrenceOrder: true,
+                providedExports: true,
+                removeAvailableModules: true,
+                removeEmptyChunks: true,
+                sideEffects: true,
+                runtimeChunk: 'single',
+                splitChunks: {//抽离公用模块，不能使用
+                    chunks: 'all',
+                    minSize: 20000,
+                    maxSize: 0,
+                    minChunks: 1,
+                    maxAsyncRequests: 30,
+                    maxInitialRequests: 30,
+                    automaticNameDelimiter: '~',
+                    enforceSizeThreshold: 50000,
+                    cacheGroups: {
+                        elementUI: {
+                            name: 'chunk-elementUI', // split elementUI into a single package
+                            priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+                            test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+                        },
+                        styles: {
+                            name: 'styles',
+                            test: /\.css$/,
+                            chunks: 'all',
+                            enforce: true,
+                            priority: 20,
+                        },
+                        libs: {
+                            name: 'chunk-libs',
+                            test: /[\\/]node_modules[\\/]/,
+                            priority: 10,
+                            chunks: 'initial' // only package third parties that are initially dependent
+                        },
+                    }
+                },
+                usedExports: true
+            }
+        }
+    },
+   
     plugins: [
         '@vuepress/back-to-top',
         ['@vuepress/pwa',
