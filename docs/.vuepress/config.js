@@ -322,12 +322,12 @@ module.exports = {
                 //     })
                 // .end()//图片压缩报错，不知道是不是node版本问题
             
-        config
-            .module
-            .rule('babel')
-                .test(/\.js$/)
-                .use('babel')
-                    .loader('babel-loader')
+        // config
+        //     .module
+        //     .rule('babel')
+        //         .test(/\.js$/)
+        //         .use('babel')
+        //             .loader('babel-loader')
         .end()
 
         config
@@ -336,19 +336,17 @@ module.exports = {
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
 
         config.optimization
-            // .concatenateModules(true)
-            // .flagIncludedChunks(true)
-            // .mergeDuplicateChunks(true)
-            // .minimize(true)
-            // .occurrenceOrder(true)
-            // .providedExports(true)
-            // .removeAvailableModules(true)
-            // .removeEmptyChunks(true)
-            // .runtimeChunk({
-            //     name: 'single'
-            // })
-            // .sideEffects(true)
-            // .splitChunks({//抽离公用模块
+            .concatenateModules(true)
+            .flagIncludedChunks(true)
+            .mergeDuplicateChunks(true)
+            .minimize(true)
+            .occurrenceOrder(true)
+            .providedExports(true)
+            .removeAvailableModules(true)
+            .removeEmptyChunks(true)
+            // .runtimeChunk('single')
+            .sideEffects(true)
+            // .splitChunks({//抽离公用模块，不能使用
             //     chunks: 'all',
             //     minSize: 20000,
             //     maxSize: 0,
