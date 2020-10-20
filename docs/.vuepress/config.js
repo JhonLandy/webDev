@@ -334,6 +334,43 @@ module.exports = {
             .alias
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
 
+        config.optimization
+            .concatenateModules(true)
+            .flagIncludedChunks(true)
+            .mergeDuplicateChunks(true)
+            .minimize(true)
+            .occurrenceOrder(true)
+            .providedExports(true)
+            .removeAvailableModules(true)
+            .removeEmptyChunks(true)
+            .runtimeChunk({
+                name: 'single'
+            })
+            .sideEffects(true)
+            .splitChunks({
+                chunks: 'all',
+                minSize: 20000,
+                // minRemainingSize: 0,
+                maxSize: 0,
+                minChunks: 1,
+                maxAsyncRequests: 30,
+                maxInitialRequests: 30,
+                automaticNameDelimiter: '~',
+                enforceSizeThreshold: 50000,
+                cacheGroups: {
+                    defaultVendors: {
+                      test: /[\\/]node_modules[\\/]/,
+                      priority: -10
+                    },
+                    default: {
+                      minChunks: 2,
+                      priority: -20,
+                      reuseExistingChunk: true
+                    }
+                }
+            })
+            .usedExports(true)
+
     },
     plugins: [
         '@vuepress/back-to-top',
