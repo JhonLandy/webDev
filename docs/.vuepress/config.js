@@ -335,41 +335,49 @@ module.exports = {
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
 
         config.optimization
-            .concatenateModules(true)
-            .flagIncludedChunks(true)
-            .mergeDuplicateChunks(true)
-            .minimize(true)
-            .occurrenceOrder(true)
-            .providedExports(true)
-            .removeAvailableModules(true)
-            .removeEmptyChunks(true)
-            .runtimeChunk({
-                name: 'single'
-            })
-            .sideEffects(true)
-            .splitChunks({
-                chunks: 'all',
-                minSize: 20000,
-                // minRemainingSize: 0,
-                maxSize: 0,
-                minChunks: 1,
-                maxAsyncRequests: 30,
-                maxInitialRequests: 30,
-                automaticNameDelimiter: '~',
-                enforceSizeThreshold: 50000,
-                cacheGroups: {
-                    defaultVendors: {
-                      test: /[\\/]node_modules[\\/]/,
-                      priority: -10
-                    },
-                    default: {
-                      minChunks: 2,
-                      priority: -20,
-                      reuseExistingChunk: true
-                    }
-                }
-            })
-            .usedExports(true)
+            // .concatenateModules(true)
+            // .flagIncludedChunks(true)
+            // .mergeDuplicateChunks(true)
+            // .minimize(true)
+            // .occurrenceOrder(true)
+            // .providedExports(true)
+            // .removeAvailableModules(true)
+            // .removeEmptyChunks(true)
+            // .runtimeChunk({
+            //     name: 'single'
+            // })
+            // .sideEffects(true)
+            // .splitChunks({//抽离公用模块
+            //     chunks: 'all',
+            //     minSize: 20000,
+            //     maxSize: 0,
+            //     minChunks: 1,
+            //     maxAsyncRequests: 30,
+            //     maxInitialRequests: 30,
+            //     automaticNameDelimiter: '~',
+            //     enforceSizeThreshold: 50000,
+            //     cacheGroups: {
+            //         elementUI: {
+            //             name: 'chunk-elementUI', // split elementUI into a single package
+            //             priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+            //             test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+            //         },
+            //         styles: {
+            //             name: 'styles',
+            //             test: /\.css$/,
+            //             chunks: 'all',
+            //             enforce: true,
+            //             priority: 20,
+            //         },
+            //         libs: {
+            //             name: 'chunk-libs',
+            //             test: /[\\/]node_modules[\\/]/,
+            //             priority: 10,
+            //             chunks: 'initial' // only package third parties that are initially dependent
+            //         },
+            //     }
+            // })
+            .usedExports(true)//tree shaking
 
     },
     plugins: [
