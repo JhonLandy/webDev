@@ -336,18 +336,18 @@ module.exports = {
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
 
         config.optimization
-            .concatenateModules(true)
-            .flagIncludedChunks(true)
-            .mergeDuplicateChunks(true)
-            .minimize(true)
-            .occurrenceOrder(true)
-            .providedExports(true)
-            .removeAvailableModules(true)
-            .removeEmptyChunks(true)
+            // .concatenateModules(true)
+            // .flagIncludedChunks(true)
+            // .mergeDuplicateChunks(true)
+            // .minimize(true)
+            // .occurrenceOrder(true)
+            // .providedExports(true)
+            // .removeAvailableModules(true)
+            // .removeEmptyChunks(true)
             // .runtimeChunk({
             //     name: 'single'
             // })
-            .sideEffects(true)
+            // .sideEffects(true)
             // .splitChunks({//抽离公用模块
             //     chunks: 'all',
             //     minSize: 20000,
