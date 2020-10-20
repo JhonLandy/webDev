@@ -322,12 +322,12 @@ module.exports = {
                 //     })
                 // .end()//图片压缩报错，不知道是不是node版本问题
             
-        // config
-        //     .module
-        //     .rule('babel')
-        //         .test(/\.js$/)
-        //         .use('babel')
-        //             .loader('babel-loader')
+        config
+            .module
+            .rule('babel')
+                .test(/\.js$/)
+                .use('babel')
+                    .loader('babel-loader')
         .end()
 
         config
