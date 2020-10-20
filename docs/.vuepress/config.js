@@ -434,7 +434,7 @@ module.exports = {
     //             })
         
 
-    // },
+    },
     
    
     plugins: [
