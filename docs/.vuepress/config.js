@@ -387,54 +387,54 @@ module.exports = {
             .alias
             .set('@images', process.cwd() + '/docs/.vuepress/public/images')
 
-        config
-            .when(process.env.NODE_ENV === 'production' && !isServer, _config => {
-                _config.optimization //这种不管用
-                    .concatenateModules(true)
-                    .flagIncludedChunks(true)
-                    .mergeDuplicateChunks(true)
-                    .minimize(true)//告诉webpack使用TerserPlugin或指定的插件最小化捆绑包optimization.minimizer；使用TerserPlugin则需要下载TerserPlugin
-                    .occurrenceOrder(true)
-                    .providedExports(true)
-                    .removeAvailableModules(true)
-                    .removeEmptyChunks(true)
-                    .sideEffects(true)
-                    .runtimeChunk('single')
-                    .splitChunks({//抽离公用模块，不能使用
-                        chunks: 'all',
-                        minSize: 20000,
-                        maxSize: 0,
-                        minChunks: 1,
-                        maxAsyncRequests: 30,
-                        maxInitialRequests: 30,
-                        automaticNameDelimiter: '~',
-                        enforceSizeThreshold: 50000,
-                        cacheGroups: {
-                            elementUI: {
-                                name: 'chunk-elementUI', // split elementUI into a single package
-                                priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-                                test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
-                            },
-                            styles: {//需要下载MiniCssExtractPlugin
-                                name: 'styles',
-                                test: /\.css$/,
-                                chunks: 'all',
-                                enforce: true,
-                                priority: 20,
-                            },
-                            libs: {
-                                name: 'chunk-libs',
-                                test: /[\\/]node_modules[\\/]/,
-                                priority: 10,
-                                chunks: 'initial' // only package third parties that are initially dependent
-                            },
-                        }
-                    })
-                    .usedExports(true)//tree shaking
-                })
+    //     config
+    //         .when(process.env.NODE_ENV === 'production' && !isServer, _config => {
+    //             _config.optimization //这种不管用
+    //                 .concatenateModules(true)
+    //                 .flagIncludedChunks(true)
+    //                 .mergeDuplicateChunks(true)
+    //                 .minimize(true)//告诉webpack使用TerserPlugin或指定的插件最小化捆绑包optimization.minimizer；使用TerserPlugin则需要下载TerserPlugin
+    //                 .occurrenceOrder(true)
+    //                 .providedExports(true)
+    //                 .removeAvailableModules(true)
+    //                 .removeEmptyChunks(true)
+    //                 .sideEffects(true)
+    //                 .runtimeChunk('single')
+    //                 .splitChunks({//抽离公用模块，不能使用
+    //                     chunks: 'all',
+    //                     minSize: 20000,
+    //                     maxSize: 0,
+    //                     minChunks: 1,
+    //                     maxAsyncRequests: 30,
+    //                     maxInitialRequests: 30,
+    //                     automaticNameDelimiter: '~',
+    //                     enforceSizeThreshold: 50000,
+    //                     cacheGroups: {
+    //                         elementUI: {
+    //                             name: 'chunk-elementUI', // split elementUI into a single package
+    //                             priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+    //                             test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+    //                         },
+    //                         styles: {//需要下载MiniCssExtractPlugin
+    //                             name: 'styles',
+    //                             test: /\.css$/,
+    //                             chunks: 'all',
+    //                             enforce: true,
+    //                             priority: 20,
+    //                         },
+    //                         libs: {
+    //                             name: 'chunk-libs',
+    //                             test: /[\\/]node_modules[\\/]/,
+    //                             priority: 10,
+    //                             chunks: 'initial' // only package third parties that are initially dependent
+    //                         },
+    //                     }
+    //                 })
+    //                 .usedExports(true)//tree shaking
+    //             })
         
 
-    },
+    // },
     
    
     plugins: [
