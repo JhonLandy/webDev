@@ -54,11 +54,17 @@ title: 图(持续更新中)
 ***<small>来源：力扣（LeetCode）</small>***
 ***<small>链接：</small><https://leetcode-cn.com/problems/parallel-courses>***
 
+##### 思路：
+    1. 先构造图的结构
+    2. signal标记后置课程，没标记的为前置课程
+    3. 遍历前置课程队列，并标记前置课程的后续课程（后置课程），放进队列，如此循环
+    4. signal标记值不为0的就表示有环（1或-1）
+    5. 返回结果
 ```js
 var minimumSemesters = function(N, relations) {
 
     const graph = Array(N).fill(0)//开辟数组
-    const signal = [...graph]
+    const signal = [...graph]//作用是标记入度和判断是否有环
     const queue = []
     let count = 0
     for (const [a, b] of relations) {//初始化图数据结构
@@ -69,11 +75,11 @@ var minimumSemesters = function(N, relations) {
         } else {
             graph[from] = [to]
         }
-        signal[to]++
+        signal[to]++//标记后置课程
     }
     for (let i = 0;i <N;i++) {
         if (signal[i] === 0)
-            queue.push(i)
+            queue.push(i)//前置课程放进队列
     }
     while (queue.length > 0) {
         const size = queue.length
