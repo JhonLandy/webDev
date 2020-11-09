@@ -68,13 +68,12 @@ title: Git 实用命令
       ```
    - 撤销暂存区内容
       ```bash
-      git add filename//添加文件到暂存区
-
-      git reset HEAD  //撤销暂存区全部文件
-
-      git reset HEAD filename//指定撤销暂存区的文件
+      git rm -r --cached 文件/文件夹名字 
       ```
-      
+   - 删除工作区文件
+      ```bash
+         git rm 文件 //这次删除会提交到暂存区
+      ```
    - 查看分支从哪里拉取
       ```bash
       git reflog --date=local | grep feature/ycl_overview_edit
