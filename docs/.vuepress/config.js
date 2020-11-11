@@ -59,12 +59,7 @@ module.exports = {
                 children: [
                     {
                         title: '执行流程',
-                        children: [
-                            {
-                                title: 'react执行流程',
-                                path: '/sidebar/react/process.md'
-                            }
-                        ]
+                        path: '/sidebar/react/process.md'
                     }
                 ]
             }, 
