@@ -52,6 +52,21 @@ module.exports = {
                         path: '/sidebar/git/OriginAndUpstream.md'
                     }
                 ]
+            },
+            {
+                title: 'React',
+                sidebarDepth: 2,
+                children: [
+                    {
+                        title: '执行流程',
+                        children: [
+                            {
+                                title: 'react执行流程',
+                                path: '/sidebar/react/process.md'
+                            }
+                        ]
+                    }
+                ]
             }, 
             {
                 title: 'Vue',
@@ -140,7 +155,7 @@ module.exports = {
                             ariaLabel: '基本使用',
                             link: '/nav/web/vue/api/index.md'
                         }]
-                    },
+                    }
                 ]
             },
             {
