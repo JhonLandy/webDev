@@ -115,9 +115,9 @@ module.exports = {
                                 link: '/nav/web/javascript/ES6/index.md'
                             },
                             {
-                                text: 'ES7',
-                                ariaLabel: 'ES7',
-                                link: '/nav/web/javascript/ES7/async.md'
+                                text: '对象、类面向对象编程',
+                                ariaLabel: '对象、类面向对象编程',
+                                link: '/nav/web/javascript/object/index.md'
                             }
                         ]
                     },
