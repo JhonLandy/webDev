@@ -155,7 +155,10 @@ const person = new Person()
 // const person = new Person不传参数等价
 console.log(person.a)//2
 ```
-### 原型模式
+
+## 原型
+
+### 介绍
 共享数据，解决构造函数每次new的时候都会给方法属性，分配新的内存空间的问题
 ```js
 function Person() {}
@@ -166,3 +169,104 @@ const person1 = new Person
 const person2 = new Person
 console.log(person1.sayHello = person2.sayHello)//true
 ```
+无论如何，只要创建一个函数，就会按照特定的规则为这个函数创建一个prototype属性（指向原型对象）。默认情况下，所有原型对象自动获得一个名为constructor，指回与之关联的构造函数。
+
+### Object.setPrototypeOf()
+```js
+let a = {
+  name: 'foo'
+}
+let b = {
+  sex: 'man'
+}
+Object.setPrototyprOf(a, b)
+console.log(Object.getPrototyprOf(a, b))//true
+```
+这里不只是执行Object.setPrototypeOf()语句那么简单，会涉及所有访问了那些修改过【Prototype】的对象代码，可能会导致性能下降，可以通过Object.create来创建一个对象，同时指定原型：
+```js
+let b = {
+  sex: 'man'
+}
+let a = Object.create(b)
+a.name = 'foo'
+console.log(Object.getPrototyprOf(a, b))//true
+```
+
+### 原型层级
+在通过访问对象属性时，会按照这个属性的名称开始搜索。搜索开始于对象实例本身。如果在这个实例上发现了给定的名称，则返回该名称对应的值。如果没有找到这个属性，则搜索会沿着指针进入原型对象，找到原型对象的属性后返回对应的值。
+```js
+function Person() {}
+
+Person.prototype.sayFather = function () {
+    console.log('father')
+}
+let person = new Person
+person.sayFather()//father
+```
+
+通过给实例添加属性，可以屏蔽对原型的相同属性的访问。如果想去掉屏蔽，设置为null也不会恢复，要使用delete 删除实例属性
+```js
+function Person() {}
+Person.prototype.name = 'gg'
+let person = new Person
+
+person.name = 'foo'
+console.log(person.name)//foo
+
+person.name = null
+console.log(person.name)//null
+
+delete person.name
+console.log(person.name)//gg
+```
+
+### 原型和in操作符
+```js
+function Person() {} 
+Person.prototype.name = 'gg'
+Person.prototype.sayFather = function () {
+    console.log('father')
+}
+let person = new Person
+
+console.log(person.hasOwnProperty('name'))//检查属性name是否在实例person上，结果为false
+console.log('name' in person)//true
+
+person.name = 'foo'
+console.log(person.hasOwnProperty('name'))//true
+console.log('name' in person)//true
+```
+
+for...in,Object.keys(),Object.getOwnPropertyName()都只会枚举在本对象的属性，不会枚举原型对象的属性。
+
+- Object.getOwnPropertyName() 的返回保函不可枚举的属性
+```js
+function Person() {} 
+Person.prototype.name = 'gg'
+Person.prototype.sayFather = function () {
+    console.log('father')
+}
+console.log(Object.getOwnPropertyName(Person.prototype))//constructor,name,sayFather
+console.log(Object.keys(Person.prototype))//name,sayFather
+```
+
+## 继承
+
+### 原型链
+通过原型链继承：
+```js
+function Aa() {
+  this.sexA = '男'
+}
+function Bb() {
+  this.sexB = '女'
+}
+Bb.prototype = new Aa()
+Bb.prototype.getSex = function() {
+  return this.sexA 
+}
+const b = new Bb()
+b.getSex()//男
+```
+
+
