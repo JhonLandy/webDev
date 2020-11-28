@@ -269,4 +269,107 @@ const b = new Bb()
 b.getSex()//男
 ```
 
+### 盗用构造函数继承
+
+```js
+function Super() {
+    this.name = '爸爸'
+}
+function Son() {
+  Super.call(this)//盗用爸爸Super的属性
+  this.age = 25
+}
+```
+缺点是无法获取调用父类的原型属性方法
+
+### 组合继承
+```js
+function Super() {
+    this.age1 = 2
+}
+function Son() {
+    Super.call(this)
+    this.age = 1
+}
+Son.prototype = new Super()
+const son = new Son()
+console.log(son)//原型上有ag
+// class Super {
+//     constructor(name) {
+//         this.name1 = name
+//     }
+//     age1 = 'sb'
+// }
+// class Son extends Super {
+//     constructor(name) {
+//         super('77')
+//         this.name = name
+//     }
+//     age = 'son'
+// }
+```
+缺点是子类原型上有多余的属性
+
+### 原型式继承
+适用于在一个对象基础上创建新的对象，不需要单独创建构造函数(也就是不关注实例类型，如：instanceof)，保函引用值的属性始终在相关对象实例共享。
+```js
+function object(o) {
+    function F() {}
+    F.prototype = o
+    return new F
+}
+```
+
+<strong>等价于:</strong>
+
+```js
+const person = {
+    name: 'foo'
+}
+
+Object.create(person, {//相当于Object.defineProperties
+    name: {
+        value: 'kk'
+    }
+})
+```
+
+### 寄生式继承
+
+1. 创建一个继承(原型对象)函数
+2. 在一个对象(原型对象)基础上创建一个新的对象(实例对象)
+3. 增强新的对象(实例对象)，赋值
+4. 返回对象(实例对象)
+
+```js
+function inheritPrototype(Son, Super) {
+    let prototype = object(Super.prototype)
+    prototype.constructor = Son
+    Son.prototype = prototype
+}
+```
+
+### 寄生组合继承（盗用构造函数 + 寄生式继承）
+```js
+function Super() {
+
+}
+function Son() {
+
+}
+function object(o) {
+    function F() {}
+    F.prototype = o
+    return new FORMERR
+}
+function inheritPrototype(Son, Super) {
+    let prototype = object(Super.prototype)
+    prototype.constructor = Son
+    Son.prototype = prototype
+}
+inheritPrototype(Son, Super)//instnanceof, isPrototypeOf()也正常有效
+```
+
+这样和class类继承就很像，Son原型上没有多余属性参照对比 <a href="#组合继承">组合继承</a>，这是比较推荐使用的方法。
+
 
