@@ -251,7 +251,7 @@ console.log(Object.keys(Person.prototype))//name,sayFather
 ```
 
 ## 继承
-
+主要通过原型链实现。
 ### 原型链
 通过原型链继承：
 ```js
@@ -371,5 +371,80 @@ inheritPrototype(Son, Super)//instnanceof, isPrototypeOf()也正常有效
 ```
 
 这样和class类继承就很像，Son原型上没有多余属性参照对比 <a href="#组合继承">组合继承</a>，这是比较推荐使用的方法。
+
+## 类
+
+类是ECMAScript中新的基础性语法糖结构，表面上看似支持正式的面向对象编程，但实际上它还是使用的仍然是原型和构造函数的概念。
+
+### 定义
+```js
+class Person1 {}//有效定义
+class Person2 {//有效定义
+  constructor() {}
+}
+class Person3 {//有效定义
+  get mySon() {}
+}
+class Person4 {//有效定义
+  static getSon() {}
+}
+```
+以上就是类的集中定义方式，constructor并不是必需的，不定义constructor相当于将构造函数定义为空函数。
+
+### 原理
+实际上，当 new 的时候，就是调用constructor函数进行实例化。调用类的构造函数实际上执行了下面的操作：
+> 在内存中创建一个对象
+
+> 新对象内部的 [[Prototype]] 被赋值为构造函数的prototype属性
+
+> 将this指向新对象
+
+> 构造函数返回this，如果构造函数 有返回对象，只返回它，但这会使  instanceof 失效 （判定为false）
+
+
+
+### 继承（关键字 extends）
+
+背后依旧使用原型链
+```js
+class Father {
+  say() {
+      console.log('爸爸')
+  }
+}
+
+class Son extnds Father {
+    constructor() {
+      super()
+      console.log(1)
+    }
+}
+
+new Son().say()//爸爸
+```
+
+若子类声明了 constructor，则需要调用super(),this不能在super()执行前使用。
+
+### 类混入
+
+Es6没有显示地支持多类继承，但是可以手动实现。即Person类需要组合继承A, B, C, 则需要某种机制，实现，B继承A，C继承B，然后Person 类在继承C。
+
+```js
+class A {}
+class B extends A {}
+class C extends B {}
+class Person extends C {}
+```
+
+### 常用手段
+```js
+class Person {
+  sex = '男'
+  static name = 'YCL'
+}
+const person = new Person()
+console.log(person.sex)//男
+console.log(Person.name)//YCL
+```
 
 
