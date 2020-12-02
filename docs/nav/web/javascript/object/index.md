@@ -521,6 +521,7 @@ Object.defineProperty(proxy， 'name', 'son')//调用了
 
 ### 代理的不足
 就是this指向的问题，注意使用，下面举个例子就明白了。
+
 ```js
 const vm = new WeakMap()
 
