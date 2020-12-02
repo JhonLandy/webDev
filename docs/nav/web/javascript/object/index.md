@@ -515,11 +515,15 @@ const proxy = new Proxy(person, {
 Object.defineProperty(proxy， 'name', 'son')//调用了
 ```
 ##### Reflect.apply
+
 会在调用函数中调用
+
 ##### Reflect.construct
+
 会在new操作符中被调用
 
 ### 代理的不足
+
 就是this指向的问题，注意使用，下面举个例子就明白了。
 
 ```js
