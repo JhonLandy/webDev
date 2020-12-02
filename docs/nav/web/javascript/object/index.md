@@ -447,4 +447,105 @@ console.log(person.sex)//男
 console.log(Person.name)//YCL
 ```
 
+## 代理与反射
+
+### 代理
+
+相当于目标对象的替身，但又完全独立于目标对象;目标对象既可以被直接操作，也可以通过代理来操作，直接操作会绕过代理。修改代理，如果没有传入handler，则目标对象的相同属性也会赋一样的值
+```js
+const person = {
+    name: 'foo'
+}
+const handler = {}
+const proxy = new Proxy(person, handler)
+
+console.log(person === proxy)//false
+proxy.name = 2
+console.log(proxy)//{name: 2}
+console.log(person)//{name: 2}
+```
+### 捕获器
+就是用来对目标对象 的 "基本操作" 进行拦截。如，get,set等
+```js
+const person = {
+    name: 'foo'
+}
+const handler = {
+    get(target, key, proxy) {//捕获器
+        console.log('获取一个值')
+        return Reflect.get(target, key)
+    }
+}
+const proxy = new Proxy(person, handler)
+proxy.name//获取一个值
+```
+### 反射器
+在捕获器上执行，执行相同的行为，把结果反射给捕获器（return）.如，捕获器get,对应的反射API有Reflect.get()。
+
+##### Reflect.get
+```js
+const person = {
+    name: 'foo'
+}
+const handler = {
+    get(target, key, proxy) {//捕获器
+        console.log('获取一个值')
+        return Reflect.get(target, key)
+    }
+}
+const proxy = new Proxy(person, handler)
+console.log(proxy.name)//foo
+```
+##### Reflect.set
+设置赋值操作中调用
+##### Reflect.deleteProprty
+在delete操作中调用
+##### Reflect.has
+会在in操作符中被调用
+##### Reflect.defineProperty
+会在Object.defineProperty()中调用
+```js
+const person = {}
+const proxy = new Proxy(person, {
+    defineProperty(...params) {
+        console.log('调用了')
+        return Reflect.defineProperty(params)
+    }
+})
+Object.defineProperty(proxy， 'name', 'son')//调用了
+```
+##### Reflect.apply
+会在调用函数中调用
+##### Reflect.construct
+会在new操作符中被调用
+
+### 代理的不足
+就是this指向的问题，注意使用，下面举个例子就明白了。
+```js
+const vm = new WeakMap()
+
+class User {
+    constructor(userId) {
+        vm.set(this, userId)
+    }
+    get id() {
+      return wm.get(this)
+    }
+}
+```
+如果依赖User 实例进行代理，那么就会出问题
+```js
+const user = new User(122)
+const proxy = new Proxy(user)
+console.log(proxy.id)//undefined
+```
+
+原因是在User类实例化时，this指的是User的实例，当对实例进行代理，再获取id，此时的this指的是代理的实例对象，正确做法是:<strong>(注：代理的实例对象 不等于 User的实例，再次强调！！！)</strong>
+
+```js
+const UserProxy = new Proxy(User, {})
+const userProxy = new UserProxy(122)
+console.log(userProxy.id)//122
+```
+
 
