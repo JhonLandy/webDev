@@ -555,4 +555,113 @@ const userProxy = new UserProxy(122)
 console.log(userProxy.id)//122
 ```
 
+## 函数
+### 类型
+#### 箭头函数
+
+```js
+const fn = () => {
+  console.log()
+} 
+```
+
+#### 普通函数
+```js
+const fn = function() {
+  console.log()
+} 
+```
+### 函数声明与函数命名
+```js
+console.log(fn())//1
+function fn() {
+  console.log(1)
+} 
+console.log(fn2())//error
+var fn2 = function() {
+  console.log(1)
+}
+console.log(fn3())//error
+const fn3 = function() {
+  console.log(1)
+}
+```
+函数声明会提升到执行上下文的最前面。预编译会扫描整个js代码，并将函数声明提升到执行上下文最前面。所以，函数声明和函数命是有区别的，请注意！！！
+### 递归
+函数在自己的代码块中调用执行自己。
+```js
+function fn(v) {
+  if (v > 4) return 'done'
+  consloe.log(fn(++v))
+  
+}
+
+function fn(v) {
+  if (v > 4) return 'done'
+  // arguments.callee指向的函数本身
+  consloe.log(arguments.callee(++v))
+}
+```
+
+### 尾递归优化
+
+可以重用栈帧，一般情况下，每调用函数，就调用一个栈帧。使用尾递归，这会减少栈帧调用，多次调用函数，最后只会剩一个栈帧在使用。
+
+> 在严格模式下执行
+
+> 外部函数的返回值是尾调用函数的返回
+
+>尾调用函数返回不执行额外的逻辑 
+
+>尾调用函数不是引用外部函数作用域中自用变量的闭包 
+
+
+### 闭包
+闭包通常会被误认为匿名函数，其实不是。闭包指的是那些引用了另一个函数作用域中变量的函数，通常是在嵌套函数中实现
+```js
+function create(name) {
+    return function(object) {
+        return object[name]
+    }
+}
+```
+### 模块模式（私有变量）
+模块模式是在单例对象基础上加以扩展，使其通过作用域链来关联私有变量和特权方法。
+```js
+
+let app = function() {
+    //私有变量
+    let comp = new Array()
+    //
+    comp.push(new BaseComp())
+    return {
+        registerComp(cmp) {
+          comp.push(cmp)
+        }
+    }
+}
+```
+模块模式中也可以增强单例对象
+
+```js
+let app = function() {
+    //私有变量
+    let comp = new Array()
+    //
+    comp.push(new BaseComp())
+
+    let app = new BaseComp()
+    
+    app.getFn = function() {
+        return {
+          registerComp(cmp) {
+            comp.push(cmp)
+          }
+        }
+    }
+    return app
+}
+```
+
+
 
