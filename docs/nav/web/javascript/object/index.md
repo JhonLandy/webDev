@@ -556,7 +556,9 @@ console.log(userProxy.id)//122
 ```
 
 ## 函数
+<small>publish: 2020-12-03 08:47:23</small>
 ### 类型
+
 #### 箭头函数
 
 ```js
@@ -651,7 +653,7 @@ let app = function() {
     comp.push(new BaseComp())
 
     let app = new BaseComp()
-    
+
     app.getFn = function() {
         return {
           registerComp(cmp) {
