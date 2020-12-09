@@ -118,6 +118,11 @@ module.exports = {
                                 text: '对象、类面向对象编程',
                                 ariaLabel: '对象、类面向对象编程',
                                 link: '/nav/web/javascript/object/index.md'
+                            },
+                            {
+                                text: '期约与异步函数',
+                                ariaLabel: '期约与异步函数',
+                                link: '/nav/web/javascript/promise/index.md'
                             }
                         ]
                     },
