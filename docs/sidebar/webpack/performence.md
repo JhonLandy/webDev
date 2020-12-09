@@ -159,3 +159,44 @@ optimization: {
  ],
 ```
 
+## 图片压缩
+我使用的是<code>image-webpack-loader</code>,挺方便的。不过要科学上网，才能安装成功，要注意哦！[源地址](https://github.com/tcoopman/image-webpack-loader)，配置规则如下：
+```js
+ config.module
+    .rule('images')
+        .use('url-loader')
+            .loader('url-loader')
+            .tap(options => {
+                options.esModule = false;
+                options.limit = 10000
+                return options
+            })
+        .end()
+        .when(process.env.NODE_ENV === 'production', rule => {
+            rule.use('image-webpack-loader')
+                .loader('image-webpack-loader')
+                .options({
+                    mozjpeg: {
+                        progressive: true,//默认为true
+                        // quality: 75//图片质量（大小）可以不用配置，会默认按照一定比例智能压缩
+                    },
+                    // optipng.enabled: false will disable optipng
+                    optipng: {
+                        enabled: false,
+                    },
+                    pngquant: {
+                        quality: [0.65, 0.90],
+                        speed: 4
+                    },
+                    gifsicle: {
+                        interlaced: false,
+                    },
+                    // the webp option will enable WEBP
+                    webp: {
+                        quality: 75
+                    }
+                })
+        })
+```
+
+

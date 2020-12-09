@@ -85,6 +85,16 @@ module.exports = {
                 title: 'VueRouter原理解析'
             },
             {
+                title: 'webpack',
+                sidebarDepth: 1,
+                children: [
+                    {
+                        title: 'webpack性能优化',
+                        path: '/sidebar/webpack/performence.md'
+                    }
+                ]
+            },
+            {
                 title: 'jest',
                 sidebarDepth: 1,
                 children: [
