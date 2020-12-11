@@ -8,7 +8,7 @@ title: async/await
 
 # async/await - Promise 的语法糖
 
-- ##### 认识asnyc/await
+## 认识asnyc/await
 
 平常开发中是否经常使用promise，是不是为回调地狱头疼，是不是想以另一种更加优雅的方式处理代码?async/await是不错的选择，它也是es7的新增语法，需要babel兼容。
 下面我们来看看，这个语法糖到底如何使用。
@@ -77,9 +77,54 @@ js代码执行的时候，当遇到await，就会暂停后面代码的执行，�
 
 使用Promise虽然也能实现一样的功能，但是代码看上去一点都不整洁、优雅，写多了，有点高血压。后面还不是一定好维护代码，还是async.await舒服。
 
-- ##### asnyc/await 的原理
+## asnyc/await 的原理
 
-我使用babel对asnyc/await代码进行了转义，得到了下面的代码，看了之后大概知道asnyc/await是怎么给promise做语法糖的。
+我使用babel对asnyc/await代码进行了转义，得到了下面的代码，看了之后大概知道asnyc/await是怎么给promise做语法糖的。先来认识一下迭代器iterator,这样后面好理解。
+
+### 迭代器iterator
+
+<small>publish：2020-12-11 14:15:41</small>
+
+迭代器（iterator）是一种对象，它能够用来遍历容器中的部分或全部元素。来认识一下，它是什么样子。
+```js
+//自定义迭代器
+class Iterator {
+    length = 0
+    constructor(length) {
+        this.length = length
+    }
+    [Symbol.iterator]() {
+        let index = 0
+        let next = val =>{
+            return {
+                value: val || index,
+                done: index++ >= this.length ,
+            }
+        }
+        return {
+            next
+        }
+    }
+}
+const iterator= new Iterator(3)
+const i = iterator[Symbol.iterator]()
+// 第一种，传参
+i.next('foo')//{done: false, value: 'foo'}
+i.next('jk')//{done: false, value: 'jk'}
+i.next('bar')//{done: true, value: 'bar'}
+//第二种，不传参
+i.next()//{done: false, value: 0}
+i.next()//{done: false, value: 1}
+i.next()//{done: true, value: 2}
+for (let val of iterator) {
+  console.log(val)
+}
+//0
+//1
+//2
+```
+
+
 
 ###### 原来的代码：
 
