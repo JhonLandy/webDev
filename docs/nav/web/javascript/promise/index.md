@@ -170,7 +170,11 @@ let p = Promise.all([
   Promise.reject(3),
   new Promise((_, reject) => setTimeout(_, 1000, 'fuck'))
 ])
-console.log(p)
+console.log(p)//Promise<reject>: 3
+
+p.catch(e => console.log(e))//3
+
+//没有未处理的错误。。。
 ```
 
 ### Promise.race
