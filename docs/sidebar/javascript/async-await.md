@@ -124,8 +124,6 @@ for (let val of iterator) {
 //2
 ```
 
-
-
 ###### 原来的代码：
 
 ```javascript
@@ -154,7 +152,8 @@ console.log(kk())
 "use strict";
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { 
-    try { 
+    //这段代码块是主体
+    try {
         var info = gen[key](arg); 
         var value = info.value; 
     } catch (error) { 
@@ -230,58 +229,9 @@ function _kk() {
 
 ```
 
-  <code>function kk</code>被重新包装过，就是带有async标识的函数都会默认 包装为 返回Promise的函数。
+<code>kk函数</code>是被重新包装过，就是带有async标识的函数都会默认包装为 返回Promise的函数。
 
-```javascript
-  async function kk() {
-    const num = await fn(1)
-    const num1 = await fn(num)
-    const num2 = await fn(num1)
 
-    return (num2)
-  }
-
-  //包装后
-  function kk() {
-  return _kk.apply(this, arguments);
-}
-
-function _kk() {
-  //_asyncToGenerator默认返回 一个 返回promise的函数
-  _kk = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var num, num1, num2;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return fn(1);
-
-          case 2:
-            num = _context.sent;
-            _context.next = 5;
-            return fn(num);
-
-          case 5:
-            num1 = _context.sent;
-            _context.next = 8;
-            return fn(num1);
-
-          case 8:
-            num2 = _context.sent;
-            return _context.abrupt("return", num2);
-
-          case 10:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _kk.apply(this, arguments);
-}
-
-```
 下面这串代码像generate函数一样按顺序执行, 每个await 的函数 是他直接返回promise的值，通过next方法一直往下传，最后作为kk 最终返回的Promise的值，通过<code> Promise.resolve(value).then(_next, _throw);</code>返回出去
 ```javascript
     const num = await fn(1)
