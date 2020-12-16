@@ -1,13 +1,9 @@
 <template>
   <main class="page">
     <slot name="top" />
-
     <Content class="theme-default-content" />
     <PageEdit />
-
     <PageNav v-bind="{ sidebarItems }" />
-    <Vssue ref="issue" class="theme-default-content" />
-
     <slot name="bottom" />
   </main>
 </template>
@@ -24,4 +20,7 @@ export default {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
+
+>>>.vssue
+    width 100%
 </style>
