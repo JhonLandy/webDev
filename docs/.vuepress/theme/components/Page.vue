@@ -21,7 +21,7 @@ export default {
   props: ['sidebarItems'],
   updated() {
       const issue = this.$refs.issue
-      issue.vssue.initComments()
+      issue.vssue.init()
   }
 }
 </script>
