@@ -6,7 +6,7 @@
     <PageEdit />
 
     <PageNav v-bind="{ sidebarItems }" />
-    <Vssue class="theme-default-content" />
+    <Vssue ref="issue" class="theme-default-content" />
 
     <slot name="bottom" />
   </main>
@@ -18,7 +18,11 @@ import PageNav from '@theme/components/PageNav.vue'
 
 export default {
   components: { PageEdit, PageNav },
-  props: ['sidebarItems']
+  props: ['sidebarItems'],
+  updated() {
+      const issue = this.$refs.issue
+      issue.vssue.initComments()
+  }
 }
 </script>
 
