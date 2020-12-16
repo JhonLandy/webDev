@@ -4,8 +4,9 @@ title: TypeScript
 <big>作者： chenglNG(yuanchenglang)</big>
 
 <big>日期：2020年8月30号</big>
+# TypeScript
 
-# 类型
+## 类型
 
 - 基础类型
 
@@ -88,7 +89,7 @@ title: TypeScript
   let arry2: [string, number] = [1, "2"]//自定义数组
   
   ```
-# 高级类型
+## 高级类型
 - 联合类型
 
   ```typescript
@@ -140,7 +141,7 @@ title: TypeScript
   }
   ```
 
-# 接口
+## 接口
 
   - 对象接口
 
@@ -182,14 +183,16 @@ title: TypeScript
          }
      }
      ```
-# 泛型
+## 泛型
   ```typescript
   //请查看泛型文档
   ```
 
-# 装饰器
+## 装饰器
   ```typescript
   //请查看装饰器文档
   ```
+## 声明文件
 
+详细介绍：<https://github.com/xcatliu/typescript-tutorial/network/members>
   
