@@ -7,6 +7,7 @@
 <script>
 export default {
     name: 'PageCommit',
+    props: ['sidebarItems'],
     updated() {
         const issue = this.$$refs.issue
         issue.init()
