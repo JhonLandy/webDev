@@ -11,7 +11,7 @@ export default {
     props: ['sidebarItems'],
     updated() {
         const issue = this.$refs.issue
-        issue.init()
+        issue.vssue.init()
     }
 }
 </script>
