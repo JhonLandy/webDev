@@ -4,7 +4,7 @@
     <Content class="theme-default-content" />
     <PageEdit />
     <PageNav v-bind="{ sidebarItems }" />
-    <Vssue class="theme-default-content" />
+    <Vssue ref="Vssue" class="theme-default-content" title="评论" />
     <slot name="bottom" />
   </main>
 </template>
@@ -15,7 +15,11 @@ import PageNav from '@theme/components/PageNav.vue'
 
 export default {
   components: { PageEdit, PageNav },
-  props: ['sidebarItems']
+  props: ['sidebarItems'],
+  updated() {
+      const vssue = this.$refs['Vssue']
+      vssue.$forceUpdate()
+  }
 }
 </script>
 
