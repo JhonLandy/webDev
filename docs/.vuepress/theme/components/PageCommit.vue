@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: 'PageCommit',
+    name: 'PageCommit',
+    updated() {
+        const issue = this.$$refs.issue
+        issue.init()
+    }
 }
 </script>
 
