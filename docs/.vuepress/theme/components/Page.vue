@@ -4,7 +4,7 @@
     <Content class="theme-default-content" />
     <PageEdit />
     <PageNav v-bind="{ sidebarItems }" />
-    <PageCommit v-bind="{ sidebarItems }"/>
+    <PageCommit :sidebarItems="sidebarItems" />
     <slot name="bottom" />
   </main>
 </template>

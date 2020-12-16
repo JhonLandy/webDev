@@ -1,6 +1,7 @@
 <template>
   <div class="page-commit">
-    <Vssue ref="issue"/>
+    <Vssue ref="issue" />
+    <p style="display: none">{{sidebarItems}}</p>
   </div>
 </template>
 

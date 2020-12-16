@@ -493,7 +493,7 @@ module.exports = {
                 repo: 'webDev', //github一个项目的名称
                 clientId: '4744107b9edc61935f13',//注册的Client ID
                 clientSecret: '5c9ee56d8d18f5abe0d520ec1bdf91d86ce14ec4',//注册的Client Secret
-                // autoCreateIssue:true // 自动创建评论，默认是false，最好开启，这样首次进入页面的时候就不用去点击创建评论的按钮了。
+                autoCreateIssue:true // 自动创建评论，默认是false，最好开启，这样首次进入页面的时候就不用去点击创建评论的按钮了。
             }
         ]
     ]
