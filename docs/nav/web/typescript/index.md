@@ -194,5 +194,5 @@ title: TypeScript
   ```
 ## 声明文件
 
-详细介绍：<https://github.com/xcatliu/typescript-tutorial/network/members>
+详细介绍：<https://github.com/xcatliu/typescript-tutorial/blob/master/basics/declaration-files.md>
   
