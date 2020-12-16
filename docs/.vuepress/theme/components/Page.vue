@@ -15,11 +15,7 @@ import PageNav from '@theme/components/PageNav.vue'
 
 export default {
   components: { PageEdit, PageNav },
-  props: ['sidebarItems'],
-  updated() {
-      const vssue = this.$refs['Vssue']
-      vssue.$forceUpdate()
-  }
+  props: ['sidebarItems']
 }
 </script>
 
