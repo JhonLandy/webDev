@@ -54,7 +54,6 @@
         →
       </span>
     </p>
-    <Vssue />
   </div>
 </template>
 
