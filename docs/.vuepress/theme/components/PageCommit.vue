@@ -20,6 +20,7 @@ export default {
 @require '../styles/wrapper.styl'
 .page-commit
   @extend $wrapper
+  margin-top 1rem
   padding-top 1rem
   padding-bottom 0
   .inner
