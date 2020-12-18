@@ -18,7 +18,6 @@ export default {
 
 <style lang="stylus" scoped>
 @require '../styles/wrapper.styl'
-
 .page-commit
   @extend $wrapper
   padding-top 1rem
@@ -31,7 +30,6 @@ export default {
     overflow auto // clear float
   .next
     float right
-
 >>>.vssue-header-powered-by
   visibility hidden
 </style>
