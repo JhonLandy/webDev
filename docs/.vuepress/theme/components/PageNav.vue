@@ -147,7 +147,9 @@ function flatten (items, res) {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
-
+p 
+  margin 0
+  padding 0
 .page-nav
   @extend $wrapper
   padding-top 1rem

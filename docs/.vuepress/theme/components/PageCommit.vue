@@ -16,11 +16,11 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @require '../styles/wrapper.styl'
-
 .page-commit
   @extend $wrapper
+  margin-top 1rem
   padding-top 1rem
   padding-bottom 0
   .inner
@@ -31,4 +31,6 @@ export default {
     overflow auto // clear float
   .next
     float right
+>>>.vssue-header-powered-by
+  visibility hidden
 </style>
