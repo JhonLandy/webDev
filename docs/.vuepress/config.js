@@ -87,8 +87,12 @@ module.exports = {
                         title: 'Vue3.0',
                         children: [
                             {
-                                title: 'CompositionAPI（复合API）',
-                                path: '/sidebar/vue/vue3.0/CompositionAPI.md'
+                                title: 'CompositionAPI小试牛刀',
+                                path: '/sidebar/vue/vue3.0/CompositionAPI小试牛刀.md'
+                            },
+                            {
+                                title: 'Vue3采坑笔记',
+                                path: '/sidebar/vue/vue3.0/Vue3采坑笔记.md',
                             }
                         ]
                     }
@@ -290,7 +294,6 @@ module.exports = {
                 link: 'https://github.com/JhonLandy'
             }
         ],
-
     },
 
     // configureWebpack(config, isServer) {

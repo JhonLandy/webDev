@@ -19,7 +19,8 @@
     "babel-plugin-component": "^1.1.1",
     "cross-env": "^7.0.2",
     "image-webpack-loader": "^7.0.1",
-    "vuepress": "^1.5.3"
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-autobar": "github:boboidream/vuepress-bar"
   },
   "dependencies": {
     "@vssue/api-github-v4": "^1.4.0",

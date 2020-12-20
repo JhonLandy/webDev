@@ -2,7 +2,11 @@
   title: Vue3.0 - CompositionAPI
 ---
 
-# CompositionAPI（复合API）
+<big>作者： chenglNG(yuanchenglang)</big>
+
+<big>日期：2020年5月11号</big>
+
+# CompositionAPI小试牛刀
   
 ## 概念
 
