@@ -12,52 +12,41 @@ title: async/await
 
 平常开发中是否经常使用promise，是不是为回调地狱头疼，是不是想以另一种更加优雅的方式处理代码?async/await是不错的选择，它也是es7的新增语法，需要babel兼容。
 下面我们来看看，这个语法糖到底如何使用。
-
 ```javascript
-
     function fn(num) {
       return new Promise((resolve) => {
           resolve(num + 1)
       })
     }
-
     async function kk() {
 
         const num = await fn(1)
 
         console.log(num) //2
     }
-
 ```
-
 js代码执行的时候，当遇到await，就会暂停后面代码的执行，等待 fn函数执行完毕再继续执行下去。如果有多个异步任务，则可以多写几个await的异步任务，这样是可以确保异步任务执行顺序，防止出现依赖问题。
+#### 例子：
 ```javascript
-
     function fn1(num) {
       return new Promise((resolve) => {
           resolve(num + 1)
       })
     }
-
     function fn2(num) {
       return new Promise((resolve) => {
           resolve(num + 1)
       })
     }
-
     async function kk() {
-
         const num1 = await fn1(1)
         const num2 = await fn2(num1)
-
         console.log(num2) //2
         console.log(num2) //3
     }
-
 ```
 这样是不是优雅很多，相反，如果使用promise来实现上面这段代码，那么会是什么效果呢？下面我们来看看
 ```javascript
-
   function kk() {
     let num1 = 1
     new Promise((resolve) => {
@@ -123,36 +112,17 @@ for (let val of iterator) {
 //1
 //2
 ```
+好了，Iterator的介绍就到这里，这里有个认识就好，这是为下面做个铺垫。继续往下看。
 
-###### 原来的代码：
+### 分析原理
 
+以上面kk函数的例子继续分析。现在对那部分代码进行babel处理。
+###### 第一部分代码：
 ```javascript
-function fn(num) {
-    return new Promise((resolve) => {
-        resolve(num + 1)
-    })
-}
-
-async function kk() {
-    const num = await fn(1)
-    const num1 = await fn(num)
-    const num2 = await fn(num1)
-
-    return (num2)
-}
-
-console.log(kk())
-
-```
-
-###### babel处理过的代码：
-
-```javascript
-
 "use strict";
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { 
     //这段代码块是主体
+    //key: 'next' | 'throw'
     try {
         var info = gen[key](arg); 
         var value = info.value; 
@@ -165,107 +135,44 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
       Promise.resolve(value).then(_next, _throw); 
     } 
 }
+```
+<code>asyncGeneratorStep</code>中，参数<code>key</code>的值是<code>'next'</code> 或者 <code>'throw'</code>。<code>info</code>是一个对象，属性有next、value。看到这里是不是觉得和<code>iterator</code>返回的对象有一点相似。这里就是执行上面自定义iterator的执行逻辑。<code>value</code>这里是一个promise或者是一个值。<code> Promise.resolve</code>根据promise的状态（<a href="/nav/web/javascript/promise/">参考</a>），去执行<code>next</code>或<code>throw</code>方法。如果执行throw,就会在被<code>try{}catch{}</code>捕捉到异常，最终整个async函数返回reject的Promise，后面的逻辑不再执行（从<code>return</code>看出）。
 
-function _asyncToGenerator(fn) { 
-  return function () { 
-    var self = this, 
-    args = arguments; 
-    return new Promise(function (resolve, reject) { 
-          var gen = fn.apply(self, args); 
-          function _next(value) { 
-            asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); 
-          } 
-          function _throw(err) { 
-            asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); 
-          } 
-          _next(undefined); 
-      }); 
-    }; 
-  }
-
-function fn(num) {
-  return new Promise(function (resolve) {
-    resolve(num + 1);
-  });
-}
-
-function kk() {
-  return _kk.apply(this, arguments);
-}
-
+###### 第二部分代码：
+这里就是 ***第一部分代码*** 中 <code>gen</code>执行的大概逻辑，可以参考在进行思考，或许会有更深的理解。
+```js
 function _kk() {
-  _kk = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var num, num1, num2;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return fn(1);
-
-          case 2:
-            num = _context.sent;
-            _context.next = 5;
-            return fn(num);
-
-          case 5:
-            num1 = _context.sent;
-            _context.next = 8;
-            return fn(num1);
-
-          case 8:
-            num2 = _context.sent;
-            return _context.abrupt("return", num2);
-
-          case 10:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _kk.apply(this, arguments);
-}
-
-```
-
-<code>kk函数</code>是被重新包装过，就是带有async标识的函数都会默认包装为 返回Promise的函数。
-
-
-下面这串代码像generate函数一样按顺序执行, 每个await 的函数 是他直接返回promise的值，通过next方法一直往下传，最后作为kk 最终返回的Promise的值，通过<code> Promise.resolve(value).then(_next, _throw);</code>返回出去
-```javascript
-    const num = await fn(1)
-    const num1 = await fn(num)
-    const num2 = await fn(num1)
-
-    //处理后的代码
+  ...
+  while (1) {
     switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return fn(1);
+      case 0:
+        _context.next = 2;
+        return fn(1);
 
-          case 2:
-            num = _context.sent;
-            _context.next = 5;
-            return fn(num);
+      case 2:
+        num = _context.sent;
+        _context.next = 5;
+        return fn(num);
 
-          case 5:
-            num1 = _context.sent;
-            _context.next = 8;
-            return fn(num1);
+      case 5:
+        num1 = _context.sent;
+        _context.next = 8;
+        return fn(num1);
 
-          case 8:
-            num2 = _context.sent;
-            return _context.abrupt("return", num2);
+      case 8:
+        num2 = _context.sent;
+        return _context.abrupt("return", num2);
 
-          case 10:
-          case "end":
-            return _context.stop();
-        }
+      case 10:
+      case "end":
+        return _context.stop();
+    }
+  }
+  ...
+}
 ```
-
-
-async的函数是通过<code>try{}catch{}</code>和<code>reject</code>进行补抓错误的，我们也可以仅使用async去捕抓错误，进行错误处理。
+## 总结
+最终，async都会返回一个promise，promise没有返回结果，状态就是pending；有返回结果，状态是rejected或者rsolved, 这个取决于 ***第一部分代码*** 逻辑执行流程了。async函数还有妙用，就是：可以把内部的所有报错，都统一在async函数反映出来，进行统一处理。但如果里面使用了<code>try{}catch{}</code>,则错误就会被它拦截了，async函数无法捕抓改错误，返回resolved的Promise。
 
 
 
