@@ -8,11 +8,10 @@
 
 # Vue3采坑笔记
 
-
+</br>
 本文主要介绍vue3和vue2用法上的差异。用例是本弟弟写的<a href="https://github.com/JhonLandy/VueNextProject" target="_blank">表单组件</a>.这里是vue3的<a href="https://v3.vuejs.org/guide/introduction.html" target="_blank">官方文档</a>(需要科学上网)
 
-
-## 虚拟dom函数，h
+## 虚拟dom函数
 
 如果是一个组件，比如<code>el-button</code>,在vue2中是这么用的。
 
