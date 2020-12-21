@@ -8,6 +8,7 @@
 
 # Vue3采坑笔记
 
+
 本文主要介绍vue3和vue2用法上的差异。用例是本弟弟写的<a href="https://github.com/JhonLandy/VueNextProject" target="_blank">表单组件</a>.这里是vue3的<a href="https://v3.vuejs.org/guide/introduction.html" target="_blank">官方文档</a>(需要科学上网)
 
 
@@ -114,14 +115,14 @@ this.$emit('update:title', newValue)
 
 在vue3是这么用的：
 ```js
-<ChildComponent v-model="pageTitle" />
+<ChildComponent v-model:pageTitle="pageTitle" />
 
 ```
 上面写的等价于：
 ```js
 <ChildComponent
-  :modelValue="pageTitle"
-  @update:modelValue="pageTitle = $event"
+  :pageTitle="pageTitle"
+  @update:pageTitle="pageTitle = $event"
 />
 ```
 
