@@ -51,7 +51,15 @@ export default {
 }
 ```
 
-在vue3是这么用的。
+在vue3是这么用的:
+vue2的functional属性已经被删除，还有喜欢template的#functional，也删除了.
+```js
+<template #functional>
+  <ChildCompoent />
+</template>
+```
+
+vue3中组件间的性能差异消除了，上面的写法废除。直接改为新的写法：
 ```js
 import { h } from 'vue'
 const fn (props, context) => {
