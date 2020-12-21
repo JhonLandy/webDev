@@ -6,7 +6,7 @@ title: async/await
 
 <big>日期：2020年10月7号</big>
 
-# async/await - Promise 的语法糖
+# async-await Promise语法糖
 
 ## 认识asny-cawait
 
@@ -66,7 +66,7 @@ js代码执行的时候，当遇到await，就会暂停后面代码的执行，�
 
 使用Promise虽然也能实现一样的功能，但是代码看上去一点都不整洁、优雅，写多了，有点高血压。后面还不是一定好维护代码，还是async.await舒服。
 
-## asnyc/await的原理
+## 原理
 
 我使用babel对asnyc/await代码进行了转义，得到了下面的代码，看了之后大概知道asnyc/await是怎么给promise做语法糖的。先来认识一下迭代器iterator,这样后面好理解。
 
