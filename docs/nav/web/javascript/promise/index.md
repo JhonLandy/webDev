@@ -56,7 +56,7 @@ console.log(p)//Promsie<pending>
 console.log(p)//Promise<resolve>
 ```
 
-### Promise.resole
+### Promise.resolve
 
 如果传入的参数本身是一个promise，那么它的行为类似于一个空包装。Promise.resovle可说是一个幂等方法
 
