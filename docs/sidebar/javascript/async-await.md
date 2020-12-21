@@ -116,7 +116,7 @@ for (let val of iterator) {
 
 ### 分析原理
 
-以上面<a href="http://localhost:8080/sidebar/javascript/async-await.html#%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%9A">kk函数的例子</a>继续分析。现在对那部分代码进行babel处理。
+以上面<a href="/sidebar/javascript/async-await.html#%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%9A">kk函数的例子</a>继续分析。现在对那部分代码进行babel处理。
 ###### 第一部分代码：
 ```javascript
 "use strict";
