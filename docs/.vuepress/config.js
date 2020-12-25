@@ -39,6 +39,19 @@ module.exports = {
                 ]
             },
             {
+                title: 'CSS',   // 必要的
+                // path: '/foo/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+                // collapsable: false, // 可选的, 默认值是 true,
+                sidebarDepth: 1,    // 可选的, 默认值是 1
+                children: [
+                  {
+                    title: '每日一学',
+                    path: '/sidebar/css/每日一学/每日一学.md',
+                    collapsable: false
+                  }
+                ]
+            },
+            {
                 title: 'JavaScript',   // 必要的
                 // path: '/foo/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
                 // collapsable: false, // 可选的, 默认值是 true,
