@@ -170,7 +170,7 @@ module.exports = {
                                 link: '/nav/web/javascript/canvas/index.md'
                             },
                             {
-                                text: 'form',
+                                text: '表单脚本',
                                 ariaLabel: '表单脚本',
                                 link: '/nav/web/javascript/form/index.md'
                             }
