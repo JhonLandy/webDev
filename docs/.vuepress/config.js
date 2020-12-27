@@ -163,6 +163,16 @@ module.exports = {
                                 text: '期约与异步函数',
                                 ariaLabel: '期约与异步函数',
                                 link: '/nav/web/javascript/promise/index.md'
+                            },
+                            {
+                                text: '动画与Canvas图形',
+                                ariaLabel: '动画与Canvas图形',
+                                link: '/nav/web/javascript/canvas/index.md'
+                            },
+                            {
+                                text: 'form',
+                                ariaLabel: '表单脚本',
+                                link: '/nav/web/javascript/form/index.md'
                             }
                         ]
                     },
