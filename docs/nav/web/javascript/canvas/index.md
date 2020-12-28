@@ -18,8 +18,8 @@ title: 动画与Canvas图形
 ```js
   let drawing = document.querySelector('#canvas')
   const context = drawing.getContext('2d')
-  context.fillStyle = 'xxxx'//填充颜色
-  context.strokeStyle = 'xxxx'//边框颜色
+  context.fillStyle = 'xxxx'// 填充颜色
+  context.strokeStyle = 'xxxx'// 边框颜色
 ```
 
 ### 绘制矩形
