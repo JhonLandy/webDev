@@ -173,6 +173,11 @@ module.exports = {
                                 text: '表单脚本',
                                 ariaLabel: '表单脚本',
                                 link: '/nav/web/javascript/form/index.md'
+                            },
+                            {
+                                text: '网络请求与远程资源',
+                                ariaLabel: '网络请求与远程资源',
+                                link: '/nav/web/javascript/网络请求与远程资源.md'
                             }
                         ]
                     },
