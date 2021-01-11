@@ -178,6 +178,11 @@ module.exports = {
                                 text: '网络请求与远程资源',
                                 ariaLabel: '网络请求与远程资源',
                                 link: '/nav/web/javascript/网络请求与远程资源.md'
+                            },
+                            {
+                                text: '工作者线程',
+                                ariaLabel: '工作者线程',
+                                link: '/nav/web/javascript/工作者线程.md'
                             }
                         ]
                     },
