@@ -135,6 +135,10 @@ module.exports = {
                 ]
             },
             {
+                title: '源计划',
+                path: '/sidebar/review/'
+            },
+            {
                 title: '前端管理学习',
                 path: '/sidebar/manager/前端管理.md'
             }
