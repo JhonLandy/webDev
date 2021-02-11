@@ -70,9 +70,6 @@
 
 <script>
 import NavLink from '@theme/components/NavLink.vue'
-import url from '@images/home/vue.png'
-require('@images/home/vue.png')
-console.log(require('@images/home/vue.png'))
 export default {
   name: 'Home',
 
