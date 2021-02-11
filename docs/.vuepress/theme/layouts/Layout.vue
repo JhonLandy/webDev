@@ -9,12 +9,10 @@
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
     />
-
     <div
       class="sidebar-mask"
       @click="toggleSidebar(false)"
     />
-
     <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
@@ -26,9 +24,7 @@
         <slot name="sidebar-bottom" />
       </template>
     </Sidebar>
-
     <Home v-if="$page.frontmatter.home" />
-
     <Page
       v-else
       :sidebar-items="sidebarItems"
@@ -50,7 +46,6 @@
     </iframe> -->
   </div>
 </template>
-
 <script>
 import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
@@ -60,20 +55,17 @@ import { resolveSidebarItems } from '../util'
 
 export default {
   name: 'Layout',
-
   components: {
     Home,
     Page,
     Sidebar,
     Navbar
   },
-
   data () {
     return {
       isSidebarOpen: false
     }
   },
-
   computed: {
     shouldShowNavbar () {
       const { themeConfig } = this.$site
@@ -91,7 +83,6 @@ export default {
         || this.$themeLocaleConfig.nav
       )
     },
-
     shouldShowSidebar () {
       const { frontmatter } = this.$page
       return (
@@ -100,7 +91,6 @@ export default {
         && this.sidebarItems.length
       )
     },
-
     sidebarItems () {
       return resolveSidebarItems(
         this.$page,
@@ -109,7 +99,6 @@ export default {
         this.$localePath
       )
     },
-    
     pageClasses () {
       const userPageClass = this.$page.frontmatter.pageClass
       return [
@@ -122,13 +111,11 @@ export default {
       ]
     }
   },
-
   mounted () {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
   },
-
   methods: {
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
@@ -142,7 +129,6 @@ export default {
         y: e.changedTouches[0].clientY
       }
     },
-
     onTouchEnd (e) {
       const dx = e.changedTouches[0].clientX - this.touchStart.x
       const dy = e.changedTouches[0].clientY - this.touchStart.y

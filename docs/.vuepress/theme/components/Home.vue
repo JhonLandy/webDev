@@ -6,16 +6,17 @@
     <header class="hero">
       <el-carousel 
         v-if="data.heroImage"
-        direction="vertical"
       >
         <el-carousel-item
           v-for="item in data.heroImage" 
           :key="item.url"
         >
-          <img :src="item.url" />
-          <div class="explain">
-            <span>{{item.explain}}</span>
-          </div>
+          <a :href="item.path" target="_blank">
+            <img :src="item.url"/>
+            <div class="explain">
+              <span>{{item.explain}}</span>
+            </div>
+          </a>
         </el-carousel-item>
         <div class="loading" v-show="count < data.heroImage.length">
           <i class="el-icon-loading" />
@@ -28,14 +29,12 @@
       >
         {{ data.heroText || $title || 'Hello' }}
       </h1>
-
       <p
         v-if="data.tagline !== null"
         class="description"
       >
         {{ data.tagline || $description || 'Welcome to your VuePress site' }}
       </p>
-
       <p
         v-if="data.actionText && data.actionLink"
         class="action"
@@ -45,9 +44,7 @@
           :item="actionLink"
         />
       </p>
-      
     </header>
-
     <div
       v-if="data.features && data.features.length"
       class="features"
@@ -61,9 +58,7 @@
         <p>{{ feature.details }}</p>
       </div>
     </div>
-
     <Content class="theme-default-content custom" />
-
     <div
       v-if="data.footer"
       class="footer"
@@ -122,12 +117,12 @@ export default {
 
 <style lang="stylus" scoped>
 >>>.el-carousel__container
-  height 32rem
+  height 30rem
   .explain
     position fixed
     bottom 0
     width 100%
-    padding: 10px 5px
+    padding: 5px 8px 15px 8px
     text-align left
     background rgba(1, 1, 1, .7)
   span
@@ -135,8 +130,9 @@ export default {
     color #ffffff
   
 .home
+  max-width $homePageWidth
   min-width $pageMinWidth
-  margin 0px auto
+  margin $navbarHeight auto
   display block
   .hero
     text-align center
@@ -170,7 +166,7 @@ export default {
       &:hover
         background-color lighten($accentColor, 10%)
   .features
-    border-top 1px solid $borderColor
+    border-top 2px solid $borderColor
     padding 1.2rem 0
     margin-top 2.5rem
     display flex

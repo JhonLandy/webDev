@@ -2,19 +2,22 @@
 home: true
 heroImage: [
     { 
-        url: 'images/home/shibuyasky.jpg', 
-        explain: '东京的城市夜景'
+        url: 'images/home/html5.jpeg', 
+        explain: '基于webworker、HTML5、node事件驱动实现文件断点续传',
+        path: 'https://github.com/JhonLandy/file-upload'
     },
     {
-        url: 'images/home/computer.jpg',
-        explain: '用代码把梦想照进生活'
+        url: 'images/home/webworker.jpg',
+        explain: '深入探索webwoker',
+        path: '/nav/web/javascript/工作者线程.html'
     },
     {
-        url: 'images/home/mockup.jpg',
-        explain: 'Vue从入门到放弃'
+        url: 'images/home/vue.png',
+        explain: 'vue3学习笔记录，实现动态表单组件！！',
+        path: '/sidebar/vue/vue3.0/Vue3采坑笔记.html'
     }
 ]
-heroText: 时间，不在于你拥有多少，而在于你利用多少
+heroText: 世界会因为你的改变而精彩
 # tagline: 一起来学习
 # actionText: 快速上手 →
 # actionLink: /zh/guide/
@@ -25,5 +28,5 @@ heroText: 时间，不在于你拥有多少，而在于你利用多少
 #   details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
 # - title: 高性能
 #   details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: 邮箱：709364178@qq.com
+# footer: 邮箱：709364178@qq.com
 ---
