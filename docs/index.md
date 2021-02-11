@@ -17,7 +17,7 @@ heroImage: [
         path: '/sidebar/vue/vue3.0/Vue3采坑笔记.html'
     }
 ]
-heroText: 世界会因为你的改变而精彩
+heroText: 牛年行大运，牛气冲天，财源滚滚🚀🚀
 # tagline: 一起来学习
 # actionText: 快速上手 →
 # actionLink: /zh/guide/
