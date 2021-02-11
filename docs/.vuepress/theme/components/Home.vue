@@ -70,6 +70,7 @@
 
 <script>
 import NavLink from '@theme/components/NavLink.vue'
+
 export default {
   name: 'Home',
 
@@ -102,8 +103,9 @@ export default {
       }
       const imagesMess = this.data.heroImage || []
       return imagesMess.map(item => {
-        item.url = urlMap[item.url]
-        return item
+        const temp = { ...item }
+        temp.url = urlMap[temp.url]
+        return temp
       })
     }
   },
@@ -114,7 +116,7 @@ export default {
 
   methods: {
       preload: function() {
-        this.data.heroImage.forEach(item => {
+        this.heroImage.forEach(item => {
           const image = new Image()
           image.src = item.url
           image.onload = () => {
