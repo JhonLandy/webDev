@@ -156,21 +156,26 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+$zIndex = 9
+$width = 180px
+$height = 242px
+$sideMargin = 10px
+$top = $navbarHeight + 5px
 .advertising-l
   position fixed
-  top $navbarHeight + 5px
-  left 10px
-  height 242px
-  width 180px
-  z-index 999
+  top $top
+  left $sideMargin
+  width $width
+  height $height
+  z-index $zIndex
   
 .advertising-r
   position fixed
-  right: 10px
+  right: $sideMargin
   top $navbarHeight + 5px
-  width 180px
-  height 242px
-  z-index 999
+  width $width
+  height $height
+  z-index $zIndex
 @media (max-width: $MQMobile) 
   .advertising-l, .advertising-r
     display none
