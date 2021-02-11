@@ -105,7 +105,7 @@ export default {
       }
       const imagesMess = this.data.heroImage || []
       return imagesMess.map(item => {
-        item.url = require(urlMap[item.url])
+        item.url = urlMap[item.url]
         return item
       })
     }

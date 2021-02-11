@@ -332,7 +332,7 @@ module.exports = {
             }
         ],
     },
-
+    
     chainWebpack (config, isServer) {
         config.module
             .rule('images')
