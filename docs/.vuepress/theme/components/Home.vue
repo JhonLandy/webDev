@@ -8,7 +8,7 @@
         v-if="data.heroImage"
       >
         <el-carousel-item
-          v-for="item in data.heroImage" 
+          v-for="item in heroImage" 
           :key="item.url"
         >
           <a :href="item.path" target="_blank">
@@ -94,6 +94,19 @@ export default {
     },
     percent() {
       return ~~((this.count/this.$page.frontmatter.heroImage.length)*100)
+    },
+    heroImage() {
+      /***此处目的 为了能让webpack扫描到图片，进行打包****/
+      require('@images/home/vue.png') 
+      require('@images/home/webworker.jpg')
+      require('@images/home/html5.jpeg')
+      /***此处目的 为了能让webpack扫描到图片，进行打包****/
+      const imagesMess = this.data.heroImage || []
+      return imagesMess.map(item => {
+        item.url = require(item.url)
+        Fun
+        return item
+      })
     }
   },
 

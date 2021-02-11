@@ -2,17 +2,17 @@
 home: true
 heroImage: [
     { 
-        url: 'images/home/html5.jpeg', 
+        url: '@images/home/html5.jpeg', 
         explain: '基于webworker、HTML5、node事件驱动实现文件断点续传',
         path: 'https://github.com/JhonLandy/file-upload'
     },
     {
-        url: 'images/home/webworker.jpg',
+        url: '@images/home/webworker.jpg',
         explain: '深入探索webwoker',
         path: '/nav/web/javascript/工作者线程.html'
     },
     {
-        url: 'images/home/vue.png',
+        url: '@images/home/vue.png',
         explain: 'vue3学习笔记录，实现动态表单组件！！',
         path: '/sidebar/vue/vue3.0/Vue3采坑笔记.html'
     }
