@@ -354,7 +354,7 @@ module.exports = {
                             },
                             // optipng.enabled: false will disable optipng
                             optipng: {
-                                enabled: false,
+                                enabled: true,
                             },
                             pngquant: {
                                 quality: [0.65, 0.90],
