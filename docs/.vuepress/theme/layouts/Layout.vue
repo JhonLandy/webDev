@@ -44,6 +44,12 @@
       marginheight="0" 
       src="//music.163.com/outchain/player?type=2&id=1374329431&auto=1&height=32">
     </iframe> -->
+    <div class="advertising-l">
+      <img :src="leftUrl" width="100%" height="100%"/>
+    </div>
+    <div class="advertising-r">
+      <img :src="rightUrl" width="100%" height="100%"/>
+    </div>
   </div>
 </template>
 <script>
@@ -67,6 +73,12 @@ export default {
     }
   },
   computed: {
+    leftUrl() {
+      return require('@images/home/16pic_9349989_s.png')
+    },
+    rightUrl() {
+      return require('@images/home/niuniu.jpg')
+    },
     shouldShowNavbar () {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
@@ -143,5 +155,25 @@ export default {
   }
 }
 </script>
+<style lang="stylus" scoped>
+.advertising-l
+  position fixed
+  top $navbarHeight + 5px
+  left 10px
+  height 242px
+  width 180px
+  z-index 999
+  
+.advertising-r
+  position fixed
+  right: 10px
+  top $navbarHeight + 5px
+  width 180px
+  height 242px
+  z-index 999
+@media (max-width: $MQMobile) 
+  .advertising-l, .advertising-r
+    display none
+</style>
 
 

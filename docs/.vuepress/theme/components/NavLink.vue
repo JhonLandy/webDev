@@ -94,5 +94,5 @@ export default {
     font-weight: bold
     color: rgb(96, 98, 102)
     &:hover
-        color: rgb(2, 174, 213)
+        color: $accentColor
 </style>

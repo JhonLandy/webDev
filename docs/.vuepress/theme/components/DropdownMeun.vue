@@ -57,13 +57,13 @@ const DropdownMeun = {
 }
 export default DropdownMeun;
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 ul,li {list-style none; margin: 0;padding: 0}
 .nav-link-new
     font-size: 13.8px
-    color: rgb(96, 98, 102)
+    color rgb(96, 98, 102)
     &:hover
-        color: rgb(2, 174, 213)
+        color $accentColor
 .title
     >>>.el-icon--right
         float right
