@@ -326,7 +326,7 @@ module.exports = {
                 ]
             },
             {
-                text: 'github',
+                text: '联系我',
                 ariaLabel: 'github',
                 link: 'https://github.com/JhonLandy'
             }
