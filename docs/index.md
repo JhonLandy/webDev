@@ -13,7 +13,7 @@ heroImage: [
     },
     {
         url: '@images/home/vue.png',
-        explain: 'vue3学习笔记录，实现动态表单组件！！',
+        explain: 'vue3学习笔记录，实现动态表单组件',
         path: '/sidebar/vue/vue3.0/Vue3采坑笔记.html'
     }
 ]
