@@ -44,12 +44,12 @@
       marginheight="0" 
       src="//music.163.com/outchain/player?type=2&id=1374329431&auto=1&height=32">
     </iframe> -->
-    <div class="advertising-l">
+    <!-- <div class="advertising-l">
       <img :src="leftUrl" width="100%" height="100%"/>
     </div>
     <div class="advertising-r">
       <img :src="rightUrl" width="100%" height="100%"/>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
