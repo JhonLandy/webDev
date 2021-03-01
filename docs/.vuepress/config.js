@@ -66,7 +66,12 @@ module.exports = {
                     title: '深入浅出的eventLoop',
                     path: '/sidebar/javascript/eventLoop.md',
                     collapsable: false
-                  }
+                  },
+                  {
+                      title: '基础知识',
+                      path: '/sidebar/javascript/',
+                      collapsable: false
+                  },
                 ]
             },
             {
