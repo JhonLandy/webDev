@@ -360,7 +360,7 @@ function Son() {
 function object(o) {
     function F() {}
     F.prototype = o
-    return new FORMERR
+    return new F
 }
 function inheritPrototype(Son, Super) {
     let prototype = object(Super.prototype)

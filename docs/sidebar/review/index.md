@@ -72,14 +72,49 @@ if语句，while,==，数学运算符
 当遇到转换规则时，则在内部代码会判断 值类型，好比如[] + 1,先调用valueOf()方法，发现类型不是原始值类型，接着再调用toString(),最后[]得到 ""转换，相当于""+1,结果为"1"
 ### js机制
 
-- 解释下变量提升？✨
-- ⼀段JavaScript代码是如何执⾏的？✨
-- JavaScript的作⽤域链理解吗？✨
-- 谈⼀谈你对this的了解？✨
-- 箭头函数的this指向哪⾥？✨
-- 理解闭包吗？✨
-- 实现bind和call两个方法
+### 解释下变量提升？✨
+javascript代码在真正执行前会根据词法环境注册var、let、const声明的变量及声明函数。首先会进行函数的声明，给对应的标识符进行函数绑定，若标识符已存在，则覆盖之前的值。然后进行变量的声明。 若该变量（标识符）没注册过，则默认等于undefind。若声明了变量或函数，并在声明变量或函数语句前执行console.log打印变量，如果是变量则打印undefind，如果是函数则打印函数体。但let，const会报错，因为console.log处于暂时性死区。
 
+### ⼀段JavaScript代码是如何执⾏的？✨
+javascript是逐行执行的，执行的时候，首先会创建一个全局执行上下文，执行上下文里有词法环境，函数上下文等执行所需的变量，当遇到一个执行函数时，引擎会停止当前执行上下文的执行，创建一个函数执行上下文，并，压入执行栈，执行栈是用来管理跟踪当前执行上下文的位置，保存着全局执行上下文和所有的函数执行上下文，当函数执行完毕时，函数执行上下文弹出执行栈，相关的作用域等数据也随之回收，继续执行全局执行上下文。当前执行全局代码相当于执行宏任务，如果遇到宏任务，则把宏任务放到宏任务队列，等待下一次时间循环，如果是微任务，则放到微任务队列，等待在下一次宏任务执行前全部执行完毕。
+
+### JavaScript的作⽤域链理解吗？✨
+作用域就是在函数执行上下文中用于查找变量或函数。作用域又称词法环境，当函数执行时，就会生成，用于跟踪函数中声明的变量和函数。let、const声明的变量保存在块级作用域，var声明的变量放在名为local作用域。作用作用域有可能引用着父级作用域。
+### 谈⼀谈你对this的了解？✨
+this指的函数上下文，和函数执行上下文不是一个东西。this相当于一个动态的作用域，函数中，this可以是指向一个对象或全局对象window，或者undefind。通过call，bind，apply可以修改函数this的指向，严格模式下，this为undefind，在箭头函数中，this指向箭头函数所在执行上下文的函数上下文。
+### 箭头函数的this指向哪⾥？✨
+this指向箭头函数所在执行上下文的函数上下文
+### 理解闭包吗？✨
+闭包就是作用域的特殊应用（个人感觉差别不大）。在外部函数内声明内部函数时，闭包就创建了。闭包保存着内部函数所需要变量或函数（内部函数作用域没有的），并存在于作用域链上。只要有函数引用着闭包就不会消失（可能会引起内存泄漏问题），请不要多度使用闭包，或者清空无用的函数。（let fn = null）
+### 实现bind和call两个方法
+```js
+
+Function.portotype.call = function(content, ...args) {
+    content.fn = this
+    const result = content.fn(...args)
+    content.fn = null
+    return result
+}
+Function.portotype.apply = function(content = window, args = []) {
+    content.fn = this
+    const result = content.fn(...args)
+    content.fn = null
+    return result
+}
+Function.portotype.bind = function(content = window, ...args) {
+    const fn = function(...local) {
+        if (this instanceof fn) {
+          content = this
+        }
+        this.apply(content, args.concat(local))
+        content.fn = null
+        return result
+    }
+    fn.portotype = Object.create(this.portotype)
+    return fn
+}
+
+```
 ### js内存
 
 - 讲讲JavaScript垃圾回收是怎么做的？
