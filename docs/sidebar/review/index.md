@@ -169,7 +169,19 @@ mousemove、mouseout 这样的事件，虽然有事件冒泡，但是只能不�
 不同选择的优先级不一样。如果按优先级分类abcd,a包含行内样式（1），b包含id选择器，c包含类选择器，伪类和属性选择符个数（n）,d包含类型选择器和伪元素个数。abcd不同种类的选择器个数按照abcd顺序拼接，得到的值最大的，优先级最大
 - link和@import的区别？
 
+link：
+
+
+import
+1. 增加请求数目
+（影响页面加载速率）
+
+建议会用link，尽量少用import
+
 - 有哪些⽅式（CSS）可以隐藏⻚⾯元素？
+display:none
+visbility:hidden
+opacity: 0
 - em\px\rem区别？
 - 块级元素⽔平居中的⽅法？
 - CSS有⼏种定位⽅式？
