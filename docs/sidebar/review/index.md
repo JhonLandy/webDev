@@ -183,11 +183,42 @@ display:none
 visbility:hidden
 opacity: 0
 - em\px\rem区别？
-- 块级元素⽔平居中的⽅法？
+他们都会字体大小的单位。
+px是一个基础的单位，描述字体显示的大小
+em 是基于父级元素字体大小来计算，如父元素字体为12px，子元素1em，那么子元素字体大小就是(12 x 1 )px
+rem 是基于html字体大小来计算,同理em
+
+### 块级元素⽔平居中的⽅法？
+```css
+ margin: 0 auto;
+
+ //浮动
+ position：absolute
+
+ left：50% - 自身宽度一半
+
+ // 弹性盒子
+ 父元素 display: flex
+ 子元素 align-items：center
+
+```
 - CSS有⼏种定位⽅式？
+
+3种。
+1. static默认的。
+2. absolute。参考包含块（position为非static）定位（top,left）,r如果没有可参考的position包含块，就以html根元素作为包含块参考。不占用原来空间
+3. relative。参考原来的位置做偏移，偏移后仍占据原来的空间
+4. fixed 相对于浏览器窗口进行定位。
 - 如何理解z-index？✨
+z-index属性 控制 层叠上下文中层叠元素次序。
+层叠上下文中 不同元素 层叠顺序不一样。它们是按照这样的规则排序。z-index 为 负 positioned元素 > 非positioned block元素 > 非positioned float元素 >  非positioned inline元素 > positioned z-index为0或者auto的元素 > positioned (z-index > 1 )元素.z-index 控制 positioned元素离屏幕的距离（堆叠次序）
+
 - 如何理解层叠上下⽂？✨
+z-index 不为auto的定位元素会在 一定 空间按照 堆叠次序 排序（里屏幕的距离），这个空间就叫做层叠上下文。z-index不为auto的定位元素、opacity小于1 的元素、ransform 属性值不为 none的元素、perspective 值不为 none 的元素都会创建自己的层叠上下文，层叠上下文的堆叠次序，不会影响外部的堆叠次序。
+
 - 清除浮动有哪些⽅法？
+1. 给 父元素 添加伪元素 
+2. 给父元素设置为BFC（块级格式化上下文），如：overflow 不是 visible元素、绝对定位元素、浮动元素、display为inline-block元素。
 - 你对css-sprites的理解
 - 你对媒体查询的理解？
 - 你对盒模型的理解？✨
