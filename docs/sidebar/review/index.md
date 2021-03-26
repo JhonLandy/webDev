@@ -239,22 +239,67 @@ translate性能比 定位性能要好。因为 定位会放生浏览器重绘和
 
 ## html
 
-### 基础
+### doctype(⽂档类型) 的作⽤是什么？✨
 
-- doctype(⽂档类型) 的作⽤是什么？✨
-- 这三种模式的区别是什么？(接上⼀问追问)
-- HTML、XML 和 XHTML 有什么区别？
-- 什么是data-属性？
-- 你对HTML语义化的理解？✨
-- HTML5与HTML4的不同之处
-- 有哪些常⽤的meta标签？
-- src和href的区别？
-- 知道img的srcset的作⽤是什么？（追问）
-- 还有哪⼀个标签能起到跟srcset相似作⽤？（追问）
-- script标签中defer和async的区别？✨
-- 有⼏种前端储存的⽅式？✨
-- 这些⽅式的区别是什么？（追问）✨
+声明浏览器解析类型，声明浏览器按照html5的标准解析 html和css内容。
 
+浏览器浏览的类型有 怪异模式（不声明doctype，默认是这个模式），标准模式。
+js通过 window.document.compatMode可以知道 当前浏览器模式。
+怪异模式下，盒子的宽度是包括 边跨 + 内边距 + 实际内容，怪异盒子，还有一些css不被浏览器识别 ！important。
+
+标准模式下，浏览器按照w3c标准解析文档，就算是跨浏览器也不会出现页面不一致问题。
+
+### 这三种模式的区别是什么？(接上⼀问追问)
+怪异模式下，盒子的宽度是包括 边跨 + 内边距 + 实际内容，怪异盒子，还有一些css不被浏览器识别 ！important。
+
+标准模式下，浏览器按照w3c标准解析文档，就算是跨浏览器也不会出现页面不一致问题。
+
+ie8有一介于两种模式之间的模式（基本淘汰）
+### HTML、XML 和 XHTML 有什么区别？
+HTML(超⽂本标记语⾔):就是我们平时所用到的html元素
+XML（可扩展标记语⾔）：是一种通用的数据传输 标准（不管是在什么地方），作用和json类似。
+XHTML（可扩展超⽂本标记语⾔)）：以前html4版本以前 标准比较混乱，所以XHTML是HTML的新规范（用xml规范html），通过开头doctype 声明。现在XHTML被淘汰了，现在是HTML5新一代的规范。
+### 什么是data-属性？
+html的数据属性，可以通过js操作dom的dataset属性获取数据（ie9）.有了前端框架，现在不流行了
+### 你对HTML语义化的理解？✨
+使用恰当语气的表情，如文章就是用article。
+好处：
+更好的seo，提升搜索排名
+对开发者友好，标签知名达意，增强可读性，能够清晰看出网页结构，便于维护（避免div麻疹）
+能够让阅读器理解，帮助听力有障碍的人阅读
+### HTML5与HTML4的不同之处
+1. ⽂件类型声明（<!DOCTYPE>）仅有⼀型：<!DOCTYPE HTML>。 
+2. 新的解析顺序：不再基于SGML。 
+3. 新的元素：section, video, progress, nav, meter, time, aside, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, mark, output, rp, rt, ruby, source, summary, wbr。 input元素的新类型：date, email, url等等。 
+4. 新的属性：ping（⽤于a与area）, charset（⽤于meta）, async（⽤于script）。
+### 有哪些常⽤的meta标签？
+```html
+//设置移动端 显示
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+initial-scale 初始显示的比例，1表示默认尺寸
+maximum-scale 最大可放大的比例，1表示不能的放大
+//设置http缓存过期日期
+<meta http-equiv="expires" content="Wed, 20 Jun 2019 22:33:00 GMT">
+
+//设置文档格式
+<meta charset="utf-8">
+```
+### src和href的区别？
+src指向的外部资源，通过src指定的资源地址，会请求下载外部资源，并（执行）应用到文档，如css，js
+href是 指网络资源的地址，通常是连接标签元素和 其他文档，如果地址是指向文件，会现在文件。
+### 知道img的srcset的作⽤是什么？（追问）
+待研究。。。
+### 还有哪⼀个标签能起到跟srcset相似作⽤？（追问）
+### script标签中defer和async的区别？✨
+他们都是script便签上的属性，都是让js文件进行异步加载。defer规定脚本在dom解析完后按照下载顺序执行。async先下载完先执行（有先后依赖关系的情况，并不适⽤），可能会阻塞html解析，也有可能导致获取不到没解析的dom元素。
+### 有⼏种前端储存的⽅式，这些⽅式的区别是什么？✨
+localStorage，sessionStorage， cookie，indexDB，Web SQL
+- localStorage可以存储 5m大的数据，不手动清除，是不会随着浏览器推出而清除。
+- sessionStorag同样是5m的数据，浏览器tab退出时就会清除数据，有相关事件。
+- cookie，通常只能存储4kb的数据，通常不会存放敏感的数据，会自动随着请求头带到服务器，
+- indexDB，是被正式纳⼊HTML5标准的数据库储存⽅案，它是NoSQL数据库，⽤键值对进⾏储存，可以进⾏快 速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常⽅便
+- Web SQL 2010年被W3C废弃的本地数据库数据存储⽅案，但是主流浏览器（⽕狐除外）都已经有了相关的实 现，web sql类似于SQLite，是真正意义上的关系型数据库，⽤sql进⾏操作，当我们⽤JavaScript时要进⾏转换， 较为繁琐。
 ## http
 
 - HTTP有哪些⽅法？这些⽅法的具体作⽤是什么？
