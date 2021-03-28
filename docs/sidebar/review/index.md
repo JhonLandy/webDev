@@ -297,7 +297,7 @@ srcset数属性是用来设置响应式图片。因为在手机端上或者分�
 ### 有⼏种前端储存的⽅式，这些⽅式的区别是什么？✨
 localStorage，sessionStorage， cookie，indexDB，Web SQL
 - localStorage可以存储 5m大的数据，不手动清除，是不会随着浏览器推出而清除。
-- sessionStorag同样是5m的数据，浏览器tab退出时就会清除数据，有相关事件。
+- sessionStorag同样是5m的数据，浏览器tab退出时就会清除数据，有相关事件，不能在同源窗口公用，会话级别存储。
 - cookie，通常只能存储4kb的数据，通常不会存放敏感的数据，会自动随着请求头带到服务器，
 - indexDB，是被正式纳⼊HTML5标准的数据库储存⽅案，它是NoSQL数据库，⽤键值对进⾏储存，可以进⾏快 速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常⽅便
 - Web SQL 2010年被W3C废弃的本地数据库数据存储⽅案，但是主流浏览器（⽕狐除外）都已经有了相关的实 现，web sql类似于SQLite，是真正意义上的关系型数据库，⽤sql进⾏操作，当我们⽤JavaScript时要进⾏转换， 较为繁琐。
