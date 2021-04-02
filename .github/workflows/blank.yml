@@ -24,7 +24,7 @@ jobs:
           npm run build:cloundServer
       - name: Git Config 
         run: |
-          git config --global user.name "yuanchenglang"
+          git config --global user.name "huaweiserver"
           git config --global user.email "709364178@qq.com"
       - name: Copy files to cloundServer
         run: |
