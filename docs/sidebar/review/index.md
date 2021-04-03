@@ -559,7 +559,9 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
 <http://taligarsiel.com/Projects/howbrowserswork1.html>
 
 ## 算法基础
+
 - 选择排序
+
 - 插入排序
 - 希尔排序
 - 归并排序
