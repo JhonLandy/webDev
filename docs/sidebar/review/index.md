@@ -731,8 +731,7 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
 - 有哪些常⻅的Plugin？
 - Loader和Plugin的不同？
 - webpack的构建流程是什么?
-- 是否写过Loader和Plugin？描述⼀下编写loader或plugin的思
-- 路？
+- 是否写过Loader和Plugin？描述⼀下编写loader或plugin的思路？
 - webpack的热更新是如何做到的？说明其原理？
 - 如何⽤webpack来优化前端性能？
 - 如何提⾼webpack的打包速度?
@@ -740,20 +739,59 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
 - 怎么配置单⻚应⽤？怎么配置多⻚应⽤？
 
 ## Vue
-- 你对MVVM的理解?
-- MVVM是什么?
-- MVVM的优缺点?
-- 你对Vue⽣命周期的理解？
-- 异步请求适合在哪个⽣命周期调⽤？
-- Vue组件如何通信？
-- computed和watch有什么区别?
-- Proxy与Object.defineProperty的优劣对⽐?
-- 既然Vue通过数据劫持可以精准探测数据变化,为什么还需要虚拟
-- DOM进⾏diff检测差异?
-- Vue为什么没有类似于React中shouldComponentUpdate的⽣
-- 命周期？
-- Vue中的key到底有什么⽤？
+### 你对MVVM的理解? 
+视图层-视图模型层-数据模型，视图模型层是核心，控制着视图层和数据模型层，实现数据和视图的解耦，是开法者专注于业务开发。比如vue的设计模式，只要改变数据就可以通知更新视图
+### MVVM的优缺点?
+- 优点
+1. 数据层和视图层分离，开发者更加专注业务
+2. 使用方便，自动更新dom
 
+- 缺点
+1. model层，view层出现bug，很难调试
+2. 占用内存，消耗一定资源（闭包）
+### 你对Vue⽣命周期的理解？
+beforeCreate-> created ->beforeUpdated-> Updated -> beforemounted -> mounted
+- beforeCreate的生命周期，绑定生命周期需要的钩子函数和属性。
+- created的生命周期，对数据进行劫持。
+- beforeUpdated就是数据改变触发更新前执行的阶段
+- Updated就是更新完毕之后执行的阶段（虚拟dom遍历、对比，深度优先）
+- beforemount就是再更新前执行阶段，vue在编译html生虚拟dom，一般脚手架帮我们编译好虚拟dom，减少挂载时间
+- mounted就是挂载html之后执行的钩子，通常数据更新操作的订阅是在这里同时执行
+### 异步请求适合在哪个⽣命周期调⽤？
+- 如果是第一次挂载vue，请求一次数据
+适合在creared钩子函数，如果在beforeCreated, 还不能获取data的属性。如果放在mounted，又感觉太慢，肯定会再出发一次更新，其他生命周期 更不用说了，第一次根本不会执行，或者第一次初始化拿不到$el属性
+- 如果是dom变化之后请求
+那么就得在updated钩子，还能获取最新的dom
+### Vue组件如何通信？
+props，project/inject, 自定义事件，model（sync）
+### computed和watch有什么区别?
+computed 是在属性有变化时才执行回调函数，没变化不执行，适合于复杂计算值的场景，可以缓存计算结果，避免多次调用回调函数
+watch是在属性变化时才执行回调函数，不太适合缓存计算结果
+### Proxy与Object.defineProperty的优劣对⽐?
+Proxy缺点
+兼容性差，不支持IE11
+- Object.defineProperty优点
+es5的api,兼容好
+- Object.defineProperty缺点
+1. vue中，对数据的劫持，需要深度遍历遍历对象的属性，会形成一层层的闭包，占用内存，除非关闭页面
+2. 不支持数组
+- Proxy 优点
+1. 监听对象而非属性。vue3里因为这个，执行效率和内存占用减少了一半
+2. 支持数组的代理
+3. 支持对象多种方法的劫持，apply、ownKeys、deleteProperty、has
+### 既然Vue通过数据劫持可以精准探测数据变化,为什么还需要虚拟dom进行diff?
+- 浏览器dom的更新性能消耗的代价是非常昂贵的，当然浏览器执行很快，我们根本察觉不到。使用虚拟dom，是为了把组件所有的dom操作都在集中在一个节点上，然后批量更新，浏览器只需更新一次dom，如果不使用dom，那么浏览器可能会多次更新dom（浏览器也有自己的批量优化），造成不必要的性能开销。
+- 每个组件就有一个对应的watcher，如果粒度过高，那么可能需要创建更多的wacher实例，性能开销更大，如果里度过低，又无法准确定位变化的位置。进行虚拟domdiff实质为一种折中的方法，解决了上面的问题，大概知道要更新的地方，让后再对这个地方进行细节的对比。
+### Vue为什么没有类似于React中shouldComponentUpdate的⽣命周期？
+因为react的更新，是更新整个树，通常会有不必要的diff，造成性能的开销，而vue使用数据劫持，diff粒度更精准，粒度更细，不会有无用的diff，所以vue不考虑加入shouldComponentUpdate的⽣命周期
+### Vue中的key到底有什么⽤？
+dif先会进⾏新旧节点的⾸尾交叉对⽐等四种方式,当⽆法匹配的时候会⽤新节点的 key 与旧节点进⾏⽐对,然后找出差异。
+diff的时候，快速定位要diff的虚拟dom，提升diff的效率，如果没有diff，可能会出现非期望的效果，如更新一个列，如果不绑定key，那么更新可能会有问题。
+### 你是如何理解Vue的响应式系统的
+- 任何⼀个 Vue Component 都有⼀个与之对应的 Watcher 实例。 
+- Vue 的 data 上的属性会被添加 getter 和 setter 属性。 
+- 当 Vue Component render 函数被执⾏的时候, data 上会被 触碰(touch), 即被读, getter ⽅法会被调⽤, 此时 Vue 会去记录此 Vue component 所依赖的所有 data。(这⼀过程被称为依赖收集) 
+- data 被改动时（主要是⽤户操作）, 即被写, setter ⽅法会被调⽤, 此时 Vue 会去通知所有依赖于此 data 的组件去 调⽤他们的 render 函数进⾏更新。
 ## React
 - React最新的⽣命周期是怎样的?
 - React的请求应该放在哪个⽣命周期中?

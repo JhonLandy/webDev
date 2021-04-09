@@ -374,7 +374,6 @@ module.exports = {
                             }
                         })
                 })
-                
                 // .use('img-loader')
                 //     .loader('img-loader')
                 //     .options({
