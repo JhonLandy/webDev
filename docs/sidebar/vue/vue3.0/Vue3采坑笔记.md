@@ -194,7 +194,7 @@ watch: {
   }
 }
 ```
-必须改为用watch 或 watchEffect Api。
+必须改为用watch 或 watchEffect Api。watch中可传递options，options.flush中值为`'pre' | 'post' | 'sync'`,`sync`指同步执行，`post`放在post队列执行，`pre`放在pre队列执行，一般更新时，`pre`的执行顺序会比`post`要早。下面看下使用效果:
 
 ```js
 import { reactive, watch, watchEffect} from 'vue'
@@ -231,7 +231,7 @@ export default {
     }
 }
 ```
-wacth API在初始时是不会执行（lazy）,wacthEffect则会执行一次（immediate）。其中需要关注的是，watch回调是会有优先调度的策略。比如在setup执行过程中，触发了watch的回调函数，此时是同步执行回调函数。如果是通过事件触发，优先级相对较低，则会异步执行。使用上面例子调试：
+wacthEffect第一次默认执行一次（immediate）。其中需要关注的watch初始化的情况，使用上面例子调试：
 ##### setup中触发：
 ```js
 watch(state.callbacksQueue, (Queue, prevCount) => {
@@ -250,26 +250,31 @@ const list = elements.filter(({ field, async, callback, permission }) => {
 //同步执行
 //done
 ```
-##### 事件中触发：
+##### 由于执行setup组件出于还没Mounted状态,所以会立即执行，源码可知：
 ```js
-watch(state.callbacksQueue, (Queue, prevCount) => {
-  console.log('异步执行')
-  ...
-})
-
-doClick() {
-   state.callbacksQueue.push(1) 
-   console.log('done')
-}
-```
-输出：
-```js
-//done
-//异步执行
+//Vue3源码 scheduler.ts
+let scheduler: ReactiveEffectOptions['scheduler']
+  if (flush === 'sync') {//同步任务
+    scheduler = job//job函数有watch或watchEffect的两套逻辑
+  } else if (flush === 'post') {
+    scheduler = () => queuePostRenderEffect(job, instance && instance.suspense)
+  } else {
+    // default: 'pre'
+    scheduler = () => {
+      if (!instance || instance.isMounted) {
+        queuePreFlushCb(job)
+      } else {//执行setup,而组件还没加载完，则执行这个代码块
+        // with 'pre' option, the first call must happen before
+        // the component is mounted so it is called synchronously.
+        job()//执行调用callback
+      }
+    }
+  }
 ```
 ::: warning
 清空数组时，不要直接赋值<code>[]</code>，如：<code>state.callbacksQueue = []</code>。千万别这么干，会失去数据响应，watch Api 中的回调也无法会触发。推荐调用数组自身方法清空，如：<code>state.callbacksQueue.splice(0, state.callbacksQueue.length)</code>。
 :::
+
 ## computed
 在vue3使用vue2语法，依然有效果。
 ```js
