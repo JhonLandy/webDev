@@ -319,7 +319,6 @@ function object(o) {
     return new F
 }
 ```
-
 <strong>等价于:</strong>
 
 ```js
@@ -334,7 +333,7 @@ Object.create(person, {//相当于Object.defineProperties
 })
 ```
 
-### 寄生式继承
+### 寄生式继承（类似于原型式继承，增强对象）
 
 1. 创建一个继承(原型对象)函数
 2. 在一个对象(原型对象)基础上创建一个新的对象(实例对象)
@@ -355,7 +354,7 @@ function Super() {
 
 }
 function Son() {
-
+    Super.call(this)
 }
 function object(o) {
     function F() {}
