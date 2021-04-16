@@ -5,7 +5,6 @@ then
     echo '目录不存在，创建目录'
     mkdir source
 fi
-
 echo "开始部署资源"
 cd source
 apt update
