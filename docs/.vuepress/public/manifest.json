@@ -16,11 +16,7 @@
   "related_applications": [
     {
       "platform": "web",
-      "url": "www.bilibili.com"
-    },
-    {
-      "platform": "play",
-      "url": "www.baidu.com"
+      "url": "sunnychenglang/com"
     }
   ]
 }
