@@ -23,9 +23,7 @@ Array.isArray、instance of Array
 
 
 同步和异步是在于程序中的各个任务是否按顺序执行，异步操作可以改变程序的正常执行顺序。
-<br/>
 阻塞和非阻塞就是发起调度，会不会挂起当前线程，停止执行代码，直到调度完才继续执行代码。
-
 <br/>
 异步加载：不按代码执行顺序加载。
 <br/>
@@ -51,7 +49,6 @@ Array.isArray、instance of Array
 CommonJS先require同步加载（require时才加载执行，有一定的阻塞,更适合服务器，读取文件无需请求下载)，ES6异步加载（先加载执行完所有模块，再来执行当前代码（当前代码的函数声明会比加载模块靠前完成），适合浏览器）
 commonJS使用的module.exports导出（对象是浅拷贝），es6采用export default等语法导出，导出的对象是直接引用。
 es6 导出的对象不能重新赋值（会报错），commonjs不会.
-
 
 - 聊⼀聊如何在JavaScript中实现不可变对象？
 - JavaScript的参数是按照什么⽅式传递的？
@@ -606,7 +603,7 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
     1. 避免使用隐式合成层，不仅会发送数据到GPU，还会引起一次重绘
     2. 不能压缩合成层
     3. will-change,告诉浏览器即将要渲染什么，让浏览器提前准备好，比如复杂的动画，就比较好，否则没必要，因为需要一定内存空间。
-  - 触发合成层的属性有，tranform,opacity,filter,postioned:fixed,<video>，<canvas>和<iframe>元件,3D转换：translate3d，translateZ
+  - 触发合成层的属性有，tranform,opacity,filter,postioned:fixed,`<video>`，`<canvas>`和`<iframe>`元件,3D转换：translate3d，translateZ
 
 3. 通过DocumentFragment创建一个游离的节点，然后在这个节点上批量操作，然后插到html中
 ```js
@@ -722,8 +719,6 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
 - 例子
   - 一个页面是HTTP页面一个非HTTP页面，黑客有可能冒充中间人，截获了，用户的账号密码。⽤户 <== HTTP ==> ⿊客 <== HTTPS ==> 银⾏
   - 中间人是指一个控制着两端的信息传输，窃取私密信息的角色，但是双方不知道这个角色的存在，以为还在进行私密的会话。
-
-
 
 ## webpack
 - webpack与grunt、gulp的不同？

@@ -218,6 +218,7 @@ function ensureEndingSlash (path) {
 }
 
 function resolveItem (item, pages, base, groupDepth = 1) {
+
   if (typeof item === 'string') {
     return resolvePage(pages, item, base)
   } else if (Array.isArray(item)) {
@@ -228,7 +229,8 @@ function resolveItem (item, pages, base, groupDepth = 1) {
     const children = item.children || []
     if (children.length === 0 && item.path) {
       return Object.assign(resolvePage(pages, item.path, base), {
-        title: item.title
+        title: item.title,
+        isHidden: item.isHidden
       })
     }
     return {
@@ -239,7 +241,7 @@ function resolveItem (item, pages, base, groupDepth = 1) {
       initialOpenGroupIndex: item.initialOpenGroupIndex,
       children: children.map(child => resolveItem(child, pages, base, groupDepth + 1)),
       collapsable: item.collapsable !== false,
-      isShow: true
+      isHidden: item.isHidden
     }
   }
 }

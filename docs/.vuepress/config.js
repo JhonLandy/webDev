@@ -142,7 +142,7 @@ module.exports = {
             {
                 title: '源计划',
                 path: '/sidebar/review/',
-                isShow: false
+                isHidden: true
             },
             {
                 title: '前端管理学习',

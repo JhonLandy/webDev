@@ -7,7 +7,7 @@
       v-for="(item, i) in items"
       :key="i"
     >
-      <section v-if="item.isShow">
+      <section v-if="!item.isHidden">
         <SidebarGroup
           v-if="item.type === 'group'"
           :item="item"
