@@ -231,7 +231,6 @@ function resolveItem (item, pages, base, groupDepth = 1) {
         title: item.title
       })
     }
-    console.log(item)
     return {
       type: 'group',
       path: item.path,
