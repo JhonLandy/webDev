@@ -7,19 +7,21 @@
       v-for="(item, i) in items"
       :key="i"
     >
-      <SidebarGroup
-        v-if="item.type === 'group'"
-        :item="item"
-        :open="i === openGroupIndex"
-        :collapsable="item.collapsable || item.collapsible"
-        :depth="depth"
-        @toggle="toggleGroup(i)"
-      />
-      <SidebarLink
-        v-else
-        :sidebar-depth="sidebarDepth"
-        :item="item"
-      />
+      <section v-if="item.isShow">
+        <SidebarGroup
+          v-if="item.type === 'group'"
+          :item="item"
+          :open="i === openGroupIndex"
+          :collapsable="item.collapsable || item.collapsible"
+          :depth="depth"
+          @toggle="toggleGroup(i)"
+        />
+        <SidebarLink
+          v-else
+          :sidebar-depth="sidebarDepth"
+          :item="item"
+        />
+      </section>
     </li>
   </ul>
 </template>

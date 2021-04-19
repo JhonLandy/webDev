@@ -141,7 +141,8 @@ module.exports = {
             },
             {
                 title: '源计划',
-                path: '/sidebar/review/'
+                path: '/sidebar/review/',
+                isShow: false
             },
             {
                 title: '前端管理学习',

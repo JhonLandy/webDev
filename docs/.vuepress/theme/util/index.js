@@ -231,6 +231,7 @@ function resolveItem (item, pages, base, groupDepth = 1) {
         title: item.title
       })
     }
+    console.log(item)
     return {
       type: 'group',
       path: item.path,
@@ -238,7 +239,8 @@ function resolveItem (item, pages, base, groupDepth = 1) {
       sidebarDepth: item.sidebarDepth,
       initialOpenGroupIndex: item.initialOpenGroupIndex,
       children: children.map(child => resolveItem(child, pages, base, groupDepth + 1)),
-      collapsable: item.collapsable !== false
+      collapsable: item.collapsable !== false,
+      isShow: true
     }
   }
 }
