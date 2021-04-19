@@ -142,7 +142,7 @@ module.exports = {
             {
                 title: '源计划',
                 path: '/sidebar/review/',
-                isHidden: true
+                isHidden: process.env.NODE_ENV === 'production'
             },
             {
                 title: '前端管理学习',
