@@ -66,12 +66,27 @@ title: Git 实用命令
    git diff [commit1] [commit2] //Git仓库任意两次 commit 之间的差别。
    ```
 - 撤销暂存区内容
+
    ```bash
    git rm -r --cached 文件/文件夹名字 
    ```
+
+- 单独本地文件 vs 远程文件
+
+   ```bash
+   git diff [local/filepath] [remote/filepath]
+   git diff src/a.txt src/a.txt
+   ```
+
+- 本地仓库 vs 远程仓库 (整体比较)
+
+   ```bash
+   git diff [localbranch] [remote/branch]
+   ```
+
 - 删除工作区文件
    ```bash
-      git rm 文件 //这次删除会提交到暂存区
+   git rm 文件 //这次删除会提交到暂存区
    ```
 - 查看分支从哪里拉取
    ```bash
