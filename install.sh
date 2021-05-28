@@ -15,7 +15,6 @@ git config --global user.email "709364178@qq.com"
 git clone https://github.com/JhonLandy/dockerDeploy.git
 
 echo "部署资源完毕, 启动服务......"
-
 cd dockerDeploy && sh deploy-dev.sh
 
 echo "启动完成，请尝试打开服务验证服务是否部署成功"
