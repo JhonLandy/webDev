@@ -1,7 +1,7 @@
 {
   "name": "webvue",
   "version": "1.0.0",
-  "description": "",
+  "description": "blog",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
@@ -10,8 +10,8 @@
     "eject": "vuepress eject",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "yuanchenglang",
+  "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.5.3",
     "@vuepress/plugin-pwa": "^1.5.3",
@@ -19,8 +19,7 @@
     "babel-plugin-component": "^1.1.1",
     "cross-env": "^7.0.2",
     "image-webpack-loader": "^7.0.1",
-    "vuepress": "^1.5.3",
-    "vuepress-plugin-autobar": "github:boboidream/vuepress-bar"
+    "vuepress": "^1.8.2"
   },
   "dependencies": {
     "@vssue/api-github-v4": "^1.4.0",
