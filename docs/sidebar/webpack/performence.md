@@ -2,7 +2,7 @@
   title: Webpack性能优化
 ---
 
-<big>作者： chenglNG(yuanchenglang)</big>
+<big>作者： 枸杞</big>
 
 <big>日期：2020年11月11号</big>
 

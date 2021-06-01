@@ -2,7 +2,7 @@
   title: Vue3.0 - Vue3采坑笔记
 ---
 
-<big>作者： chenglNG(yuanchenglang)</big>
+<big>作者： 枸杞</big>
 
 <big>日期：2020年12月20号</big>
 

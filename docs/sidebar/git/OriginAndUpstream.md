@@ -2,7 +2,7 @@
 title: Origin 与 Upsream 的区别
 ---
 
-<big>作者：chenglNG(yuanchenglang)</big>
+<big>作者：枸杞</big>
 
 <big>日期：2020年10月11号</big>
 

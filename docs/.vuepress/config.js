@@ -1,7 +1,7 @@
 module.exports = {
     base: process.env.BASE_URL,
     title: '枸杞的博客',
-    description: '英雄不问出处, 流氓不看岁月',
+    description: '每天一杯枸杞茶',
     shouldPrefetch: (file, type) => type === 'image',
     head: [
         ['link', { rel: 'icon', href:'/favicon.ico'}],
