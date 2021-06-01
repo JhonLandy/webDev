@@ -1,6 +1,6 @@
 module.exports = {
     base: process.env.BASE_URL,
-    title: '欢迎来chenglNG的博客',
+    title: '枸杞的博客',
     description: '英雄不问出处, 流氓不看岁月',
     shouldPrefetch: (file, type) => type === 'image',
     head: [
