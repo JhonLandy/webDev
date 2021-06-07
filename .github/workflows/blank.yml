@@ -42,8 +42,8 @@ jobs:
           git push -f https://JhonLandy:$ACESS_TOKEN@github.com/JhonLandy/dockerDeploy.git
       - name: SSH DEPLOY
         env:
-          HOST: ${{secrets.HOST}}
-          PASSWORD: ${{secrets.PASSWORD}}
+          HOST: ${{secrets.HOST2}}
+          PASSWORD: ${{secrets.PASSWORD2}}
         uses:  appleboy/ssh-action@master
         with:
           host: $HOST
