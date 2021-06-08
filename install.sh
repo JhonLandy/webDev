@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "开始部署资源"
 cd source
 apt update
