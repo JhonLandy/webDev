@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "开始部署资源"
-cd source
 apt update
 apt install dos2unix
 echo "脚本出错请运行:dos2unix + 文件名"
@@ -12,6 +11,7 @@ then
     echo '目录不存在，创建目录'
     mkdir source
 fi
+cd source
 git clone https://github.com/JhonLandy/dockerDeploy.git
 echo "部署资源完毕, 启动服务......"
 cd dockerDeploy && sh deploy-dev.sh
