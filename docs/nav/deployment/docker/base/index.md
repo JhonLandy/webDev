@@ -1,7 +1,7 @@
 ---
 title: docker
 ---
-<big>作者： 枸杞</big>
+<big>作者： 糯米</big>
 
 <big>日期：2020年8月1号</big>
 # docker 简介

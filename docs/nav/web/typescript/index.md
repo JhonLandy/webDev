@@ -1,7 +1,7 @@
 ---
 title: TypeScript
 ---
-<big>作者： 枸杞</big>
+<big>作者： 糯米</big>
 
 <big>日期：2020年8月30号</big>
 # TypeScript

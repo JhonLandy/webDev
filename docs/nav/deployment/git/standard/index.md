@@ -1,7 +1,7 @@
 ---
 title: Git 编写优雅的 commit message 并自动生成 changelog
 ---
-<big>作者： 枸杞</big>
+<big>作者： 糯米</big>
 
 <big>日期：2020年8月16号</big>
 

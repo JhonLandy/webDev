@@ -2,7 +2,7 @@
 title: Vue 基本使用
 ---
 
-<big>作者： 枸杞</big>
+<big>作者： 糯米</big>
 
 <big>日期：2020年9月3号</big>
 
