@@ -220,20 +220,77 @@ z-index 不为auto的定位元素会在 一定 空间按照 堆叠次序 排序�
 css-sprite就是雪碧图，把许多图片整合到一张图，减少网页请求次数，提升网页加载速度，提高体验。以后有图标要扩展的时候，只需在一张图添加就可以了。很方便。
 - 你对媒体查询的理解？
 ### 你对盒模型的理解？✨
+
 页面中所有元素都看作是一个矩形盒子，这个盒子包含元素的内容，内边距(padding)，外边距（marign），边框(border)。我们通过css样式（浮动，定位，行内块）设置盒子的属性（宽高，边框）和布局。盒子有块级盒子，行内盒子（在行盒子里头）。常规块级盒子里有相邻外边距折叠（折叠发生在常规块级盒子，行内盒子，浮动元素，绝对定位盒子（absolute或fixed）不会发生外边距折叠）等特性，垂直外边距对行内盒子没影响等特性。当然可以通过border-sizing：border-box改变计算盒子的大小方式。
+
 - 标准盒模型和怪异盒模型有什么区别？✨
+
 ### 谈谈对BFC(Block Formatting Context)的理解？ ✨
 BFC顾名思义就是块级格式化上下文。overflow不为auto的元素，浮动元素，绝对定位，display为inline-block之类的元素都可以自己创建内部的块级格式化上下文。BFC中，会有外边距重叠（相邻的外边距会重合，取最大值），会自动包含 浮动元素。块级盒子左边距默认和包含块左边距对齐。防止文字环绕浮动元素。防止相邻元素外边距重叠（但同一个bfc上下文会发生外边距折叠，只能防止不同bfc元素外边距折叠）
+
 ### 为什么有时候⼈们⽤translate来改变位置⽽不是定位？
 translate性能比 定位性能要好。因为 定位会放生浏览器重绘和复合，translate只会发生复合；tranlate会创建一个GPU图层使用，定位元素却是用cpu，tranlate更高效。
+
 ### 伪类和伪元素的区别是什么？
 伪类：如:focus,:link,:visited,:active,:hover,用于给元素在特定状态添加样式
 伪元素: 如:before,:after,:first-letter(第一行)。可以减少页面 元素的个数，无需添加额外的元素标签就可以给页面添加css效果
+
 ### 你对flex的理解？✨
+- flex布局是一维布局，控制垂直、水平方向的排序方式， 有交叉轴和主轴，主轴默认是水平方向。二位布局的有grid布局。
+
+- flex的直系子元素就是felx元素，flex元素有以下特性：
+    1. 水平方向自动排序。
+    2. 宽度不会拉伸，可以被压缩。
+    3. 高度会被自适应拉伸
+    4. 不会自动换行
+    5. 里面的非定位元素也可以通过z-index控制层叠次序（网格布局同理）
+- 属性
+  1. row-reverse 或 row-cloumns 改变 某个方向的排序方向
+  2. flex-direction 改变默认的主轴方向
+  3. flex-wrap 設置是否換行
+  4. flex-grink/flex-grow/flex-basic控制伸縮比例，寬度
+  5. justify-content 用来使元素在主轴方向上对齐
+  6. align-item 控制flex元素在交错轴的排序方式，（单行）
+  7. align-ocntent （多行）
+  8. align-self 只控制flex元素自身 
+
+- 优势： 
 可用于设置水平方向的布局。解决行内块（留白问题），浮动（浮动元素不能随空间变化而变化），表格水平布局（不能应用外边距，不能排序）带来的一些问题。flex布局会忽略float和display属性（通常设置float和display用于向后兼容），少量代码可以简单实现水平布局。里面的非定位元素也可以通过z-index控制层叠次序（网格布局同理）
+- 缺陷：
 不好的就是，刚打开页面时，元素开始计算（变大），造成页面跳动的，体验不好，通常给元素设置固定宽高，可以减少影响。
+
 ### 关于CSS的动画与过渡问题
 
+### css3新特性
+- box-reflect(倒影，含图片遮罩)
+```css
+  -webkit-box-reflect:方向[ above-上 | below-下 | right-右 | left-左 ]，偏移量，遮罩图片
+```
+<p style="height: 649px">
+  <img 
+    src="https://img0.baidu.com/it/u=103721101,4076571305&fm=26&fmt=auto&gp=0.jpg"
+    style="box-reflect: below 0 url(https://segmentfault.com/img/bVTepE?w=200&h=200)"
+  />
+</p>
+
+- text-shadow(文字阴影)
+```css
+text-shadow: 水平阴影，垂直阴影，模糊的距离，以及阴影的颜色
+```
+<p style="text-shadow: 0 0 10px #f00">哈喽</p>
+
+- background-blend-mode/mix-blend-mode混合模式
+- Filter(滤镜)
+- 渐变
+  1. 线性渐变（-webkit-linear-gradient)	
+  2. 径向渐变（-webkit-radial-gradient)
+- 颜色
+  1. rgba(rgb为颜色值，a为透明度）
+  2. hsla(h:色相”，“s：饱和度”，“l：亮度”，“a：透明度”)
+- background-clip(绘制（显示）区域)
+  1. border-box （默认值，从边框绘制）
+  2. padding-box(从padding绘制)
+  3. content-box(从内容绘制)
 ## html
 
 ### doctype(⽂档类型) 的作⽤是什么？✨
