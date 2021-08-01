@@ -219,6 +219,11 @@ top：50% - 自身高度度一半
 tranform: translate(0, -50%)
 ```
 
+### 块级盒子
+div,p,section,ui,li,aside,meun,ol,dl,canvas,h1~h6,table,pre,footer,main,center(center已废弃)
+
+### 行内盒子
+span,a,strong,u,var,small,label,input,select
 
 ### CSS有⼏种定位⽅式？
 
