@@ -628,6 +628,13 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
 2. RRT往返时间 较长时
 
 ## 浏览器原理
+### 路由
+  - hash
+    通过 hash值的改变，用hashchange去更新页面。（location.hash改变（会响应到浏览器地址）、在浏览器地址直接改变）
+  - history
+    historty.pushState/history.replaceState可以直接改变浏览器地址，但如果pushState/replaceState传入hash并不会触发hashchange事件
+    popState事件不会被historty.pushState/history.replaceState，只能通过浏览器的前进/后退按钮触发，或者是通过history.back()、history.go、history.forward()
+
 ### 常⻅的浏览器内核有哪些?
   - 浏览器-渲染引擎-js引擎
   - 苹果浏览器（Safari）-webkit-JavaScriptCore,
