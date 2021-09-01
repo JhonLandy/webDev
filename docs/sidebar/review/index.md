@@ -35,17 +35,16 @@ Array.isArray、instance of Array
 #### CommonJS
 1.单例模式
 2.同步加载，按顺序执行代码，同时会阻塞当前代码执行（挂起当前线程）
-3. 当有导入的时候（import或require）,都会暂停当前模块执行的代码，并产生一些奇妙的效果。（export fn,函数声明）（node环境）
+3. 当有导入的时候（import或require）,都会暂停当前模块执行的代码，
+4. 接口执行声明
 #### es6:
-1.单例模式
+1. 不是单例模式，动态声明
 2.异步加载（挂起当前线程，先加载执行，之后再执行当前代码），不按顺序执行代码（异步），会挂起当前线程（阻塞）
 3.当有导入的时候（import或require）,都会暂停当前模块执行的代码，并产生一些奇妙的效果。（export fn,函数声明）（浏览器环境）
 4. 不能重新赋值
-#### 相同：
-都是单例模式，创建过的实例会被缓存。
-当有导入的时候（import或require）,都会暂停当前模块执行的代码，并产生一些奇妙的效果。（export fn,函数声明）
+5. 代码静态分析，接口编译时声明
 
-#### 不同：
+#### 区别：
 CommonJS先require同步加载（require时才加载执行，有一定的阻塞,更适合服务器，读取文件无需请求下载)，ES6异步加载（先加载执行完所有模块，再来执行当前代码（当前代码的函数声明会比加载模块靠前完成），适合浏览器）
 commonJS使用的module.exports导出（对象是浅拷贝），es6采用export default等语法导出，导出的对象是直接引用。
 es6 导出的对象不能重新赋值（会报错），commonjs不会.
@@ -167,11 +166,14 @@ mousemove、mouseout 这样的事件，虽然有事件冒泡，但是只能不�
 - link和@import的区别？
 
 link：
-
-
+1. 可以并发加载
+2. 没有兼容问题
 import
-1. 增加请求数目
+1. 增加请求数目,增加网络开销（shouji）
 （影响页面加载速率）
+2. 不会和link标签并发加载，等待link标签加载完再加载，在ie下，等待所有link加载完再加载，导致屏幕闪烁，或者覆盖js的样式
+3. 兼容ie5以上
+4. 
 
 建议会用link，尽量少用import
 
@@ -189,16 +191,39 @@ rem 是基于html字体大小来计算,同理em
 ```css
  margin: 0 auto;
 
- //浮动
+ // 定位
  position：absolute
 
  left：50% - 自身宽度一半
-
+// 动画
+tranform: translate(50%, 0)
  // 弹性盒子
  父元素 display: flex
- 子元素 align-items：center
+ 子元素 jusify-content：center
 
 ```
+### 块级元素⽔平垂直的⽅法？
+```css
+display: table-cell;
+veritical-aligin:middle
+// 弹性布局
+父元素 display: flex
+子元素 align-items：center
+
+// 定位
+position：absolute
+top：50% - 自身高度度一半
+
+// 动画
+tranform: translate(0, -50%)
+```
+
+### 块级盒子
+div,p,section,ui,li,aside,meun,ol,dl,canvas,h1~h6,table,pre,footer,main,center(center已废弃)
+
+### 行内盒子
+span,a,strong,u,var,small,label,input,select
+
 ### CSS有⼏种定位⽅式？
 
 3种。
@@ -220,19 +245,81 @@ z-index 不为auto的定位元素会在 一定 空间按照 堆叠次序 排序�
 css-sprite就是雪碧图，把许多图片整合到一张图，减少网页请求次数，提升网页加载速度，提高体验。以后有图标要扩展的时候，只需在一张图添加就可以了。很方便。
 - 你对媒体查询的理解？
 ### 你对盒模型的理解？✨
+
 页面中所有元素都看作是一个矩形盒子，这个盒子包含元素的内容，内边距(padding)，外边距（marign），边框(border)。我们通过css样式（浮动，定位，行内块）设置盒子的属性（宽高，边框）和布局。盒子有块级盒子，行内盒子（在行盒子里头）。常规块级盒子里有相邻外边距折叠（折叠发生在常规块级盒子，行内盒子，浮动元素，绝对定位盒子（absolute或fixed）不会发生外边距折叠）等特性，垂直外边距对行内盒子没影响等特性。当然可以通过border-sizing：border-box改变计算盒子的大小方式。
+
 - 标准盒模型和怪异盒模型有什么区别？✨
+
 ### 谈谈对BFC(Block Formatting Context)的理解？ ✨
 BFC顾名思义就是块级格式化上下文。overflow不为auto的元素，浮动元素，绝对定位，display为inline-block之类的元素都可以自己创建内部的块级格式化上下文。BFC中，会有外边距重叠（相邻的外边距会重合，取最大值），会自动包含 浮动元素。块级盒子左边距默认和包含块左边距对齐。防止文字环绕浮动元素。防止相邻元素外边距重叠（但同一个bfc上下文会发生外边距折叠，只能防止不同bfc元素外边距折叠）
+
 ### 为什么有时候⼈们⽤translate来改变位置⽽不是定位？
 translate性能比 定位性能要好。因为 定位会放生浏览器重绘和复合，translate只会发生复合；tranlate会创建一个GPU图层使用，定位元素却是用cpu，tranlate更高效。
+
 ### 伪类和伪元素的区别是什么？
 伪类：如:focus,:link,:visited,:active,:hover,用于给元素在特定状态添加样式
 伪元素: 如:before,:after,:first-letter(第一行)。可以减少页面 元素的个数，无需添加额外的元素标签就可以给页面添加css效果
+
 ### 你对flex的理解？✨
+- flex布局是一维布局，控制垂直、水平方向的排序方式， 有交叉轴和主轴，主轴默认是水平方向。二位布局的有grid布局。
+
+- flex的直系子元素就是felx元素，flex元素有以下特性：
+    1. 水平方向自动排序。
+    2. 宽度不会拉伸，可以被压缩。
+    3. 高度会被自适应拉伸
+    4. 不会自动换行
+    5. 里面的非定位元素也可以通过z-index控制层叠次序（网格布局同理）
+- 属性
+  1. row-reverse 或 row-cloumns 改变 某个方向的排序方向
+  2. flex-direction 改变默认的主轴方向
+  3. flex-wrap 設置是否換行
+  4. flex-grink/flex-grow/flex-basic控制伸縮比例，寬度
+  5. justify-content 用来使元素在主轴方向上对齐
+  6. align-item 控制flex元素在交错轴的排序方式，（单行）
+  7. align-ocntent （多行）
+  8. align-self 只控制flex元素自身 
+
+- 优势： 
 可用于设置水平方向的布局。解决行内块（留白问题），浮动（浮动元素不能随空间变化而变化），表格水平布局（不能应用外边距，不能排序）带来的一些问题。flex布局会忽略float和display属性（通常设置float和display用于向后兼容），少量代码可以简单实现水平布局。里面的非定位元素也可以通过z-index控制层叠次序（网格布局同理）
+- 缺陷：
 不好的就是，刚打开页面时，元素开始计算（变大），造成页面跳动的，体验不好，通常给元素设置固定宽高，可以减少影响。
+
 ### 关于CSS的动画与过渡问题
+
+### css3新特性
+##### box-reflect(倒影，含图片遮罩)
+```css
+  -webkit-box-reflect:方向[ above-上 | below-下 | right-右 | left-左 ]，偏移量，遮罩图片
+```
+<p style="height: 649px">
+  <img 
+    src="https://img0.baidu.com/it/u=103721101,4076571305&fm=26&fmt=auto&gp=0.jpg"
+    style="box-reflect: below 0 url(https://segmentfault.com/img/bVTepE?w=200&h=200)"
+  />
+</p>
+
+##### text-shadow(文字阴影)
+```css
+text-shadow: 水平阴影，垂直阴影，模糊的距离，以及阴影的颜色
+```
+
+<p style="text-shadow: 0 0 10px #f00">哈喽</p>
+
+
+##### background-blend-mode/mix-blend-mode混合模式
+
+##### Filter(滤镜)
+
+##### 渐变
+- 线性渐变（-webkit-linear-gradient)	
+- 径向渐变（-webkit-radial-gradient)
+##### 颜色
+- rgba(rgb为颜色值，a为透明度）
+- hsla(h:色相”，“s：饱和度”，“l：亮度”，“a：透明度”)
+##### background-clip(绘制（显示）区域)
+- border-box （默认值，从边框绘制）
+- padding-box(从padding绘制)
+- content-box(从内容绘制)
 
 ## html
 
@@ -540,6 +627,13 @@ banklog可以控制大小，什么时候扩大，什么时候扩小。
 2. RRT往返时间 较长时
 
 ## 浏览器原理
+### 路由
+  - hash
+    通过 hash值的改变，用hashchange去更新页面。（location.hash改变（会响应到浏览器地址）、在浏览器地址直接改变）
+  - history
+    historty.pushState/history.replaceState可以直接改变浏览器地址，但如果pushState/replaceState传入hash并不会触发hashchange事件
+    popState事件不会被historty.pushState/history.replaceState，只能通过浏览器的前进/后退按钮触发，或者是通过history.back()、history.go、history.forward()
+
 ### 常⻅的浏览器内核有哪些?
   - 浏览器-渲染引擎-js引擎
   - 苹果浏览器（Safari）-webkit-JavaScriptCore,
