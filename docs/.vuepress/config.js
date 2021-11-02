@@ -151,11 +151,6 @@ module.exports = {
             {
                 title: '好文收集',
                 path: '/sidebar/article/好文收集.md'
-            },
-            {
-                title: '感情问题记录',
-                path: '/sidebar/emotion/感情问题记录.md',
-                isHidden: process.env.NODE_ENV === 'production'
             }
         ],
         nav: [
