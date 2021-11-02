@@ -24,7 +24,7 @@ module.exports = {
         editLinkText: '帮助小弟弟改善此页面！',
         sidebar: [
             {
-                title: 'chengING 学习笔记',
+                title: '糯米学习笔记',
                 collapsable: false,
             },
             {
@@ -152,10 +152,10 @@ module.exports = {
                 title: '好文收集',
                 path: '/sidebar/article/好文收集.md'
             },
-            {
-                title: '消极心态存储箱',
-                path: '/sidebar/manager/消极心态治疗.md'
-            }
+            // {
+            //     title: '消极心态存储箱',
+            //     path: '/sidebar/manager/消极心态治疗.md'
+            // }
         ],
         nav: [
             { text: '首页', link: '/index' },
