@@ -153,8 +153,8 @@ module.exports = {
                 path: '/sidebar/article/好文收集.md'
             },
             {
-                title: '消极心态存储箱',
-                path: '/sidebar/manager/消极心态治疗.md',
+                title: '感情问题记录',
+                path: '/sidebar/emotion/感情问题记录.md',
                 isHidden: process.env.NODE_ENV === 'production'
             }
         ],
