@@ -149,6 +149,10 @@ module.exports = {
                 path: '/sidebar/manager/前端管理.md'
             },
             {
+                title: '好文收集',
+                path: '/sidebar/article/好文收集.md'
+            },
+            {
                 title: '消极心态存储箱',
                 path: '/sidebar/manager/消极心态治疗.md'
             }
