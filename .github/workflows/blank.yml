@@ -31,6 +31,7 @@ jobs:
           git clone https://github.com/JhonLandy/dockerDeploy.git 
           rm -rf ./dockerDeploy/dist
           cp -r ./docs/.vuepress/dist ./dockerDeploy
+          cp -r ./cert ./dockerDeploy/nginx
       - name: Commit files
         env:
           ACESS_TOKEN: ${{secrets.ACESS_TOKEN}}
