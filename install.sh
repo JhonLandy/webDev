@@ -4,7 +4,7 @@ apt update
 apt install dos2unix
 echo "脚本出错请运行:dos2unix + 文件名"
 apt install docker && apt install docker-compose && service docker start
-apt install git && git config --global user.name "huaweiserver" && git config --global user.email "709364178@qq.com"
+apt install git && git config --global user.name "YuanChengLang" && git config --global user.email "709364178@qq.com"
 echo '检查目录是否存在'
 if [ ! -d "/source" ];
 then

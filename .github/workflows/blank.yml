@@ -24,13 +24,14 @@ jobs:
           npm run build:cloundServer
       - name: Git Config 
         run: |
-          git config --global user.name "huaweiserver"
+          git config --global user.name "YuanChengLang"
           git config --global user.email "709364178@qq.com"
       - name: Copy files to cloundServer
         run: |
           git clone https://github.com/JhonLandy/dockerDeploy.git 
           rm -rf ./dockerDeploy/dist
           cp -r ./docs/.vuepress/dist ./dockerDeploy
+          cp -r ./cert ./dockerDeploy/nginx
       - name: Commit files
         env:
           ACESS_TOKEN: ${{secrets.ACESS_TOKEN}}
