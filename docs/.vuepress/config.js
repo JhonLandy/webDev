@@ -429,65 +429,6 @@ module.exports = {
         .loader("babel-loader");
     });
 
-        config
-            .when(process.env.NODE_ENV === 'production' && !isServer, _config => {
-                _config.optimization //这种不管用
-                    .concatenateModules(true)
-                    .flagIncludedChunks(true)
-                    .mergeDuplicateChunks(true)
-                    // .minimize(true)//告诉webpack使用TerserPlugin或指定的插件最小化捆绑包optimization.minimizer；使用TerserPlugin则需要下载TerserPlugin
-                    .minimizer('terserPlugin')
-                    .use(TerserPlugin, [{
-                        parallel: true,
-                        // terserOptions: {
-                            // mangle: true, // 混淆，默认也是开的，mangle也是可以配置很多选项的，具体看后面的链接
-                            // compress: {
-                            //     drop_console: true,//传true就是干掉所有的console.*这些函数的调用.
-                            //     drop_debugger: true, //干掉那些debugger;
-                            //     pure_funcs: ['console.log'] // 如果你要干掉特定的函数比如console.info ，又想删掉后保留其参数中的副作用，那用pure_funcs来处理
-                            // }
-                        // }
-                    }])
-                    .end()
-                    .occurrenceOrder(true)
-                    .providedExports(true)
-                    .removeAvailableModules(true)
-                    .removeEmptyChunks(true)
-                    .sideEffects(true)
-                    .runtimeChunk('single')
-                    .splitChunks({// 抽离公用模块，不能使用
-                        chunks: 'all',
-                        minSize: 20000,
-                        maxSize: 0,
-                        minChunks: 1,
-                        maxAsyncRequests: 30,
-                        maxInitialRequests: 30,
-                        automaticNameDelimiter: '~',
-                        enforceSizeThreshold: 50000,
-                        cacheGroups: {
-                            elementUI: {
-                                name: 'chunk-elementUI', // split elementUI into a single package
-                                priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-                                test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
-                            },
-                            styles: {//需要下载MiniCssExtractPlugin
-                                name: 'styles',
-                                test: /\.css$/,
-                                chunks: 'all',
-                                enforce: true,
-                                priority: 20,
-                            },
-                            libs: {
-                                name: 'chunk-libs',
-                                test: /[\\/]node_modules[\\/]/,
-                                priority: 10,
-                                chunks: 'initial' // only package third parties that are initially dependent
-                            },
-                        }
-                    })
-                    .usedExports(true)//tree shaking
-                })
-        
     config.resolve.alias.set(
       "@images",
       process.cwd() + "/docs/.vuepress/public/images"
